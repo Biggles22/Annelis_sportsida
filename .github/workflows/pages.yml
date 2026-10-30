@@ -4,6 +4,8 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+  schedule:
+    - cron: '*/30 * * * *'
 
 permissions:
   contents: read
@@ -26,6 +28,9 @@ jobs:
 
       - name: Konfigurera GitHub Pages
         uses: actions/configure-pages@v5
+
+      - name: Hämta aktuell NHL-data
+        run: node scripts/build-nhl-data.mjs
 
       - name: Paketera webbplatsen
         uses: actions/upload-pages-artifact@v4
