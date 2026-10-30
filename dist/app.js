@@ -1,7 +1,7 @@
 const sports=['Bordtennis','Curling','Fotboll','Golf','Ishockey','Motorsport','Ridsport','Tennis'];
 const channels=[['TV4 Play Sport Total','Fotboll, ishockey, tennis och ridsport'],['Viaplay Total','NHL, europeisk fotboll, golf och motorsport'],['Prime Video','Utvalda Premier League-matcher'],['Disney+','NHL, La Liga och europeisk fotboll'],['HBO Max / Eurosport','Curling, golf och internationell sport'],['SVT','Direktsänd sport på SVT:s tv-kanaler'],['SVT Play','Sport som sänds direkt på SVT Play'],['Kanal 6','Fotboll, ishockey och motorsport'],['Kanal 9','Sport och internationella mästerskap'],['Kanal 12','Sport från TV4:s kanalutbud'],['TV4:s sportkanaler','SHL, Hockeyallsvenskan och studiosändningar'],['V sport-kanaler','Fotboll, NHL, golf och motorsport']];
 const events=[
- {sport:'Bordtennis',time:'14:45',title:'WTT Champions',meta:'Bordtennis · Spelschema, resultat och ranking',channel:'SVT Play',service:'SVT',url:'https://www.worldtabletennis.com/eventslist'},
+ {sport:'Bordtennis',time:'14:45',title:'WTT Champions Montpellier',meta:'Bordtennis · Spelare, matcher och världsranking',channel:'SVT Play',service:'SVT',url:'bordtennis.html'},
  {sport:'Curling',time:'09:30',title:'Tjeckien – Tyskland',meta:'EM damer · Resultat, tabell och spelschema',channel:'Eurosport 1',service:'HBO Max',url:'https://worldcurling.org/events/'},
  {sport:'Curling',time:'13:50',title:'Tjeckien – Sverige',meta:'EM herrar · Resultat, tabell och spelschema',channel:'SVT2',service:'SVT Play',url:'https://worldcurling.org/events/'},
  {sport:'Curling',time:'14:00',title:'Tjeckien – Sverige',meta:'EM herrar · Resultat, tabell och spelschema',channel:'Eurosport 1',service:'HBO Max',url:'https://worldcurling.org/events/'},
