@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Annelis Sportsida – sport, puls och berättelser från läktaren.">
+  <title>Annelis Sportsida</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#innehall">Hoppa till innehållet</a>
+  <header class="site-header">
+    <a class="brand" href="#toppen" aria-label="Annelis Sportsida, startsida">
+      <span class="brand-mark">A</span>
+      <span>Annelis <b>Sportsida</b></span>
+    </a>
+    <button class="menu-button" type="button" aria-expanded="false" aria-controls="huvudmeny">Meny</button>
+    <nav id="huvudmeny" aria-label="Huvudmeny">
+      <a href="#senaste">Senaste</a>
+      <a href="#sporter">Sporter</a>
+      <a href="#om">Om sidan</a>
+    </nav>
+  </header>
+
+  <main id="innehall">
+    <section class="hero" id="toppen">
+      <div class="hero-copy">
+        <p class="eyebrow">Sport • Puls • Perspektiv</p>
+        <h1>Här börjar<br><em>matchen.</em></h1>
+        <p class="hero-lead">En personlig sportsida för stora ögonblick, skarpa analyser och historierna bakom resultaten.</p>
+        <a class="primary-button" href="#senaste">Utforska sidan <span aria-hidden="true">↘</span></a>
+      </div>
+      <div class="score-card" aria-label="Veckans höjdpunkt">
+        <div class="score-topline"><span>Veckans höjdpunkt</span><span class="live-dot">På gång</span></div>
+        <div class="arena-art" aria-hidden="true">
+          <span class="track track-one"></span><span class="track track-two"></span><span class="track track-three"></span>
+          <span class="ball">●</span>
+        </div>
+        <div class="score-meta">
+          <div><small>Fokus</small><strong>Helgens sport</strong></div>
+          <span class="score-arrow">→</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="ticker" aria-label="Sportkategorier">
+      <div>Fotboll <span>✦</span> Trav <span>✦</span> Ishockey <span>✦</span> Friidrott <span>✦</span> Motorsport <span>✦</span></div>
+    </section>
+
+    <section class="content-section" id="senaste">
+      <div class="section-heading">
+        <div><p class="eyebrow">Från sportvärlden</p><h2>Senaste nedslagen</h2></div>
+        <p>Platsen där matchpuls möter eftertanke. Välj en sport och hitta din nästa läsning.</p>
+      </div>
+
+      <div class="filters" id="sporter" role="group" aria-label="Filtrera innehåll">
+        <button class="filter active" data-filter="alla" type="button">Alla</button>
+        <button class="filter" data-filter="fotboll" type="button">Fotboll</button>
+        <button class="filter" data-filter="trav" type="button">Trav</button>
+        <button class="filter" data-filter="hockey" type="button">Ishockey</button>
+        <button class="filter" data-filter="ovrigt" type="button">Övrigt</button>
+      </div>
+
+      <div class="article-grid">
+        <article class="article-card featured" data-category="fotboll">
+          <div class="card-visual football"><span>01</span><b>90′</b></div>
+          <div class="card-copy"><p class="tag">Fotboll</p><h3>När taktik blir känsla</h3><p>Formationer, vändningar och ögonblicken som förändrar en hel matchbild.</p><span class="read-more">Läs mer →</span></div>
+        </article>
+        <article class="article-card" data-category="trav">
+          <div class="card-visual racing"><span>02</span><b>V85</b></div>
+          <div class="card-copy"><p class="tag">Trav</p><h3>Fart, form och fingertoppskänsla</h3><p>Inför omgången: spåren att följa och frågorna som avgör.</p><span class="read-more">Läs mer →</span></div>
+        </article>
+        <article class="article-card" data-category="hockey">
+          <div class="card-visual ice"><span>03</span><b>3×20</b></div>
+          <div class="card-copy"><p class="tag">Ishockey</p><h3>Detaljerna under hjälmen</h3><p>Tempo, lagbygge och kampen om varje centimeter is.</p><span class="read-more">Läs mer →</span></div>
+        </article>
+        <article class="article-card" data-category="ovrigt">
+          <div class="card-visual track-field"><span>04</span><b>PB</b></div>
+          <div class="card-copy"><p class="tag">Övrigt</p><h3>Jakten på nästa personbästa</h3><p>Idrottarna, träningen och vägen fram till det avgörande försöket.</p><span class="read-more">Läs mer →</span></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="manifesto" id="om">
+      <p class="eyebrow">Om Annelis Sportsida</p>
+      <blockquote>“Sport är siffror på tavlan – men det vi minns är <em>känslan</em>.”</blockquote>
+      <div class="manifesto-bottom"><p>En levande samlingsplats för sportintresse, egna spaningar och nya perspektiv.</p><a href="mailto:hej@annelissportsida.se">Säg hej <span>↗</span></a></div>
+    </section>
+  </main>
+
+  <footer><div class="brand"><span class="brand-mark">A</span><span>Annelis <b>Sportsida</b></span></div><p>© <span id="year"></span> • Gjord med sporthjärta</p></footer>
+  <script src="script.js"></script>
+</body>
+</html>
