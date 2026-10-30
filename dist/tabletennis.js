@@ -2,7 +2,7 @@ document.head.insertAdjacentHTML('beforeend','<link rel="stylesheet" href="table
 const matches=[
  {time:'12:35',a:'Lin Shidong',af:'🇨🇳',ar:null,b:'An Jaehyun',bf:'🇰🇷',br:null},
  {time:'13:45',a:'Simon Gauzy',af:'🇫🇷',ar:null,b:'Liang Jingkun',bf:'🇨🇳',br:null},
- {time:'14:55',a:'Patrick Franziska',af:'🇩🇪',ar:null,b:'Elias Ranefur',bf:'🇸🇪',br:29},
+ {time:'14:55',a:'Patrick Franziska',af:'🇩🇪',ar:18,b:'Elias Ranefur',bf:'🇸🇪',br:29},
  {time:'19:05',a:'Dimitrij Ovtcharov',af:'🇩🇪',ar:null,b:'Hugo Calderano',bf:'🇧🇷',br:null},
  {time:'20:15',a:'Zhou Qihao',af:'🇨🇳',ar:null,b:'Félix Lebrun',bf:'🇫🇷',br:2}
 ];
