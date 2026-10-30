@@ -1,3 +1,4 @@
+document.head.insertAdjacentHTML('beforeend','<link rel="stylesheet" href="tablet.css">');
 const matches=[
  {time:'12:35',a:'Lin Shidong',af:'🇨🇳',ar:null,b:'An Jaehyun',bf:'🇰🇷',br:null},
  {time:'13:45',a:'Simon Gauzy',af:'🇫🇷',ar:null,b:'Liang Jingkun',bf:'🇨🇳',br:null},

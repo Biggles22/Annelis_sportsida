@@ -1,3 +1,4 @@
+document.head.insertAdjacentHTML('beforeend','<link rel="stylesheet" href="tablet.css">');
 const sports=['Bordtennis','Curling','Fotboll','Golf','Ishockey','Motorsport','Ridsport','Tennis'];
 const channels=[['TV4 Play Sport Total','Fotboll, ishockey, tennis och ridsport'],['Viaplay Total','NHL, europeisk fotboll, golf och motorsport'],['Prime Video','Utvalda Premier League-matcher'],['Disney+','NHL, La Liga och europeisk fotboll'],['HBO Max / Eurosport','Curling, golf och internationell sport'],['SVT','Direktsänd sport på SVT:s tv-kanaler'],['SVT Play','Sport som sänds direkt på SVT Play'],['Kanal 6','Fotboll, ishockey och motorsport'],['Kanal 9','Sport och internationella mästerskap'],['Kanal 12','Sport från TV4:s kanalutbud'],['TV4:s sportkanaler','SHL, Hockeyallsvenskan och studiosändningar'],['V sport-kanaler','Fotboll, NHL, golf och motorsport']];
 const events=[
