@@ -1,9 +1,15 @@
 import { readFile, writeFile } from 'node:fs/promises';
+import vm from 'node:vm';
 
 const api = 'https://api-web.nhle.com/v1';
 const snapshotUrl = new URL('../dist/nhl-data.json', import.meta.url);
 const current = JSON.parse(await readFile(snapshotUrl, 'utf8'));
-const pairs = Object.keys(current.meetings).map(key => key.split('-'));
+const guideContext = { globalThis: {} };
+vm.runInNewContext(await readFile(new URL('../dist/guide-data.js', import.meta.url), 'utf8'), guideContext);
+const guide = guideContext.globalThis.sportGuide;
+const pairs = guide.events
+  .filter(event => event.league === 'NHL' && event.home && event.away)
+  .map(event => [event.home, event.away]);
 const teams = [...new Set(pairs.flat())];
 const seasons = [20262027, 20252026];
 
@@ -65,10 +71,11 @@ const meetings = Object.fromEntries(pairs.map(([a, b]) => [
     .map(compactGame)
 ]));
 
-const fixtures = await Promise.all(current.fixtures.map(async fixture => {
-  const game = await fetch(`${api}/gamecenter/${fixture.id}/landing`).then(response => response.json());
-  return compactGame(game);
-}));
+const fixtures = pairs.map(([home, away]) => schedules[home]
+  .find(game => game.homeTeam?.abbrev === home && game.awayTeam?.abbrev === away &&
+    new Intl.DateTimeFormat('sv-SE', { timeZone: 'Europe/Stockholm' }).format(new Date(game.startTimeUTC)) === guide.date))
+  .filter(Boolean)
+  .map(compactGame);
 
 await writeFile(snapshotUrl, JSON.stringify({
   updatedAt: new Date().toISOString(),

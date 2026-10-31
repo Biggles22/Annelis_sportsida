@@ -1,6 +1,6 @@
 {
-  "date": "2026-10-31",
-  "checkedAt": "2026-10-31T20:02:00.000Z",
+  "date": "2026-11-01",
+  "checkedAt": "2026-10-31T23:24:11.390Z",
   "resultsThrough": "2026-10-31",
   "sourceUpdatedAt": "2026-10-31T20:25:00+01:00",
   "sources": {
@@ -181,27 +181,48 @@
   },
   "fixtures": [
     {
-      "date": "2026-10-31",
-      "time": "15:00",
-      "home": "IKO",
-      "away": "MODO",
-      "venue": "Be-Ge Hockey Center",
-      "broadcastTime": "14:30",
+      "date": "2026-11-01",
+      "time": "14:00",
+      "home": "BIK",
+      "away": "OIK",
+      "venue": "Nobelhallen",
+      "broadcastTime": "13:55",
       "channel": "TV4 Play",
       "service": "TV4 Play Sport Total",
-      "broadcastUrl": "https://www.tv4play.se/program/d9de6330dc7014b88a3a/ik-oskarshamn-modo",
-      "note": "Hyllningsceremoni för Jonas Engström före matchen."
+      "broadcastUrl": "https://www.tv4play.se/program/749f1d0734176c9fe2eb/bik-karlskoga-ostersunds-ik"
     },
     {
-      "date": "2026-10-31",
-      "time": "18:00",
-      "home": "AIS",
-      "away": "AIK",
-      "venue": "Gränby Ishallar A-hall",
-      "broadcastTime": "17:55",
+      "date": "2026-11-01",
+      "time": "14:00",
+      "home": "VIK",
+      "away": "SSK",
+      "venue": "ABB Arena Nord",
+      "broadcastTime": "13:55",
       "channel": "TV4 Play",
       "service": "TV4 Play Sport Total",
-      "broadcastUrl": "https://www.tv4play.se/program/bd9d4dd289cfa76b72a1/almtuna-is-aik"
+      "broadcastUrl": "https://www.tv4play.se/program/c7a3b26e10ee4f9342a3/vasteras-ik-sodertalje-sk"
+    },
+    {
+      "date": "2026-11-01",
+      "time": "16:30",
+      "home": "KAL",
+      "away": "VIM",
+      "venue": "Hatstore Arena",
+      "broadcastTime": "16:25",
+      "channel": "TV4 Play",
+      "service": "TV4 Play Sport Total",
+      "broadcastUrl": "https://www.tv4play.se/program/c70c8a7d57f7caa7925b/kalmar-hc-vimmerby-hc"
+    },
+    {
+      "date": "2026-11-01",
+      "time": "16:30",
+      "home": "VRH",
+      "away": "NYB",
+      "venue": "Visby Ishall",
+      "broadcastTime": "16:25",
+      "channel": "TV4 Play",
+      "service": "TV4 Play Sport Total",
+      "broadcastUrl": "https://www.tv4play.se/program/b7212e2a54cf86c54d7b/visby-roma-nybro-vikings-if"
     }
   ],
   "results": [
