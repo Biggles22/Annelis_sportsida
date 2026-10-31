@@ -1,8 +1,8 @@
 {
   "date": "2026-10-31",
-  "checkedAt": "2026-10-31T07:07:22.955Z",
-  "resultsThrough": "2026-10-30",
-  "sourceUpdatedAt": "2026-10-30T22:29:00+01:00",
+  "checkedAt": "2026-10-31T17:00:00.000Z",
+  "resultsThrough": "2026-10-31",
+  "sourceUpdatedAt": "2026-10-31T17:35:00+01:00",
   "sources": {
     "schedule": "https://stats.swehockey.se/ScheduleAndResults/Schedule/20962",
     "results": "https://stats.swehockey.se/ScheduleAndResults/Overview/20962",
@@ -39,7 +39,7 @@
       "city": "Örnsköldsvik",
       "arena": "Hägglunds Arena",
       "pos": 3,
-      "gp": 16,
+      "gp": 17,
       "points": 33,
       "cityCoordinates": [
         63.29,
@@ -75,8 +75,8 @@
       "city": "Oskarshamn",
       "arena": "Be-Ge Hockey Center",
       "pos": 6,
-      "gp": 17,
-      "points": 26,
+      "gp": 18,
+      "points": 29,
       "cityCoordinates": [
         57.26,
         16.45
@@ -205,6 +205,16 @@
     }
   ],
   "results": [
+    {
+      "date": "2026-10-31",
+      "time": "15:00",
+      "home": "IKO",
+      "away": "MODO",
+      "hs": 3,
+      "as": 1,
+      "venue": "Be-Ge Hockey Center",
+      "sourceUrl": "https://stats.swehockey.se/Game/Events/1110427"
+    },
     {
       "date": "2026-10-30",
       "time": "19:00",
