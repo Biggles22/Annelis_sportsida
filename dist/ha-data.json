@@ -1,6 +1,6 @@
 {
   "date": "2026-10-31",
-  "checkedAt": "2026-10-31T07:13:56+01:00",
+  "checkedAt": "2026-10-31T07:07:22.955Z",
   "resultsThrough": "2026-10-30",
   "sourceUpdatedAt": "2026-10-30T22:29:00+01:00",
   "sources": {
@@ -10,41 +10,344 @@
     "package": "https://www.telia.se/tv/sport/storsta-sportpaketet"
   },
   "teams": {
-    "AIK": {"name":"AIK","city":"Stockholm","arena":"Hovet, Johanneshov","pos":1,"gp":16,"points":40,"cityCoordinates":[59.33,18.07]},
-    "LIF": {"name":"Leksands IF","city":"Leksand","arena":"Tegera Arena","pos":2,"gp":16,"points":36,"cityCoordinates":[60.73,15.0]},
-    "MODO": {"name":"MoDo Hockey","city":"Örnsköldsvik","arena":"Hägglunds Arena","pos":3,"gp":16,"points":33,"cityCoordinates":[63.29,18.72]},
-    "SSK": {"name":"Södertälje SK","city":"Södertälje","arena":"Scaniarinken","pos":4,"gp":16,"points":31,"cityCoordinates":[59.2,17.63]},
-    "KAL": {"name":"Kalmar HC","city":"Kalmar","arena":"Hatstore Arena","pos":5,"gp":16,"points":31,"cityCoordinates":[56.66,16.36]},
-    "IKO": {"name":"IK Oskarshamn","city":"Oskarshamn","arena":"Be-Ge Hockey Center","pos":6,"gp":17,"points":26,"cityCoordinates":[57.26,16.45]},
-    "MORA": {"name":"Mora IK","city":"Mora","arena":"Wibe Arena","pos":7,"gp":16,"points":24,"cityCoordinates":[61.0,14.54]},
-    "BIK": {"name":"BIK Karlskoga","city":"Karlskoga","arena":"Nobelhallen","pos":8,"gp":16,"points":21,"cityCoordinates":[59.33,14.52]},
-    "OIK": {"name":"Östersunds IK","city":"Östersund","arena":"Östersund Arena Hall A","pos":9,"gp":16,"points":20,"cityCoordinates":[63.18,14.64]},
-    "AIS": {"name":"Almtuna IS","city":"Uppsala","arena":"Gränby Ishallar A-hall","pos":10,"gp":16,"points":20,"cityCoordinates":[59.86,17.64]},
-    "VIK": {"name":"Västerås IK","city":"Västerås","arena":"ABB Arena Nord","pos":11,"gp":16,"points":19,"cityCoordinates":[59.61,16.55]},
-    "VIM": {"name":"Vimmerby HC","city":"Vimmerby","arena":"VBO Arena","pos":12,"gp":15,"points":13,"cityCoordinates":[57.67,15.86]},
-    "NYB": {"name":"Nybro Vikings IF","city":"Nybro","arena":"Liljas Arena","pos":13,"gp":16,"points":13,"cityCoordinates":[56.74,15.91]},
-    "VRH": {"name":"Visby/Roma HK","city":"Visby","arena":"Visby Ishall","pos":14,"gp":16,"points":9,"cityCoordinates":[57.64,18.3]}
+    "AIK": {
+      "name": "AIK",
+      "city": "Stockholm",
+      "arena": "Hovet, Johanneshov",
+      "pos": 1,
+      "gp": 16,
+      "points": 40,
+      "cityCoordinates": [
+        59.33,
+        18.07
+      ]
+    },
+    "LIF": {
+      "name": "Leksands IF",
+      "city": "Leksand",
+      "arena": "Tegera Arena",
+      "pos": 2,
+      "gp": 16,
+      "points": 36,
+      "cityCoordinates": [
+        60.73,
+        15
+      ]
+    },
+    "MODO": {
+      "name": "MoDo Hockey",
+      "city": "Örnsköldsvik",
+      "arena": "Hägglunds Arena",
+      "pos": 3,
+      "gp": 16,
+      "points": 33,
+      "cityCoordinates": [
+        63.29,
+        18.72
+      ]
+    },
+    "SSK": {
+      "name": "Södertälje SK",
+      "city": "Södertälje",
+      "arena": "Scaniarinken",
+      "pos": 4,
+      "gp": 16,
+      "points": 31,
+      "cityCoordinates": [
+        59.2,
+        17.63
+      ]
+    },
+    "KAL": {
+      "name": "Kalmar HC",
+      "city": "Kalmar",
+      "arena": "Hatstore Arena",
+      "pos": 5,
+      "gp": 16,
+      "points": 31,
+      "cityCoordinates": [
+        56.66,
+        16.36
+      ]
+    },
+    "IKO": {
+      "name": "IK Oskarshamn",
+      "city": "Oskarshamn",
+      "arena": "Be-Ge Hockey Center",
+      "pos": 6,
+      "gp": 17,
+      "points": 26,
+      "cityCoordinates": [
+        57.26,
+        16.45
+      ]
+    },
+    "MORA": {
+      "name": "Mora IK",
+      "city": "Mora",
+      "arena": "Wibe Arena",
+      "pos": 7,
+      "gp": 16,
+      "points": 24,
+      "cityCoordinates": [
+        61,
+        14.54
+      ]
+    },
+    "BIK": {
+      "name": "BIK Karlskoga",
+      "city": "Karlskoga",
+      "arena": "Nobelhallen",
+      "pos": 8,
+      "gp": 16,
+      "points": 21,
+      "cityCoordinates": [
+        59.33,
+        14.52
+      ]
+    },
+    "OIK": {
+      "name": "Östersunds IK",
+      "city": "Östersund",
+      "arena": "Östersund Arena Hall A",
+      "pos": 9,
+      "gp": 16,
+      "points": 20,
+      "cityCoordinates": [
+        63.18,
+        14.64
+      ]
+    },
+    "AIS": {
+      "name": "Almtuna IS",
+      "city": "Uppsala",
+      "arena": "Gränby Ishallar A-hall",
+      "pos": 10,
+      "gp": 16,
+      "points": 20,
+      "cityCoordinates": [
+        59.86,
+        17.64
+      ]
+    },
+    "VIK": {
+      "name": "Västerås IK",
+      "city": "Västerås",
+      "arena": "ABB Arena Nord",
+      "pos": 11,
+      "gp": 16,
+      "points": 19,
+      "cityCoordinates": [
+        59.61,
+        16.55
+      ]
+    },
+    "VIM": {
+      "name": "Vimmerby HC",
+      "city": "Vimmerby",
+      "arena": "VBO Arena",
+      "pos": 12,
+      "gp": 15,
+      "points": 13,
+      "cityCoordinates": [
+        57.67,
+        15.86
+      ]
+    },
+    "NYB": {
+      "name": "Nybro Vikings IF",
+      "city": "Nybro",
+      "arena": "Liljas Arena",
+      "pos": 13,
+      "gp": 16,
+      "points": 13,
+      "cityCoordinates": [
+        56.74,
+        15.91
+      ]
+    },
+    "VRH": {
+      "name": "Visby/Roma HK",
+      "city": "Visby",
+      "arena": "Visby Ishall",
+      "pos": 14,
+      "gp": 16,
+      "points": 9,
+      "cityCoordinates": [
+        57.64,
+        18.3
+      ]
+    }
   },
   "fixtures": [
-    {"date":"2026-10-31","time":"15:00","home":"IKO","away":"MODO","venue":"Be-Ge Hockey Center","broadcastTime":"14:55","channel":"TV4 Play","service":"TV4 Play Sport Total","broadcastUrl":"https://www.tv4play.se/program/d9de6330dc7014b88a3a/ik-oskarshamn-modo"},
-    {"date":"2026-10-31","time":"18:00","home":"AIS","away":"AIK","venue":"Gränby Ishallar A-hall","broadcastTime":"17:55","channel":"TV4 Play","service":"TV4 Play Sport Total","broadcastUrl":"https://www.tv4play.se/program/bd9d4dd289cfa76b72a1/almtuna-is-aik"}
+    {
+      "date": "2026-10-31",
+      "time": "15:00",
+      "home": "IKO",
+      "away": "MODO",
+      "venue": "Be-Ge Hockey Center",
+      "broadcastTime": "14:30",
+      "channel": "TV4 Play",
+      "service": "TV4 Play Sport Total",
+      "broadcastUrl": "https://www.tv4play.se/program/d9de6330dc7014b88a3a/ik-oskarshamn-modo",
+      "note": "Hyllningsceremoni för Jonas Engström före matchen."
+    },
+    {
+      "date": "2026-10-31",
+      "time": "18:00",
+      "home": "AIS",
+      "away": "AIK",
+      "venue": "Gränby Ishallar A-hall",
+      "broadcastTime": "17:55",
+      "channel": "TV4 Play",
+      "service": "TV4 Play Sport Total",
+      "broadcastUrl": "https://www.tv4play.se/program/bd9d4dd289cfa76b72a1/almtuna-is-aik"
+    }
   ],
   "results": [
-    {"date":"2026-10-30","time":"19:00","home":"AIK","away":"LIF","hs":3,"as":2,"venue":"Hovet, Johanneshov"},
-    {"date":"2026-10-30","time":"19:00","home":"BIK","away":"NYB","hs":2,"as":1,"venue":"Nobelhallen"},
-    {"date":"2026-10-30","time":"19:00","home":"MORA","away":"AIS","hs":4,"as":1,"venue":"Wibe Arena"},
-    {"date":"2026-10-30","time":"19:00","home":"IKO","away":"OIK","hs":4,"as":5,"venue":"Be-Ge Hockey Center"},
-    {"date":"2026-10-30","time":"19:00","home":"VIK","away":"KAL","hs":2,"as":1,"venue":"ABB Arena Nord"},
-    {"date":"2026-10-30","time":"19:00","home":"VIM","away":"MODO","hs":2,"as":3,"venue":"VBO Arena"},
-    {"date":"2026-10-30","time":"19:00","home":"VRH","away":"SSK","hs":0,"as":1,"venue":"Visby Ishall"},
-    {"date":"2026-10-28","time":"19:00","home":"LIF","away":"BIK","hs":5,"as":2,"venue":"Tegera Arena"},
-    {"date":"2026-10-28","time":"19:00","home":"AIK","away":"VIM","hs":4,"as":1,"venue":"Hovet, Johanneshov"},
-    {"date":"2026-10-28","time":"19:00","home":"KAL","away":"OIK","hs":4,"as":2,"venue":"Hatstore Arena"},
-    {"date":"2026-10-28","time":"19:00","home":"MORA","away":"SSK","hs":2,"as":3,"venue":"Wibe Arena"},
-    {"date":"2026-10-28","time":"19:00","home":"NYB","away":"MODO","hs":0,"as":3,"venue":"Liljas Arena"},
-    {"date":"2026-10-28","time":"19:00","home":"AIS","away":"VIK","hs":1,"as":0,"venue":"Gränby Ishallar A-hall"},
-    {"date":"2026-10-28","time":"19:00","home":"VRH","away":"IKO","hs":3,"as":6,"venue":"Visby Ishall"},
-    {"date":"2026-10-21","time":"19:00","home":"MODO","away":"IKO","hs":4,"as":3,"venue":"Hägglunds Arena"},
-    {"date":"2026-10-14","time":"19:00","home":"AIS","away":"AIK","hs":2,"as":4,"venue":"Gränby Ishallar A-hall"}
+    {
+      "date": "2026-10-30",
+      "time": "19:00",
+      "home": "AIK",
+      "away": "LIF",
+      "hs": 3,
+      "as": 2,
+      "venue": "Hovet, Johanneshov"
+    },
+    {
+      "date": "2026-10-30",
+      "time": "19:00",
+      "home": "BIK",
+      "away": "NYB",
+      "hs": 2,
+      "as": 1,
+      "venue": "Nobelhallen"
+    },
+    {
+      "date": "2026-10-30",
+      "time": "19:00",
+      "home": "MORA",
+      "away": "AIS",
+      "hs": 4,
+      "as": 1,
+      "venue": "Wibe Arena"
+    },
+    {
+      "date": "2026-10-30",
+      "time": "19:00",
+      "home": "IKO",
+      "away": "OIK",
+      "hs": 4,
+      "as": 5,
+      "venue": "Be-Ge Hockey Center"
+    },
+    {
+      "date": "2026-10-30",
+      "time": "19:00",
+      "home": "VIK",
+      "away": "KAL",
+      "hs": 2,
+      "as": 1,
+      "venue": "ABB Arena Nord"
+    },
+    {
+      "date": "2026-10-30",
+      "time": "19:00",
+      "home": "VIM",
+      "away": "MODO",
+      "hs": 2,
+      "as": 3,
+      "venue": "VBO Arena"
+    },
+    {
+      "date": "2026-10-30",
+      "time": "19:00",
+      "home": "VRH",
+      "away": "SSK",
+      "hs": 0,
+      "as": 1,
+      "venue": "Visby Ishall"
+    },
+    {
+      "date": "2026-10-28",
+      "time": "19:00",
+      "home": "LIF",
+      "away": "BIK",
+      "hs": 5,
+      "as": 2,
+      "venue": "Tegera Arena"
+    },
+    {
+      "date": "2026-10-28",
+      "time": "19:00",
+      "home": "AIK",
+      "away": "VIM",
+      "hs": 4,
+      "as": 1,
+      "venue": "Hovet, Johanneshov"
+    },
+    {
+      "date": "2026-10-28",
+      "time": "19:00",
+      "home": "KAL",
+      "away": "OIK",
+      "hs": 4,
+      "as": 2,
+      "venue": "Hatstore Arena"
+    },
+    {
+      "date": "2026-10-28",
+      "time": "19:00",
+      "home": "MORA",
+      "away": "SSK",
+      "hs": 2,
+      "as": 3,
+      "venue": "Wibe Arena"
+    },
+    {
+      "date": "2026-10-28",
+      "time": "19:00",
+      "home": "NYB",
+      "away": "MODO",
+      "hs": 0,
+      "as": 3,
+      "venue": "Liljas Arena"
+    },
+    {
+      "date": "2026-10-28",
+      "time": "19:00",
+      "home": "AIS",
+      "away": "VIK",
+      "hs": 1,
+      "as": 0,
+      "venue": "Gränby Ishallar A-hall"
+    },
+    {
+      "date": "2026-10-28",
+      "time": "19:00",
+      "home": "VRH",
+      "away": "IKO",
+      "hs": 3,
+      "as": 6,
+      "venue": "Visby Ishall"
+    },
+    {
+      "date": "2026-10-21",
+      "time": "19:00",
+      "home": "MODO",
+      "away": "IKO",
+      "hs": 4,
+      "as": 3,
+      "venue": "Hägglunds Arena"
+    },
+    {
+      "date": "2026-10-14",
+      "time": "19:00",
+      "home": "AIS",
+      "away": "AIK",
+      "hs": 2,
+      "as": 4,
+      "venue": "Gränby Ishallar A-hall"
+    }
   ]
 }
