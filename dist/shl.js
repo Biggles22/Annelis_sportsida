@@ -1,0 +1,36 @@
+const cdn='https://sportality.cdn.s8y.se/team-logos/';
+const teams={
+ SKE:{name:'Skellefteå AIK',city:'Skellefteå',arena:'Skellefteå Kraft Arena',lat:64.7603,lon:20.9715,logo:'saik1_saik.svg'},
+ IFB:{name:'Björklöven',city:'Umeå',arena:'Visionite Arena',lat:63.8358,lon:20.2855,logo:'ifb1_ifb.svg'},
+ FHC:{name:'Frölunda HC',city:'Göteborg',arena:'Scandinavium',lat:57.7004,lon:11.9878,logo:'fhc1_fhc.svg'},
+ LHC:{name:'Linköping HC',city:'Linköping',arena:'Saab Arena',lat:58.4178,lon:15.6248,logo:'lhc1_lhc.svg'},
+ VLH:{name:'Växjö Lakers',city:'Växjö',arena:'Vida Arena',lat:56.8790,lon:14.7742,logo:'vlh1_vlh.svg'},
+ FBK:{name:'Färjestad BK',city:'Karlstad',arena:'Löfbergs Arena',lat:59.4083,lon:13.5016,logo:'fbk1_fbk.svg'},
+ MIF:{name:'Malmö Redhawks',city:'Malmö',arena:'Malmö Arena',lat:55.5648,lon:12.9764,logo:'mif1_mif.svg'},
+ HV71:{name:'HV71',city:'Jönköping',arena:'Husqvarna Garden',lat:57.7868,lon:14.2328,logo:'hv711_hv71.svg'},
+ TIK:{name:'Timrå IK',city:'Timrå',arena:'SCA Arena',lat:62.4865,lon:17.3240,logo:'tik1_tik.svg'},
+ LHF:{name:'Luleå Hockey',city:'Luleå',arena:'Coop Norrbotten Arena',lat:65.5977,lon:22.1511,logo:'lhf1_lhf.svg'},
+ ORE:{name:'Örebro Hockey',city:'Örebro',arena:'Behrn Arena',lat:59.2669,lon:15.2235,logo:'ohk1_ohk.svg'},
+ RBK:{name:'Rögle BK',city:'Ängelholm',arena:'Catena Arena',lat:56.2530,lon:12.8832,logo:'rbk1_rbk.svg'},
+ DIF:{name:'Djurgårdens IF',city:'Stockholm',arena:'Avicii Arena',lat:59.2936,lon:18.0836,logo:'dif1_dif.svg'},
+ BIF:{name:'Brynäs IF',city:'Gävle',arena:'Monitor ERP Arena',lat:60.6874,lon:17.1512,logo:'bif1_bif.svg'}
+};
+const standings={FBK:{rank:1,gp:12,w:10,otw:1,l:0,otl:1,diff:36,pts:33},FHC:{rank:2,gp:14,w:8,otw:2,l:4,otl:0,diff:14,pts:28},SKE:{rank:3,gp:12,w:7,otw:1,l:2,otl:2,diff:17,pts:25},RBK:{rank:4,gp:13,w:6,otw:2,l:5,otl:0,diff:7,pts:22},MIF:{rank:5,gp:12,w:5,otw:1,l:3,otl:3,diff:8,pts:20},ORE:{rank:6,gp:12,w:5,otw:0,l:5,otl:2,diff:-10,pts:17},IFB:{rank:7,gp:12,w:5,otw:1,l:6,otl:0,diff:-11,pts:17},BIF:{rank:8,gp:12,w:4,otw:1,l:6,otl:1,diff:3,pts:15},LHF:{rank:9,gp:12,w:4,otw:0,l:5,otl:3,diff:-6,pts:15},TIK:{rank:10,gp:12,w:3,otw:3,l:6,otl:0,diff:-6,pts:15},VLH:{rank:11,gp:12,w:4,otw:1,l:6,otl:1,diff:-7,pts:15},DIF:{rank:12,gp:13,w:2,otw:3,l:6,otl:2,diff:-12,pts:14},LHC:{rank:13,gp:12,w:3,otw:1,l:7,otl:1,diff:-19,pts:12},HV71:{rank:14,gp:12,w:1,otw:2,l:6,otl:3,diff:-14,pts:10}};
+const meetings={
+ 'SKE-IFB':[],
+ 'FHC-LHC':[{date:'2026-10-15',home:'LHC',away:'FHC',hs:0,as:3,venue:'Saab Arena'}],
+ 'VLH-FBK':[{date:'2026-10-24',home:'FBK',away:'VLH',hs:4,as:1,venue:'Löfbergs Arena'}],
+ 'MIF-HV71':[{date:'2026-09-19',home:'HV71',away:'MIF',hs:4,as:5,note:'OT',venue:'Husqvarna Garden'}],
+ 'TIK-LHF':[{date:'2026-10-10',home:'LHF',away:'TIK',hs:2,as:3,note:'OT',venue:'Coop Norrbotten Arena'}],
+ 'ORE-RBK':[{date:'2026-10-17',home:'RBK',away:'ORE',hs:1,as:2,venue:'Catena Arena'}],
+ 'DIF-BIF':[{date:'2026-10-15',home:'BIF',away:'DIF',hs:3,as:2,note:'OT',venue:'Monitor ERP Arena'}]
+};
+document.head.insertAdjacentHTML('beforeend','<link rel="stylesheet" href="tablet.css"><link rel="stylesheet" href="homeaway.css">');
+const q=new URLSearchParams(location.search),a=q.get('a')||'SKE',b=q.get('b')||'IFB',ta=teams[a],tb=teams[b],root=document.querySelector('#shl-content');
+const esc=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+const logo=code=>cdn+teams[code].logo;
+function standRow(code){const t=teams[code],s=standings[code];return `<div class="stand-row"><img src="${logo(code)}" alt=""><div><b>${esc(t.name)}</b><span>${s.gp} matcher · ${s.w+s.otw} segrar · ${s.pts} poäng</span></div><strong>#${s.rank}</strong></div>`}
+function gameRow(g){return `<div class="meeting-row"><time>${new Date(g.date+'T12:00:00').toLocaleDateString('sv-SE',{day:'numeric',month:'short',year:'numeric'})}</time><div><span>${esc(teams[g.away].name)}</span><b>${g.as} – ${g.hs}${g.note?' '+g.note:''}</b><span>${esc(teams[g.home].name)}</span></div><small>${esc(g.venue)}</small></div>`}
+function render(){if(!ta||!tb){root.innerHTML='<div class="nhl-error"><h1>Matchen hittades inte</h1><p>Gå tillbaka till dagens sport och välj matchen igen.</p></div>';return}const games=meetings[`${a}-${b}`]||[];root.innerHTML=`<section class="match-hero"><p class="eyebrow">SHL · MATCHFAKTA</p><div class="matchup"><div class="club"><span class="club-label">HEMMALAG</span><img src="${logo(a)}" alt=""><h1>${esc(ta.name)}</h1><p>${esc(ta.city)}</p></div><div class="versus"><span>MOT</span><i></i></div><div class="club"><span class="club-label">BORTALAG</span><img src="${logo(b)}" alt=""><h1>${esc(tb.name)}</h1><p>${esc(tb.city)}</p></div></div><p class="venue-line"><span>SPELAS I</span><b>${esc(ta.arena)} · ${esc(ta.city)}</b></p><p class="data-note"><span class="pulse"></span> Uppdaterat från SHL:s officiella data</p></section><section class="nhl-grid"><article class="nhl-card"><p class="eyebrow dark">TABELLEN JUST NU</p><h2>Ligaplacering</h2>${standRow(a)}${standRow(b)}<a href="https://www.shl.se/game-stats/standings/standings?count=50&moduleType=standings" target="_blank" rel="noopener">Se hela SHL-tabellen ↗</a></article><article class="nhl-card"><p class="eyebrow dark">SENASTE MÖTET</p><h2>Inbördes matcher</h2>${games.length?games.map(gameRow).join(''):'<p>Inget avslutat inbördes möte finns registrerat för den här SHL-säsongen.</p>'}<a href="https://www.shl.se/game-schedule" target="_blank" rel="noopener">Se SHL:s spelschema ↗</a></article></section><section class="map-section"><div><p class="eyebrow">VAR LAGEN FINNS</p><h2>Två lag.<br>Ett hockeyland.</h2><div class="map-legend"><p><b>${esc(ta.city)}</b><span>${esc(ta.arena)}</span></p><p><b>${esc(tb.city)}</b><span>${esc(tb.arena)}</span></p></div></div><div id="nhl-map" class="nhl-real-map"></div></section>`;initMap()}
+function initMap(){const map=L.map('nhl-map',{scrollWheelZoom:false});L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:18,attribution:'&copy; OpenStreetMap'}).addTo(map);const icon=(color,code)=>L.divIcon({className:'team-map-icon',html:`<span style="--pin:${color}">${code}</span>`,iconSize:[50,50],iconAnchor:[25,25]});const m1=L.marker([ta.lat,ta.lon],{icon:icon('#ff5b35',a)}).addTo(map).bindPopup(`<b>${ta.name}</b><br>${ta.arena}<br>${ta.city}`),m2=L.marker([tb.lat,tb.lon],{icon:icon('#b9ffcf',b)}).addTo(map).bindPopup(`<b>${tb.name}</b><br>${tb.arena}<br>${tb.city}`);L.polyline([[ta.lat,ta.lon],[tb.lat,tb.lon]],{color:'#0d6b50',weight:3,dashArray:'9 10'}).addTo(map);map.fitBounds(L.latLngBounds([m1.getLatLng(),m2.getLatLng()]).pad(.45),{maxZoom:7});setTimeout(()=>map.invalidateSize(),80)}
+render();
