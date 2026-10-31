@@ -1,8 +1,8 @@
 {
   "date": "2026-10-31",
-  "checkedAt": "2026-10-31T17:00:00.000Z",
+  "checkedAt": "2026-10-31T20:02:00.000Z",
   "resultsThrough": "2026-10-31",
-  "sourceUpdatedAt": "2026-10-31T17:35:00+01:00",
+  "sourceUpdatedAt": "2026-10-31T20:25:00+01:00",
   "sources": {
     "schedule": "https://stats.swehockey.se/ScheduleAndResults/Schedule/20962",
     "results": "https://stats.swehockey.se/ScheduleAndResults/Overview/20962",
@@ -15,7 +15,7 @@
       "city": "Stockholm",
       "arena": "Hovet, Johanneshov",
       "pos": 1,
-      "gp": 16,
+      "gp": 17,
       "points": 40,
       "cityCoordinates": [
         59.33,
@@ -98,7 +98,7 @@
       "name": "BIK Karlskoga",
       "city": "Karlskoga",
       "arena": "Nobelhallen",
-      "pos": 8,
+      "pos": 9,
       "gp": 16,
       "points": 21,
       "cityCoordinates": [
@@ -110,7 +110,7 @@
       "name": "Östersunds IK",
       "city": "Östersund",
       "arena": "Östersund Arena Hall A",
-      "pos": 9,
+      "pos": 10,
       "gp": 16,
       "points": 20,
       "cityCoordinates": [
@@ -122,9 +122,9 @@
       "name": "Almtuna IS",
       "city": "Uppsala",
       "arena": "Gränby Ishallar A-hall",
-      "pos": 10,
-      "gp": 16,
-      "points": 20,
+      "pos": 8,
+      "gp": 17,
+      "points": 23,
       "cityCoordinates": [
         59.86,
         17.64
@@ -205,6 +205,16 @@
     }
   ],
   "results": [
+    {
+      "date": "2026-10-31",
+      "time": "18:00",
+      "home": "AIS",
+      "away": "AIK",
+      "hs": 5,
+      "as": 1,
+      "venue": "Gränby Ishallar A-hall",
+      "sourceUrl": "https://stats.swehockey.se/Game/Events/1110428"
+    },
     {
       "date": "2026-10-31",
       "time": "15:00",
