@@ -1,5 +1,8 @@
 import { writeFile } from 'node:fs/promises';
-const api='https://api-web.nhle.com/v1',pairs=[['VGK','NJD'],['FLA','WPG'],['CGY','SEA']];
+const api='https://api-web.nhle.com/v1',pairs=[
+  ['VGK','NJD'],['FLA','WPG'],
+  ['CGY','SEA'],['BOS','CHI'],['DET','STL'],['LAK','BUF']
+];
 const standings=await fetch(`${api}/standings/now`).then(r=>r.json());
 const output={updatedAt:new Date().toISOString(),standings:{},meetings:{}};
 for(const row of standings.standings||[]) output.standings[row.teamAbbrev.default]={leagueSequence:row.leagueSequence,wins:row.wins,losses:row.losses,otLosses:row.otLosses,points:row.points};
