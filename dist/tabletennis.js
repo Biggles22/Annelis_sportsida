@@ -17,13 +17,13 @@ if(today!==verifiedDate){
     '</article>',
     '<article class="tt-match">',
     '<time datetime="2026-11-01T17:30:00+01:00">17:30</time>',
-    '<div class="tt-player"><span>🏓</span><div><b>Finaler, damer och herrar</b><small>Finalisternas namn är inte verifierade i tillgänglig officiell källa</small></div></div>',
+    '<div class="tt-player"><span>🏓</span><div><b>Kuai Man–Sun Yingsha</b><small>Damfinal 17.30 · därefter Jang Woojin–Patrick Franziska</small></div></div>',
     '<span class="tt-vs">FINALPASS</span>',
     '<div class="tt-player right"><span>📺</span><div><b>SVT Play</b><small>17.30–20.00 svensk tid</small></div></div>',
     '<button type="button" aria-expanded="false" aria-controls="tt-finals-info">Matchfakta +</button>',
-    '<div class="tt-details" id="tt-finals-info"><p><b>WTT Champions Montpellier · finaler</b><span>SVT Play sänder dam- och herrfinalerna mellan 17.30 och 20.00. Finalisternas namn visas först när de kan verifieras i en officiell källa.</span></p><div><a href="https://www.svt.se/sport/bordtennis/sa-sander-svt-bordtennis-2026" target="_blank" rel="noreferrer">SVT:s sportguide ↗</a><br><a href="https://www.worldtabletennis.com/eventslist" target="_blank" rel="noreferrer">WTT:s tävlingscenter ↗</a></div></div>',
+    '<div class="tt-details" id="tt-finals-info"><p><b>WTT Champions Montpellier · finaler</b><span>Damfinal: Kuai Man–Sun Yingsha kl. 17.30. Herrfinal: Jang Woojin–Patrick Franziska kl. 18.30. SVT Play sänder finalpasset 17.30–20.00. Slutresultaten var ännu inte verifierade i tillgänglig officiell källa vid senaste kontrollen.</span></p><div><a href="https://www.fftt.com/actualites/wtt/les-finales-sont-connues/" target="_blank" rel="noreferrer">FFTT:s officiella finalprogram ↗</a><br><a href="https://www.svt.se/sport/bordtennis/sa-sander-svt-bordtennis-2026" target="_blank" rel="noreferrer">SVT:s sportguide ↗</a><br><a href="https://www.worldtabletennis.com/eventslist" target="_blank" rel="noreferrer">WTT:s tävlingscenter ↗</a></div></div>',
     '</article>',
-    '<p class="verification-note">Semifinalresultatet och båda SVT Play-sändningarna kontrollerades mot SVT den 1 november 2026. Alla tider är svensk tid.</p>'
+    '<p class="verification-note">Semifinalresultatet och SVT Play-sändningarna kontrollerades mot SVT. Finalister och finaltider kontrollerades mot FFTT den 1 november 2026. Alla tider är svensk tid.</p>'
   ].join('');
   root.addEventListener('click',event=>{
     const button=event.target.closest('button');
