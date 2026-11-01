@@ -40,9 +40,14 @@ function localMidnightUtc(date) {
 }
 
 const nhlCodes = {
-  Vancouver: 'VAN', Toronto: 'TOR', Montreal: 'MTL', Pittsburgh: 'PIT',
-  Dallas: 'DAL', Columbus: 'CBJ', Colorado: 'COL', Calgary: 'CGY',
-  Philadelphia: 'PHI', Utah: 'UTA'
+  Anaheim: 'ANA', Boston: 'BOS', Buffalo: 'BUF', Calgary: 'CGY', Carolina: 'CAR',
+  Chicago: 'CHI', Colorado: 'COL', Columbus: 'CBJ', Dallas: 'DAL', Detroit: 'DET',
+  Edmonton: 'EDM', Florida: 'FLA', 'Los Angeles': 'LAK', Minnesota: 'MIN',
+  Montreal: 'MTL', Nashville: 'NSH', 'New Jersey': 'NJD', 'NY Islanders': 'NYI',
+  'NY Rangers': 'NYR', Ottawa: 'OTT', Philadelphia: 'PHI', Pittsburgh: 'PIT',
+  'San Jose': 'SJS', Seattle: 'SEA', 'St. Louis': 'STL', 'Tampa Bay': 'TBL',
+  Toronto: 'TOR', Utah: 'UTA', Vancouver: 'VAN', Vegas: 'VGK', Washington: 'WSH',
+  Winnipeg: 'WPG'
 };
 const haCodes = {
   'BIK Karlskoga': 'BIK', 'Östersunds IK': 'OIK', 'Västerås IK': 'VIK',
@@ -55,9 +60,14 @@ const leagueFacts = {
   Bundesliga: { label: 'Bundesliga: resultat och tabell', url: 'https://www.bundesliga.com/en/bundesliga/table' },
   '2. Bundesliga': { label: '2. Bundesliga: resultat och tabell', url: 'https://www.bundesliga.com/en/2bundesliga/table' },
   'Ligue 1': { label: 'Ligue 1: resultat och tabell', url: 'https://ligue1.com/standings' },
+  'Ligue 2': { label: 'Ligue 2: resultat och tabell', url: 'https://ligue2.com/standings' },
   'OBOS Damallsvenskan': { label: 'Damallsvenskan: resultat och tabell', url: 'https://www.svenskfotboll.se/serier-cuper/tabell-och-resultat/damallsvenskan-2026/120988/' },
+  'DFB-Pokal Frauen': { label: 'DFB: spelschema, jämförelse och resultat', url: 'https://www.dfb.de/frauen/dfb-wettbewerbe-frauen/dfb-pokal' },
   Superliga: { label: 'Superliga: resultat och tabell', url: 'https://superliga.dk/stilling' },
   'Serie A': { label: 'Serie A: resultat och tabell', url: 'https://www.legaseriea.it/en/serie-a/standings' },
+  'Liga Portugal': { label: 'Liga Portugal: matchfakta och tabell', url: 'https://www.ligaportugal.pt/' },
+  'ATP Tour': { label: 'ATP: officiell turneringssida', url: 'https://www.atptour.com/en/tournaments/atp-masters-1000-paris/352/overview' },
+  'Formel 1': { label: 'Formel 1: officiella resultat', url: 'https://www.formula1.com/en/results/2026/races' },
   Allsvenskan: { label: 'Allsvenskan: resultat och tabell', url: 'https://allsvenskan.se/tabell' },
   Superettan: { label: 'Superettan: resultat och tabell', url: 'https://superettan.se/tabell' },
   HockeyAllsvenskan: { label: 'Hockeyallsvenskan: resultat och tabell', url: 'https://stats.swehockey.se/ScheduleAndResults/Overview/20962' }
@@ -65,6 +75,33 @@ const leagueFacts = {
 const officialFact = league => leagueFacts[league] ? [leagueFacts[league]] : [];
 const eventFacts = title => {
   const name = String(title || '');
+  if (targetDate === '2026-11-02' && ((name.includes('GAIS') && name.includes('AIK')) ||
+      (name.includes('Mjällby') && name.includes('Kalmar')))) return [{
+    label: 'Allsvenskan: officiellt spelschema för omgång 27',
+    url: 'https://allsvenskan.se/nyheter/sa-spelas-omgang-24-30-av-allsvenskan/'
+  }];
+  if (targetDate === '2026-11-02' && ((name.includes('Östers IF') && name.includes('Helsingborgs IF')) ||
+      (name.includes('Landskrona BoIS') && name.includes('Örebro SK')))) return [{
+    label: 'Superettan: officiellt spelschema för omgång 29',
+    url: 'https://superettan.se/nyheter/sa-spelas-omgang-27-30-av-superettan/'
+  }];
+  if (targetDate === '2026-11-02' && ((name.includes('Sassuolo') && name.includes('Fiorentina')) ||
+      (name.includes('Atalanta') && name.includes('Parma')))) return [{
+    label: 'Serie A: officiellt matchprogram',
+    url: 'https://en.legaseriea.it/serie-a'
+  }];
+  if (targetDate === '2026-11-02' && name.includes('Newcastle') && name.includes('Everton')) return [{
+    label: 'Premier League: officiellt matchprogram',
+    url: 'https://www.premierleague.com/en/news/4688862/'
+  }];
+  if (targetDate === '2026-11-02' && name.includes('Malmö FF') && name.includes('Norrköping')) return [{
+    label: 'Svenska Fotbollförbundet: dagens elitmatcher',
+    url: 'https://www.svenskfotboll.se/serier-cuper/elitfotboll'
+  }];
+  if (targetDate === '2026-11-02' && name.includes('Benfica') && name.includes('Alverca')) return [{
+    label: 'Liga Portugal: matchfakta, form och tidigare möten',
+    url: 'https://www.ligaportugal.pt/match/20262027/ligaportugalbetclic/10/9'
+  }];
   if (name.startsWith('Vienna Open')) return [{
     label: 'Erste Bank Open: officiellt spelschema',
     url: 'https://www.erstebank-open.com/en/news/storys/vienna-2026-schedule'
@@ -229,21 +266,45 @@ const tv4Events = (tv4Response.data?.tableau || [])
   });
 
 const svtSchedule = 'https://www.svt.se/sport/artikel/sport-pa-tv-sa-sander-svt-sport';
-const svtEvents = [
-  { sport: 'Ishockey', time: '08:45', title: 'TV-pucken – bronsmatcher, flickor och pojkar', meta: 'TV-pucken', channel: 'SVT1', url: 'https://www.svt.se/sport/ishockey/guide-tv-pucken-2026' },
-  ...(targetDate === '2026-11-01' ? [
+const svtEventsByDate = {
+  '2026-11-01': [
+    { sport: 'Ishockey', time: '08:45', title: 'TV-pucken – bronsmatcher, flickor och pojkar', meta: 'TV-pucken', channel: 'SVT1', url: 'https://www.svt.se/sport/ishockey/guide-tv-pucken-2026' },
     { sport: 'Curling', time: '09:50', title: "Curling-EM – damfinal: Sverige–Schweiz", meta: "EM-final damer · Lag Isabella Wranå · Matchstart 10.00 · RT Torax Arena, Ostrava", channel: 'Kunskapskanalen', url: "https://www.svt.se/sport/curling/guide-curling-em-2026", facts: [{ label: 'World Curling: Sverige och Schweiz i damfinal', url: "https://worldcurling.org/2026/10/ecc2026-womens-semis/" }, { label: 'Svenska Curlingförbundet: matchtid 10.00', url: "https://www.curling.se/tavlingar--resultat/em-damer-och-herrar-2026" }, { label: 'SVT: sändningsstart 09.50', url: "https://www.svt.se/sport/curling/guide-curling-em-2026" }, ...mapFact('RT Torax Arena')] },
     { sport: 'Curling', time: '13:50', title: "Curling-EM – herrfinal: Skottland–Italien", meta: "Herrfinal kl. 14.00 · SVT2/SVT Play från 13.50 · Sverige–Tjeckien spelar brons samtidigt, men bronsmatchen är inte bekräftad som SVT:s val · RT Torax Arena", channel: 'SVT2', url: "https://www.svt.se/sport/curling/guide-curling-em-2026", facts: [{ label: 'World Curling: officiellt spelschema och resultat', url: "https://livescores.worldcurling.org/ecc/aspnet/summary?EventID=1" }, { label: 'SVT: TV-tider för herrfinalen', url: "https://www.svt.se/sport/curling/guide-curling-em-2026" }, ...mapFact('RT Torax Arena')] },
-  ] : []),
-  { sport: 'Övrigt', time: '11:55', title: 'Ungdoms-OS – beachvolleyboll: Senegal–Sverige', meta: 'Ungdoms-OS', channel: 'SVT2', url: svtSchedule },
-  { sport: 'Ishockey', time: '13:00', title: 'TV-pucken – finaler, flickor och pojkar', meta: 'TV-pucken', channel: 'SVT1', url: 'https://www.svt.se/sport/ishockey/guide-tv-pucken-2026' },
-
-  { sport: 'Övrigt', time: '14:30', title: 'New York Marathon', meta: 'Friidrott · New York', channel: 'Kunskapskanalen', url: svtSchedule, facts: [{ label: 'Officiell tävlingsinformation', url: 'https://www.nyrr.org/tcsnycmarathon' }] },
-  ...(targetDate === '2026-11-01' ? [
+    { sport: 'Övrigt', time: '11:55', title: 'Ungdoms-OS – beachvolleyboll: Senegal–Sverige', meta: 'Ungdoms-OS', channel: 'SVT2', url: svtSchedule },
+    { sport: 'Ishockey', time: '13:00', title: 'TV-pucken – finaler, flickor och pojkar', meta: 'TV-pucken', channel: 'SVT1', url: 'https://www.svt.se/sport/ishockey/guide-tv-pucken-2026' },
+    { sport: 'Övrigt', time: '14:30', title: 'New York Marathon', meta: 'Friidrott · New York', channel: 'Kunskapskanalen', url: svtSchedule, facts: [{ label: 'Officiell tävlingsinformation', url: 'https://www.nyrr.org/tcsnycmarathon' }] },
     { sport: 'Bordtennis', time: '13:15', title: 'Truls Möregårdh – Patrick Franziska', meta: 'WTT Champions Montpellier · Herrsingel, semifinal · slutresultat 3–4 · Sud de France Arena', channel: 'SVT Play', url: 'bordtennis.html', sourceUrl: 'https://www.svt.se/sport/bordtennis/sa-sander-svt-bordtennis-2026', facts: [{ label: 'SVT: Franziska vann semifinalen med 4–3', url: 'https://www.svt.se/sport/bordtennis/truls-moregardh-ar-ute-ur-montpellier-wtt' }, { label: 'SVT: sändningsguide', url: 'https://www.svt.se/sport/bordtennis/sa-sander-svt-bordtennis-2026' }, { label: 'WTT:s tävlingscenter', url: 'https://www.worldtabletennis.com/eventslist' }, ...mapFact('Sud de France Arena')] },
     { sport: 'Bordtennis', time: '17:30', title: 'WTT Champions Montpellier – finaler', meta: 'Damfinal: Kuai Man–Sun Yingsha · Herrfinal: Jang Woojin–Patrick Franziska · Sud de France Arena', channel: 'SVT Play', url: 'bordtennis.html', sourceUrl: 'https://www.svt.se/sport/bordtennis/sa-sander-svt-bordtennis-2026', facts: [{ label: 'FFTT: verifierade finalister och finaltider', url: 'https://www.fftt.com/actualites/wtt/les-finales-sont-connues/' }, { label: 'SVT: finalpass 17.30–20.00', url: 'https://www.svt.se/sport/bordtennis/sa-sander-svt-bordtennis-2026' }, { label: 'WTT:s tävlingscenter', url: 'https://www.worldtabletennis.com/eventslist' }, ...mapFact('Sud de France Arena')] }
-  ] : [])
-].map(item => ({
+  ],
+  '2026-11-02': [
+    {
+      sport: 'Fotboll',
+      time: '17:50',
+      title: 'BK Häcken – Kristianstads DFF',
+      meta: 'OBOS Damallsvenskan · omgång 24 · matchstart 18.00 · Nordic Wellness Arena',
+      channel: 'Kunskapskanalen',
+      url: 'https://www.svt.se/sport/fotboll/damallsvenskan-2026-alla-lag-och-alla-matcher',
+      facts: [
+        { label: 'SVT: sändning 17.50–20.00', url: 'https://www.svt.se/sport/fotboll/damallsvenskan-2026-alla-lag-och-alla-matcher' },
+        { label: 'Svenska Fotbollförbundet: dagens elitmatcher', url: 'https://www.svenskfotboll.se/serier-cuper/elitfotboll' },
+        ...officialFact('OBOS Damallsvenskan'),
+        { label: 'BK Häcken: senaste resultat och kommande matcher', url: 'https://bkhacken.se/lag/dam/matcher' },
+        ...mapFact('Nordic Wellness Arena')
+      ]
+    },
+    {
+      sport: 'Fotboll',
+      time: '21:10',
+      title: 'Fotbollsstudion',
+      meta: 'SVT:s fotbollsmagasin',
+      channel: 'SVT Play',
+      url: 'https://www.svt.se/sport/tabla/',
+      facts: [{ label: 'SVT Sport: officiell tablå', url: 'https://www.svt.se/sport/tabla/' }]
+    }
+  ]
+};
+const svtEvents = (svtEventsByDate[targetDate] || []).map(item => ({
   date: targetDate,
   ...item,
   service: 'SVT Play',
