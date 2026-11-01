@@ -63,10 +63,18 @@ const leagueFacts = {
   HockeyAllsvenskan: { label: 'Hockeyallsvenskan: resultat och tabell', url: 'https://stats.swehockey.se/ScheduleAndResults/Overview/20962' }
 };
 const officialFact = league => leagueFacts[league] ? [leagueFacts[league]] : [];
-const eventFacts = title => String(title || '').startsWith('Vienna Open') ? [{
-  label: 'Erste Bank Open: officiellt spelschema',
-  url: 'https://www.erstebank-open.com/en/news/storys/vienna-2026-schedule'
-}] : [];
+const eventFacts = title => {
+  const name = String(title || '');
+  if (name.startsWith('Vienna Open')) return [{
+    label: 'Erste Bank Open: officiellt spelschema',
+    url: 'https://www.erstebank-open.com/en/news/storys/vienna-2026-schedule'
+  }];
+  if (name.startsWith('Formula 4 Italian Championship')) return [{
+    label: 'ACI Sport: officiell tävlingssida',
+    url: 'https://www.acisport.it/en/f4/calendar-and-results/2026/8298/mugello'
+  }];
+  return [];
+};
 
 const viaplayUrl = `https://content.viaplay.se/pcdash-se/sport?blockId=e19e52eb-07c9-4928-84ef-0ef1e8c5ab43&partial=1&pageNumber=1&date=${targetDate}`;
 const viaplayJson = await fetch(viaplayUrl).then(response => response.json());
@@ -102,7 +110,7 @@ const viaplayEvents = viaplayProducts
     const format = product.content?.format?.title || '';
     const venue = product.content?.description?.location?.value || '';
     const sourceUrl = `https://viaplay.se/sport/${path}`;
-    const facts = [...officialFact(format), ...mapFact(venue)];
+    const facts = [...officialFact(format), ...eventFacts(viaplayTitle(product)), ...mapFact(venue)];
     const event = {
       date: targetDate,
       sport: viaplaySport(path),
