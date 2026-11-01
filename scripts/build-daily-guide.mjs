@@ -191,10 +191,13 @@ const tv4Events = (tv4Response.data?.tableau || [])
 const svtSchedule = 'https://www.svt.se/sport/artikel/sport-pa-tv-sa-sander-svt-sport';
 const svtEvents = [
   { sport: 'Ishockey', time: '08:45', title: 'TV-pucken – bronsmatcher, flickor och pojkar', meta: 'TV-pucken', channel: 'SVT1', url: 'https://www.svt.se/sport/ishockey/guide-tv-pucken-2026' },
-  { sport: 'Curling', time: '09:50', title: 'Curling-EM – medaljmatch, damer', meta: 'Curling-EM · RT Torax Arena', channel: 'Kunskapskanalen', url: 'https://www.svt.se/sport/curling/guide-curling-em-2026', facts: mapFact('RT Torax Arena') },
+  ...(targetDate === '2026-11-01' ? [
+    { sport: 'Curling', time: '09:50', title: 'Curling-EM – medaljmatch, damer', meta: 'Curling-EM · RT Torax Arena', channel: 'Kunskapskanalen', url: 'https://www.svt.se/sport/curling/guide-curling-em-2026', facts: mapFact('RT Torax Arena') },
+    { sport: 'Curling', time: '13:50', title: "Curling-EM – herrarnas medaljmatcher (Sverige–Tjeckien, brons)", meta: "Bronsmatch Sverige–Tjeckien kl. 14.00 · SVT2:s medaljsändning från 13.50 (bronsmatchen inte bekräftad som TV-val) · RT Torax Arena", channel: 'SVT2', url: "https://www.svt.se/sport/curling/guide-curling-em-2026", facts: [{ label: 'World Curling: officiellt spelschema och resultat', url: "https://livescores.worldcurling.org/ecc/aspnet/summary?EventID=1" }, { label: 'SVT: TV-tider för herrarnas medaljmatch', url: "https://www.svt.se/sport/curling/guide-curling-em-2026" }, ...mapFact('RT Torax Arena')] },
+  ] : []),
   { sport: 'Övrigt', time: '11:55', title: 'Ungdoms-OS – beachvolleyboll: Senegal–Sverige', meta: 'Ungdoms-OS', channel: 'SVT2', url: svtSchedule },
   { sport: 'Ishockey', time: '13:00', title: 'TV-pucken – finaler, flickor och pojkar', meta: 'TV-pucken', channel: 'SVT1', url: 'https://www.svt.se/sport/ishockey/guide-tv-pucken-2026' },
-  { sport: 'Curling', time: '13:50', title: 'Curling-EM – medaljmatch, herrar', meta: 'Curling-EM · RT Torax Arena', channel: 'SVT2', url: 'https://www.svt.se/sport/curling/guide-curling-em-2026', facts: mapFact('RT Torax Arena') },
+
   { sport: 'Övrigt', time: '14:30', title: 'New York Marathon', meta: 'Friidrott · New York', channel: 'Kunskapskanalen', url: svtSchedule, facts: [{ label: 'Officiell tävlingsinformation', url: 'https://www.nyrr.org/tcsnycmarathon' }] },
   ...(targetDate === '2026-11-01' ? [
     { sport: 'Bordtennis', time: '13:15', title: 'Truls Möregårdh – Patrick Franziska', meta: 'WTT Champions Montpellier · Herrsingel, semifinal · Sud de France Arena', channel: 'SVT Play', url: 'bordtennis.html', sourceUrl: 'https://www.svt.se/sport/bordtennis/sa-sander-svt-bordtennis-2026', facts: [{ label: 'SVT: semifinal och sändning', url: 'https://www.svt.se/sport/bordtennis/sa-sander-svt-bordtennis-2026' }, { label: 'WTT:s tävlingscenter', url: 'https://www.worldtabletennis.com/eventslist' }, ...mapFact('Sud de France Arena')] },
