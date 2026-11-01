@@ -77,6 +77,10 @@ const eventFacts = title => {
     label: 'Swiss Indoors Basel: officiellt spelschema',
     url: 'https://www.swissindoorsbasel.ch/en/tournament/match-schedule/'
   }];
+  if (targetDate === '2026-11-01' && name.includes('Lazio') && name.includes('Cagliari')) return [{
+    label: 'Serie A: matchfakta och inbördes möten',
+    url: 'https://en.legaseriea.it/serie-a/match/021ad453c3ab4766b549b3db2773427b/lazio-vs-cagliari/stats_club'
+  }];
   return [];
 };
 
@@ -86,6 +90,12 @@ const verifiedEventTitle = title => {
   }
   return title;
 };
+
+const verifiedEventNotes = title => (
+  targetDate === '2026-11-01' && String(title || '').includes('Lazio') && String(title || '').includes('Cagliari')
+    ? ['Officiell matchstart 15.00']
+    : []
+);
 
 const viaplayUrl = `https://content.viaplay.se/pcdash-se/sport?blockId=e19e52eb-07c9-4928-84ef-0ef1e8c5ab43&partial=1&pageNumber=1&date=${targetDate}`;
 const viaplayJson = await fetch(viaplayUrl).then(response => response.json());
@@ -186,7 +196,7 @@ const tv4Events = (tv4Response.data?.tableau || [])
       sport: content.genre === 'Friidrott' ? 'Övrigt' : content.genre,
       time: localTime(content.playableFrom.isoString),
       title: dash(verifiedEventTitle(content.title)),
-      meta: [content.league, content.round, content.arena].filter(Boolean).map(dash).join(' · '),
+      meta: [content.league, content.round, content.arena, ...verifiedEventNotes(content.title)].filter(Boolean).map(dash).join(' · '),
       channel: 'TV4 Play',
       service: 'TV4 Play Sport Total',
       url: sourceUrl,
