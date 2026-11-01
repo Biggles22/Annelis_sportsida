@@ -196,7 +196,10 @@ const svtEvents = [
   { sport: 'Ishockey', time: '13:00', title: 'TV-pucken – finaler, flickor och pojkar', meta: 'TV-pucken', channel: 'SVT1', url: 'https://www.svt.se/sport/ishockey/guide-tv-pucken-2026' },
   { sport: 'Curling', time: '13:50', title: 'Curling-EM – medaljmatch, herrar', meta: 'Curling-EM · RT Torax Arena', channel: 'SVT2', url: 'https://www.svt.se/sport/curling/guide-curling-em-2026', facts: mapFact('RT Torax Arena') },
   { sport: 'Övrigt', time: '14:30', title: 'New York Marathon', meta: 'Friidrott · New York', channel: 'Kunskapskanalen', url: svtSchedule, facts: [{ label: 'Officiell tävlingsinformation', url: 'https://www.nyrr.org/tcsnycmarathon' }] },
-  { sport: 'Bordtennis', time: '17:30', title: 'WTT Champions Montpellier – finaler', meta: 'Damer och herrar · Sud de France Arena', channel: 'SVT Play', url: 'bordtennis.html', sourceUrl: 'https://www.svt.se/sport/bordtennis/sa-sander-svt-bordtennis-2026', facts: [{ label: 'WTT:s tävlingscenter', url: 'https://www.worldtabletennis.com/eventslist' }, ...mapFact('Sud de France Arena')] }
+  ...(targetDate === '2026-11-01' ? [
+    { sport: 'Bordtennis', time: '13:15', title: 'Truls Möregårdh – Patrick Franziska', meta: 'WTT Champions Montpellier · Herrsingel, semifinal · Sud de France Arena', channel: 'SVT Play', url: 'bordtennis.html', sourceUrl: 'https://www.svt.se/sport/bordtennis/sa-sander-svt-bordtennis-2026', facts: [{ label: 'SVT: semifinal och sändning', url: 'https://www.svt.se/sport/bordtennis/sa-sander-svt-bordtennis-2026' }, { label: 'WTT:s tävlingscenter', url: 'https://www.worldtabletennis.com/eventslist' }, ...mapFact('Sud de France Arena')] },
+    { sport: 'Bordtennis', time: '17:30', title: 'WTT Champions Montpellier – finaler', meta: 'Damer och herrar · Sud de France Arena', channel: 'SVT Play', url: 'bordtennis.html', sourceUrl: 'https://www.svt.se/sport/bordtennis/sa-sander-svt-bordtennis-2026', facts: [{ label: 'WTT:s tävlingscenter', url: 'https://www.worldtabletennis.com/eventslist' }, ...mapFact('Sud de France Arena')] }
+  ] : [])
 ].map(item => ({
   date: targetDate,
   ...item,
