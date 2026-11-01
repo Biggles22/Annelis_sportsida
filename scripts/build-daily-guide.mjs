@@ -73,7 +73,18 @@ const eventFacts = title => {
     label: 'ACI Sport: officiell tävlingssida',
     url: 'https://www.acisport.it/en/f4/calendar-and-results/2026/8298/mugello'
   }];
+  if (targetDate === '2026-11-01' && name === 'Swiss Indoors (500): final') return [{
+    label: 'Swiss Indoors Basel: officiellt spelschema',
+    url: 'https://www.swissindoorsbasel.ch/en/tournament/match-schedule/'
+  }];
   return [];
+};
+
+const verifiedEventTitle = title => {
+  if (targetDate === '2026-11-01' && title === 'Swiss Indoors (500): final') {
+    return 'Swiss Indoors (500): Lehecka – Vacherot';
+  }
+  return title;
 };
 
 const viaplayUrl = `https://content.viaplay.se/pcdash-se/sport?blockId=e19e52eb-07c9-4928-84ef-0ef1e8c5ab43&partial=1&pageNumber=1&date=${targetDate}`;
@@ -174,7 +185,7 @@ const tv4Events = (tv4Response.data?.tableau || [])
       date: targetDate,
       sport: content.genre === 'Friidrott' ? 'Övrigt' : content.genre,
       time: localTime(content.playableFrom.isoString),
-      title: dash(content.title),
+      title: dash(verifiedEventTitle(content.title)),
       meta: [content.league, content.round, content.arena].filter(Boolean).map(dash).join(' · '),
       channel: 'TV4 Play',
       service: 'TV4 Play Sport Total',
