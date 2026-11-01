@@ -63,6 +63,10 @@ const leagueFacts = {
   HockeyAllsvenskan: { label: 'Hockeyallsvenskan: resultat och tabell', url: 'https://stats.swehockey.se/ScheduleAndResults/Overview/20962' }
 };
 const officialFact = league => leagueFacts[league] ? [leagueFacts[league]] : [];
+const eventFacts = title => String(title || '').startsWith('Vienna Open') ? [{
+  label: 'Erste Bank Open: officiellt spelschema',
+  url: 'https://www.erstebank-open.com/en/news/storys/vienna-2026-schedule'
+}] : [];
 
 const viaplayUrl = `https://content.viaplay.se/pcdash-se/sport?blockId=e19e52eb-07c9-4928-84ef-0ef1e8c5ab43&partial=1&pageNumber=1&date=${targetDate}`;
 const viaplayJson = await fetch(viaplayUrl).then(response => response.json());
@@ -157,7 +161,7 @@ const tv4Events = (tv4Response.data?.tableau || [])
   .filter(content => content?.__typename === 'SportEvent' && content.playableFrom?.isoString && localDate(content.playableFrom.isoString) === targetDate)
   .map(content => {
     const sourceUrl = `https://www.tv4play.se/program/${content.id}/${content.slug}`;
-    const facts = [...officialFact(content.league), ...mapFact(content.arena)];
+    const facts = [...officialFact(content.league), ...eventFacts(content.title), ...mapFact(content.arena)];
     const event = {
       date: targetDate,
       sport: content.genre === 'Friidrott' ? 'Övrigt' : content.genre,
