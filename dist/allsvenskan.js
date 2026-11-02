@@ -2,9 +2,10 @@
   const guide = globalThis.sportGuide;
   const root = document.querySelector('#allsvenskan-content');
   const q = new URLSearchParams(location.search);
-  const home = q.get('home');
-  const away = q.get('away');
-  const date = q.get('date');
+  const first = guide?.events?.find(e => e.league === 'Allsvenskan');
+  const home = q.get('home') || first?.home;
+  const away = q.get('away') || first?.away;
+  const date = q.get('date') || first?.date;
   const esc = value => String(value ?? '').replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
   const link = (url, label) => `<a href="${esc(url)}" target="_blank" rel="noopener noreferrer">${esc(label)} ↗</a>`;
   const matches = {
@@ -46,17 +47,39 @@
   }
   const dateLabel = new Intl.DateTimeFormat('sv-SE',{timeZone:'Europe/Stockholm',weekday:'long',day:'numeric',month:'long',year:'numeric'}).format(new Date(`${date}T12:00:00Z`));
   const stale = date !== today;
+  const clubs = {
+    GAIS:{name:'GAIS',city:'Göteborg',arena:'Gamla Ullevi',lat:57.7058,lon:11.9806,pos:10,gp:26,points:34},
+    AIK:{name:'AIK',city:'Solna',arena:'Strawberry Arena',lat:59.3725,lon:18.0007,pos:8,gp:26,points:38},
+    MAIF:{name:'Mjällby AIF',city:'Hällevik',arena:'Strandvallen',lat:56.0175,lon:14.7168,pos:12,gp:26,points:26},
+    KFF:{name:'Kalmar FF',city:'Kalmar',arena:'Guldfågeln Arena',lat:56.685,lon:16.3167,pos:13,gp:26,points:22}
+  };
+  const ta=clubs[home],tb=clubs[away];
+  const club=(code,t,label)=>`<div class="club"><span class="club-label">${label}</span><div class="football-badge" aria-hidden="true">${esc(code)}</div><h1>${esc(t.name)}</h1><p>${esc(t.city)}</p></div>`;
+  const standing=(code,t)=>`<div class="stand-row"><span class="football-mini">${esc(code)}</span><div><b>${esc(t.name)}</b><span>${t.gp} matcher · ${t.points} poäng</span></div><strong>#${t.pos}</strong></div>`;
   root.innerHTML = `
-    <section class="allsvenskan-hero">
-      <p class="eyebrow">ALLSVENSKAN · OMGÅNG 27</p>
-      <h1>${esc(details.title)}</h1>
-      <p class="match-meta">${esc(dateLabel)} · avspark <b>${esc(details.kickoff)}</b><br>${esc(details.venue)}</p>
-      ${stale ? `<p class="uncertain">Detta är daterade matchfakta för ${esc(date)} och visas inte som dagens match.</p>` : '<p>Verifierad för dagens datum.</p>'}
+    <section class="match-hero">
+      <p class="eyebrow">ALLSVENSKAN · MATCHFAKTA · OMGÅNG 27</p>
+      <div class="matchup">${club(home,ta,'HEMMALAG')}<div class="versus"><span>MOT</span><i></i></div>${club(away,tb,'BORTALAG')}</div>
+      <p class="venue-line"><span>MATCHARENA</span><b>${esc(details.venue)}</b></p>
+      <p class="football-kickoff">${esc(dateLabel)} · Avspark <b>${esc(details.kickoff)}</b></p>
+      <p class="football-broadcast">Sändningsstart <b>${esc(event.time)}</b> · ${esc(event.channel)} · ${esc(event.service)}</p>
+      <div class="football-actions">${link(event.broadcastUrl || event.sourceUrl,'Se sändningen')}${link(details.schedule,'Officiellt spelschema')}</div>
+      <p class="data-note">${stale ? `Daterade matchfakta för ${esc(date)}` : `Matchfakta för ${esc(dateLabel)}`} · Alla tider är svensk tid</p>
     </section>
-    <section class="allsvenskan-grid">
-      <article class="allsvenskan-card"><p class="eyebrow dark">SÄNDNING</p><h2>${esc(event.time)} · ${esc(event.channel)}</h2><p>${esc(event.service)}</p><p>${link(event.broadcastUrl || event.sourceUrl, 'Öppna officiell programsida')}</p><p>Sändningen börjar före avspark. Avsparkstiden 19.00 är verifierad av Allsvenskan och berörda klubbar.</p></article>
-      <article class="allsvenskan-card"><p class="eyebrow dark">MATCHFAKTA</p><h2>Officiella källor</h2><div class="source-list">${link(details.schedule,'Allsvenskans spelschema')}${link(details.table,'Allsvenskans tabell')}${link(details.map,`Arena och karta: ${details.venue}`)}</div></article>
-      <article class="allsvenskan-card"><p class="eyebrow dark">SENASTE MÖTEN</p><h2>Verifierade resultat</h2>${details.latest.map(match => `<div class="meeting"><time>${esc(match.date)}</time>${link(match.url,match.result)}</div>`).join('')}<p>Historiska datum och resultat behålls oförändrade.</p></article>
-      <article class="allsvenskan-card"><p class="eyebrow dark">SENASTE RESULTAT</p><h2>Lagkällor</h2><div class="source-list">${details.teamResults.map(([label,url]) => link(url,label)).join('')}</div><p>Aktuella lagresultat hämtas via klubbarnas egna sidor; inga ej verifierade tabellplaceringar återges här.</p></article>
-    </section>`;
+    <section class="nhl-grid">
+      <article class="nhl-card"><p class="eyebrow dark">TABELL EFTER 1 NOVEMBER 2026</p><h2>Ligaplacering</h2>${standing(home,ta)}${standing(away,tb)}${link(details.table,'Se hela Allsvenskans tabell')}<p class="football-note">Daterad tabellbild, ingen liveuppdatering. ${link('https://sverigesfotboll.se/allsvenskan/poangstallning/','Tabellunderlag')}</p></article>
+      <article class="nhl-card"><p class="eyebrow dark">SENASTE MÖTENA</p><h2>Inbördes matcher</h2>${details.latest.map(match=>`<div class="meeting-row"><time>${esc(match.date)}</time><p>${link(match.url,match.result)}</p></div>`).join('')}</article>
+    </section>
+    <section class="map-section"><div><p class="eyebrow">VAR LAGEN FINNS</p><h2>Två lag.<br>En fotbollsliga.</h2><div class="map-legend"><p><b>${esc(ta.city)}</b><span>${esc(ta.arena)}</span></p><p><b>${esc(tb.city)}</b><span>${esc(tb.arena)}</span></p></div><p>${link(details.map,'Hitta till matcharenan')}</p></div><div id="football-map" class="nhl-real-map"><p>Kartan kunde inte laddas. Använd länken till matcharenan.</p></div></section>
+    <section class="football-sources"><p class="eyebrow dark">SENASTE RESULTAT OCH KÄLLOR</p><h2>Följ lagen</h2><div class="football-actions">${details.teamResults.map(([label,url])=>link(url,label)).join('')}${link(details.schedule,'Allsvenskans spelschema')}</div></section>`;
+  if(typeof L !== 'undefined'){
+    document.querySelector('#football-map').innerHTML='';
+    const map=L.map('football-map',{scrollWheelZoom:false});
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:18,attribution:'&copy; OpenStreetMap'}).addTo(map);
+    const marker=(t,code,color)=>L.marker([t.lat,t.lon],{icon:L.divIcon({className:'team-map-icon',html:`<span style="--pin:${color}">${esc(code)}</span>`,iconSize:[50,50],iconAnchor:[25,25]})}).addTo(map).bindPopup(`<b>${esc(t.name)}</b><br>${esc(t.arena)}<br>${esc(t.city)}`);
+    const m1=marker(ta,home,'#ff5b35'),m2=marker(tb,away,'#b9ffcf');
+    L.polyline([[ta.lat,ta.lon],[tb.lat,tb.lon]],{color:'#0d6b50',weight:3,dashArray:'9 10'}).addTo(map);
+    map.fitBounds(L.latLngBounds([m1.getLatLng(),m2.getLatLng()]).pad(.35),{maxZoom:6});
+    setTimeout(()=>map.invalidateSize(),80);
+  }
 })();
