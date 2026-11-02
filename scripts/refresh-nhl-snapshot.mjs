@@ -77,9 +77,22 @@ const fixtures = pairs.map(([home, away]) => schedules[home]
   .filter(Boolean)
   .map(compactGame);
 
+// Historical standings avoid revealing the outcome through changed points or record.
+const pregameStandings = {};
+for (const gameDate of new Set(fixtures.map(g => g.gameDate))) {
+  const asOf = new Date(new Date(gameDate + 'T12:00:00Z') - 86400000).toISOString().slice(0,10);
+  const response = await fetch(`${api}/standings/${asOf}`);
+  if (!response.ok) continue;
+  const payload = await response.json();
+  if (!payload.standings?.length || payload.standings.some(row => row.date && row.date !== asOf)) continue;
+  pregameStandings[gameDate] = {asOf, standings:Object.fromEntries(payload.standings.map(row => [row.teamAbbrev.default, {
+    leagueSequence:row.leagueSequence,wins:row.wins,losses:row.losses,otLosses:row.otLosses,points:row.points
+  }]))};
+}
 await writeFile(snapshotUrl, JSON.stringify({
   updatedAt: new Date().toISOString(),
   standings,
+  pregameStandings,
   meetings,
   results,
   fixtures
