@@ -10,10 +10,17 @@ Object.assign(teams,{
  PHI:{name:'Philadelphia Flyers',city:'Philadelphia',arena:'Xfinity Mobile Arena',lat:39.9012,lon:-75.1720},
  UTA:{name:'Utah Mammoth',city:'Salt Lake City',arena:'Delta Center',lat:40.7683,lon:-111.9011}
 });
+Object.assign(teams,{
+NYR:{name:'New York Rangers',city:'New York',arena:'Madison Square Garden',lat:40.7505,lon:-73.9934},
+EDM:{name:'Edmonton Oilers',city:'Edmonton',arena:'Rogers Place',lat:53.5468,lon:-113.4974},
+ANA:{name:'Anaheim Ducks',city:'Anaheim',arena:'Honda Center',lat:33.8078,lon:-117.8765},
+OTT:{name:'Ottawa Senators',city:'Ottawa',arena:'Canadian Tire Centre',lat:45.2969,lon:-75.9272}
+});
 document.head.insertAdjacentHTML('beforeend','<link rel="stylesheet" href="tablet.css"><link rel="stylesheet" href="homeaway.css">');
-const q=new URLSearchParams(location.search),a=q.get('a')||'FLA',b=q.get('b')||'WPG',ta=teams[a],tb=teams[b],root=document.querySelector('#nhl-content');
+const q=new URLSearchParams(location.search),root=document.querySelector('#nhl-content');
+let a=q.get('a'),b=q.get('b'),ta,tb;
 const esc=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
-async function load(){try{const d=await fetch('nhl-data.json').then(r=>r.json());render(d.standings[a],d.standings[b],d.meetings[`${a}-${b}`]||[],d.updatedAt)}catch{root.innerHTML='<div class="nhl-error"><h1>Kunde inte hämta NHL-data</h1><p>Försök igen om en liten stund.</p></div>'}}
+async function load(){try{const d=await fetch('nhl-data.json',{cache:'no-cache'}).then(r=>r.json());const today=new Intl.DateTimeFormat('sv-SE',{timeZone:'Europe/Stockholm'}).format(new Date());const fixtures=(d.fixtures||[]).filter(g=>new Intl.DateTimeFormat('sv-SE',{timeZone:'Europe/Stockholm'}).format(new Date(g.startTimeUTC))===today);if(!a&&!b){a=fixtures[0]?.homeTeam.abbrev;b=fixtures[0]?.awayTeam.abbrev;}ta=teams[a];tb=teams[b];if(!a||!b){root.innerHTML='<section class="nhl-card"><h1>NHL</h1><p>Inga matcher finns i dagens verifierade underlag. <a href="index.html">Till dagens sport</a></p></section>';return;}render(d.standings[a],d.standings[b],d.meetings[`${a}-${b}`]||[],d.updatedAt)}catch{root.innerHTML='<div class="nhl-error"><h1>Kunde inte hämta NHL-data</h1><p>Försök igen om en liten stund.</p></div>'}}
 function logo(code){return `https://assets.nhle.com/logos/nhl/svg/${code}_light.svg`}
 function standRow(code,t,s){return `<div class="stand-row"><img src="${logo(code)}" alt=""><div><b>${esc(t.name)}</b><span>${s?`${s.wins}–${s.losses}–${s.otLosses} · ${s.points} poäng`:'Uppgift saknas'}</span></div><strong>${s?`#${s.leagueSequence}`:'–'}</strong></div>`}
 function gameRow(g){const x=g.awayTeam,y=g.homeTeam;return `<div class="meeting-row"><time>${new Date(g.gameDate+'T12:00:00').toLocaleDateString('sv-SE',{day:'numeric',month:'short',year:'numeric'})}</time><div><span>${esc(x.placeName||x.abbrev)}</span><b>${x.score} – ${y.score}</b><span>${esc(y.placeName||y.abbrev)}</span></div><small>${esc(g.venue||'')}</small></div>`}

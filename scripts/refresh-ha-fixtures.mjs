@@ -7,16 +7,12 @@ const data = JSON.parse(await readFile(dataUrl, 'utf8'));
 const context = { globalThis: {} };
 vm.runInNewContext(await readFile(guideUrl, 'utf8'), context);
 const guide = context.globalThis.sportGuide;
-const official = {
-  'BIK-OIK': { time: '14:00', venue: 'Nobelhallen' },
-  'VIK-SSK': { time: '14:00', venue: 'ABB Arena Nord' },
-  'KAL-VIM': { time: '16:30', venue: 'Hatstore Arena' },
-  'VRH-NYB': { time: '16:30', venue: 'Visby Ishall' }
-};
+// Match times must come from a previously verified fixture or explicit guide data.
+const official = Object.fromEntries((data.fixtures || []).filter(g => g.date === guide.date).map(g => [`${g.home}-${g.away}`, g]));
 const fixtures = guide.events
   .filter(event => event.league === 'HockeyAllsvenskan')
   .map(event => {
-    const match = official[`${event.home}-${event.away}`];
+    const match = event.matchTime ? {time:event.matchTime,venue:event.venue} : official[`${event.home}-${event.away}`];
     if (!match) throw new Error(`Officiell matchtid saknas för ${event.home}-${event.away}`);
     return {
       date: guide.date,
@@ -34,6 +30,5 @@ const fixtures = guide.events
 await writeFile(dataUrl, JSON.stringify({
   ...data,
   date: guide.date,
-  checkedAt: new Date().toISOString(),
   fixtures
 }, null, 2) + '\n');

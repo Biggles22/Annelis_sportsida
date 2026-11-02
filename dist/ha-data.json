@@ -1,8 +1,8 @@
 {
   "date": "2026-11-02",
-  "checkedAt": "2026-11-01T23:07:07.413Z",
-  "resultsThrough": "2026-10-31",
-  "sourceUpdatedAt": "2026-10-31T20:25:00+01:00",
+  "checkedAt": "2026-11-02T08:59:00Z",
+  "resultsThrough": "2026-11-01",
+  "sourceUpdatedAt": "2026-11-01T20:57:00+01:00",
   "sources": {
     "schedule": "https://stats.swehockey.se/ScheduleAndResults/Schedule/20962",
     "results": "https://stats.swehockey.se/ScheduleAndResults/Overview/20962",
@@ -38,7 +38,7 @@
       "name": "MoDo Hockey",
       "city": "Örnsköldsvik",
       "arena": "Hägglunds Arena",
-      "pos": 3,
+      "pos": 4,
       "gp": 17,
       "points": 33,
       "cityCoordinates": [
@@ -50,8 +50,8 @@
       "name": "Södertälje SK",
       "city": "Södertälje",
       "arena": "Scaniarinken",
-      "pos": 4,
-      "gp": 16,
+      "pos": 5,
+      "gp": 17,
       "points": 31,
       "cityCoordinates": [
         59.2,
@@ -62,9 +62,9 @@
       "name": "Kalmar HC",
       "city": "Kalmar",
       "arena": "Hatstore Arena",
-      "pos": 5,
-      "gp": 16,
-      "points": 31,
+      "pos": 3,
+      "gp": 17,
+      "points": 34,
       "cityCoordinates": [
         56.66,
         16.36
@@ -98,9 +98,9 @@
       "name": "BIK Karlskoga",
       "city": "Karlskoga",
       "arena": "Nobelhallen",
-      "pos": 9,
-      "gp": 16,
-      "points": 21,
+      "pos": 8,
+      "gp": 17,
+      "points": 23,
       "cityCoordinates": [
         59.33,
         14.52
@@ -110,9 +110,9 @@
       "name": "Östersunds IK",
       "city": "Östersund",
       "arena": "Östersund Arena Hall A",
-      "pos": 10,
-      "gp": 16,
-      "points": 20,
+      "pos": 11,
+      "gp": 17,
+      "points": 21,
       "cityCoordinates": [
         63.18,
         14.64
@@ -122,7 +122,7 @@
       "name": "Almtuna IS",
       "city": "Uppsala",
       "arena": "Gränby Ishallar A-hall",
-      "pos": 8,
+      "pos": 9,
       "gp": 17,
       "points": 23,
       "cityCoordinates": [
@@ -134,9 +134,9 @@
       "name": "Västerås IK",
       "city": "Västerås",
       "arena": "ABB Arena Nord",
-      "pos": 11,
-      "gp": 16,
-      "points": 19,
+      "pos": 10,
+      "gp": 17,
+      "points": 22,
       "cityCoordinates": [
         59.61,
         16.55
@@ -147,7 +147,7 @@
       "city": "Vimmerby",
       "arena": "VBO Arena",
       "pos": 12,
-      "gp": 15,
+      "gp": 16,
       "points": 13,
       "cityCoordinates": [
         57.67,
@@ -159,7 +159,7 @@
       "city": "Nybro",
       "arena": "Liljas Arena",
       "pos": 13,
-      "gp": 16,
+      "gp": 17,
       "points": 13,
       "cityCoordinates": [
         56.74,
@@ -171,8 +171,8 @@
       "city": "Visby",
       "arena": "Visby Ishall",
       "pos": 14,
-      "gp": 16,
-      "points": 9,
+      "gp": 17,
+      "points": 12,
       "cityCoordinates": [
         57.64,
         18.3
@@ -344,6 +344,42 @@
       "hs": 2,
       "as": 4,
       "venue": "Gränby Ishallar A-hall"
+    },
+    {
+      "date": "2026-11-01",
+      "time": "14:00",
+      "home": "BIK",
+      "away": "OIK",
+      "hs": 5,
+      "as": 4,
+      "venue": "Nobelhallen"
+    },
+    {
+      "date": "2026-11-01",
+      "time": "14:00",
+      "home": "VIK",
+      "away": "SSK",
+      "hs": 4,
+      "as": 1,
+      "venue": "ABB Arena Nord"
+    },
+    {
+      "date": "2026-11-01",
+      "time": "16:30",
+      "home": "KAL",
+      "away": "VIM",
+      "hs": 6,
+      "as": 3,
+      "venue": "Hatstore Arena"
+    },
+    {
+      "date": "2026-11-01",
+      "time": "16:30",
+      "home": "VRH",
+      "away": "NYB",
+      "hs": 4,
+      "as": 3,
+      "venue": "Visby Ishall"
     }
   ]
 }
