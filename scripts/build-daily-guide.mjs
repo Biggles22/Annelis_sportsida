@@ -54,6 +54,9 @@ const haCodes = {
   'Södertälje SK': 'SSK', 'Kalmar HC': 'KAL', 'Vimmerby HC': 'VIM',
   'Visby Roma': 'VRH', 'Visby/Roma HK': 'VRH', 'Nybro Vikings IF': 'NYB'
 };
+const allsvenskanCodes = {
+  GAIS: 'GAIS', AIK: 'AIK', 'Mjällby AIF': 'MAIF', 'Kalmar FF': 'KFF'
+};
 const leagueFacts = {
   NHL: { label: 'NHL: resultat och tabell', url: 'https://www.nhl.com/standings/' },
   'Premier League': { label: 'Premier League: resultat och tabell', url: 'https://www.premierleague.com/en/tables/premier-league' },
@@ -259,6 +262,21 @@ const tv4Events = (tv4Response.data?.tableau || [])
           home,
           away,
           league: 'HockeyAllsvenskan'
+        });
+      }
+    }
+    if (content.league === 'Allsvenskan') {
+      const [homeName, awayName] = String(content.title || '').split(' - ');
+      const home = allsvenskanCodes[homeName];
+      const away = allsvenskanCodes[awayName];
+      if (home && away) {
+        Object.assign(event, {
+          url: `allsvenskan.html?home=${home}&away=${away}&date=${targetDate}`,
+          home,
+          away,
+          league: 'Allsvenskan',
+          matchTime: '19:00',
+          venue: content.arena || ''
         });
       }
     }
