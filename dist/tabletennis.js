@@ -1,37 +1,13 @@
-document.head.insertAdjacentHTML('beforeend','<link rel="stylesheet" href="tablet.css"><link rel="stylesheet" href="verification.css">');
-const root=document.querySelector('#tt-matches');
-const verifiedDate='2026-11-01';
+(() => {
+const root=document.querySelector('#tt-content'),guide=globalThis.sportGuide;
 const today=new Intl.DateTimeFormat('sv-SE',{timeZone:'Europe/Stockholm'}).format(new Date());
-if(today!==verifiedDate){
-  root.innerHTML='<p class="verification-note">Dagens program är inte verifierat. Senast verifierad sändning: 1 november 2026. Äldre matcher visas inte som dagens.</p>';
-  document.querySelector('.tt-heading .eyebrow').textContent='SENAST VERIFIERAT';
-}else{
-  root.innerHTML=[
-    '<article class="tt-match">',
-    '<time datetime="2026-11-01T13:15:00+01:00">13:15</time>',
-    '<div class="tt-player"><span>🇸🇪</span><div><b>Truls Möregårdh</b><small>Sverige · 3 set</small></div></div>',
-    '<span class="tt-vs">3–4</span>',
-    '<div class="tt-player right"><span>🇩🇪</span><div><b>Patrick Franziska</b><small>Tyskland · 4 set · vinnare</small></div></div>',
-    '<button type="button" aria-expanded="false" aria-controls="tt-semifinal-info">Matchfakta +</button>',
-    '<div class="tt-details" id="tt-semifinal-info"><p><b>WTT Champions Montpellier · semifinal, herrsingel</b><span>Patrick Franziska vann med 4–3 i set. Matchen spelades söndag 1 november 2026 från kl. 13.15 svensk tid i Sud de France Arena.</span></p><div><a href="https://www.svt.se/sport/bordtennis/truls-moregardh-ar-ute-ur-montpellier-wtt" target="_blank" rel="noreferrer">SVT:s matchrapport och resultat ↗</a><br><a href="https://www.worldtabletennis.com/eventslist" target="_blank" rel="noreferrer">WTT:s tävlingscenter ↗</a></div></div>',
-    '</article>',
-    '<article class="tt-match">',
-    '<time datetime="2026-11-01T17:30:00+01:00">17:30</time>',
-    '<div class="tt-player"><span>🏓</span><div><b>Kuai Man–Sun Yingsha</b><small>Damfinal 17.30 · därefter Jang Woojin–Patrick Franziska</small></div></div>',
-    '<span class="tt-vs">FINALPASS</span>',
-    '<div class="tt-player right"><span>📺</span><div><b>SVT Play</b><small>17.30–20.00 svensk tid</small></div></div>',
-    '<button type="button" aria-expanded="false" aria-controls="tt-finals-info">Matchfakta +</button>',
-    '<div class="tt-details" id="tt-finals-info"><p><b>WTT Champions Montpellier · finaler</b><span>Damfinal: Kuai Man–Sun Yingsha kl. 17.30. Herrfinal: Jang Woojin–Patrick Franziska kl. 18.30. SVT Play sänder finalpasset 17.30–20.00. Slutresultaten var ännu inte verifierade i tillgänglig officiell källa vid senaste kontrollen.</span></p><div><a href="https://www.fftt.com/actualites/wtt/les-finales-sont-connues/" target="_blank" rel="noreferrer">FFTT:s officiella finalprogram ↗</a><br><a href="https://www.svt.se/sport/bordtennis/sa-sander-svt-bordtennis-2026" target="_blank" rel="noreferrer">SVT:s sportguide ↗</a><br><a href="https://www.worldtabletennis.com/eventslist" target="_blank" rel="noreferrer">WTT:s tävlingscenter ↗</a></div></div>',
-    '</article>',
-    '<p class="verification-note">Semifinalresultatet och SVT Play-sändningarna kontrollerades mot SVT. Finalister och finaltider kontrollerades mot FFTT den 1 november 2026. Alla tider är svensk tid.</p>'
-  ].join('');
-  root.addEventListener('click',event=>{
-    const button=event.target.closest('button');
-    if(!button)return;
-    const details=button.closest('.tt-match')?.querySelector('.tt-details');
-    if(!details)return;
-    const open=details.classList.toggle('open');
-    button.setAttribute('aria-expanded',String(open));
-    button.textContent=open?'Stäng −':'Matchfakta +';
-  });
-}
+const date=new URLSearchParams(location.search).get('date')||today;
+const event=guide?.events.find(e=>e.sport==='Bordtennis'&&e.date===date);
+const esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const link=(url,label)=>`<a href="${esc(url)}" target="_blank" rel="noopener noreferrer">${esc(label)} ↗</a>`;
+if(!event||date!=='2026-11-03'){root.innerHTML='<section class="nhl-card"><h1>Bordtennis</h1><p>Ingen match är verifierad i underlaget för det valda datumet.</p><a href="index.html">Till dagens sport</a></section>';return;}
+const club=(name,country)=>`<div class="club"><span class="club-label">SPELARE</span><div class="football-badge" aria-hidden="true">${country}</div><h1>${name}</h1><p>${country==='SWE'?'Sverige':'Tyskland'}</p></div>`;
+root.innerHTML=`<section class="match-hero"><p class="eyebrow">BORDTENNIS · WTT CHAMPIONS FRANKFURT</p><div class="matchup">${club('Dang Qiu','GER')}<div class="versus"><span>MOT</span><i></i></div>${club('Elias Ranefur','SWE')}</div><p class="venue-line"><span>MATCHARENA</span><b>Süwag Energie ARENA · Frankfurt</b></p><p class="football-kickoff">Tisdag 3 november 2026 · Matchstart <b>18.30</b> enligt SVT Text</p><p class="football-broadcast">Sändningsstart <b>${esc(event.time)}</b> · SVT Play · Svensk tid</p><div class="football-actions">${link(event.broadcastUrl,'Se sändningen')}${link('https://www.svt.se/text-tv/399','Matchtid hos SVT')}</div><p class="data-note">Matchdagens resultat och vinnare döljs. Starttider kan ändras.</p></section><section class="nhl-grid"><article class="nhl-card"><p class="eyebrow dark">VÄRLDSRANKING FÖRE MATCHEN</p><h2>Spelarnas ranking</h2><div class="stand-row"><span>GER</span><div><b>Dang Qiu</b><span>Aktuell placering ej verifierad i officiellt underlag</span></div><strong>–</strong></div><div class="stand-row"><span>SWE</span><div><b>Elias Ranefur</b><span>Aktuell placering ej verifierad i officiellt underlag</span></div><strong>–</strong></div>${link('https://www.ittf.com/rankings/','ITTF:s officiella ranking')}</article><article class="nhl-card"><p class="eyebrow dark">INBÖRDES MÖTEN</p><h2>Äldre matcher</h2><p>Inga äldre inbördes resultat har kunnat verifieras i det tillgängliga officiella underlaget. Dagens match visas aldrig i resultatlistan.</p>${link('https://www.worldtabletennis.com/eventslist','WTT:s tävlingscenter')}</article></section><section class="map-section"><div><p class="eyebrow">VAR MATCHEN SPELAS</p><h2>Frankfurt.<br>Världstouren.</h2><div class="map-legend"><p><b>Süwag Energie ARENA</b><span>Frankfurt am Main · Tyskland</span></p></div>${link('https://www.openstreetmap.org/search?query=S%C3%BCwag%20Energie%20ARENA%20Frankfurt','Sök matcharenan')}</div><div id="tt-map" class="nhl-real-map"><p>Kartan kunde inte laddas. Använd arenalänken.</p></div></section><section class="football-sources"><h2>Källor och matchfakta</h2><p>Spelare och sändningsstart: SVT Play. Matchstart: SVT Text. Arena: Tischtennis Baden-Württemberg. Ranking och äldre resultat anges endast när de kan verifieras. Datum för detta underlag: 3 november 2026.</p><div class="football-actions">${link(event.sourceUrl,'SVT Play')}${link('https://www.ttbw.de/news/artikel/wtt-champions-frankfurt-3-bis-8-november-in-der-suewag-energie-arena/','Tävlingsarena')}${link('https://www.ittf.com/rankings/','ITTF')}</div></section>`;
+// The city marker is deliberately labelled as approximate, not an exact arena entrance.
+if(typeof L!=='undefined'){document.querySelector('#tt-map').innerHTML='';const map=L.map('tt-map',{scrollWheelZoom:false}).setView([50.11,8.68],10);L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:18,attribution:'&copy; OpenStreetMap'}).addTo(map);L.marker([50.11,8.68]).addTo(map).bindPopup('Frankfurt · ungefärlig tävlingsort');}
+})();

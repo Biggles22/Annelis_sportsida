@@ -55,7 +55,7 @@ const haCodes = {
   'Visby Roma': 'VRH', 'Visby/Roma HK': 'VRH', 'Nybro Vikings IF': 'NYB'
 };
 const allsvenskanCodes = {
-  GAIS: 'GAIS', AIK: 'AIK', 'Mjällby AIF': 'MAIF', 'Kalmar FF': 'KFF'
+  GAIS: 'GAIS', AIK: 'AIK', 'Mjällby AIF': 'MAIF', 'Kalmar FF': 'KFF', 'IK Sirius':'SIR', 'Halmstads BK':'HBK'
 };
 const leagueFacts = {
   NHL: { label: 'NHL: resultat och tabell', url: 'https://www.nhl.com/standings/' },
@@ -266,7 +266,7 @@ const tv4Events = (tv4Response.data?.tableau || [])
       }
     }
     if (content.league === 'Allsvenskan') {
-      const [homeName, awayName] = String(content.title || '').split(' - ');
+      const [homeName, awayName] = String(content.title || '').replace(/^Studio: /,'').split(' - ');
       const home = allsvenskanCodes[homeName];
       const away = allsvenskanCodes[awayName];
       if (home && away) {
@@ -322,6 +322,11 @@ const svtEventsByDate = {
     }
   ]
 };
+svtEventsByDate['2026-11-03'] = [
+{sport:'Bordtennis',time:'18:30',title:'Dang Qiu – Elias Ranfeur',meta:'WTT Champions Frankfurt · Herrsingel · Matchstart 18.30 enligt SVT Text',channel:'SVT Play',url:'bordtennis.html?date=2026-11-03',sourceUrl:'https://www.svtplay.se/video/8z77rEy/bordtennis-wtt/imorgon-18-30',facts:[{label:'SVT: sändning och spelare',url:'https://www.svt.se/sport/artikel/sport-pa-tv-sa-sander-svt-sport'},{label:'SVT Text: matchstart',url:'https://www.svt.se/text-tv/399'}]},
+{sport:'Ridsport',time:'09:55',title:'Ungdoms-OS – ridsport',meta:'SVT:s sändning 09.55–11.30',channel:'SVT1',url:svtSchedule},
+{sport:'Fotboll',time:'12:55',title:'UEFA Nations League – lottning',meta:'SVT Sport Direkt',channel:'SVT Play',url:'https://www.svtplay.se/video/8y2RRyJ/svt-sport-direkt/uefa-nations-league-lottning'}
+];
 const svtEvents = (svtEventsByDate[targetDate] || []).map(item => ({
   date: targetDate,
   ...item,
@@ -330,7 +335,8 @@ const svtEvents = (svtEventsByDate[targetDate] || []).map(item => ({
   broadcastUrl: item.sourceUrl || item.url
 }));
 
-const events = [...viaplayEvents, ...tv4Events, ...svtEvents]
+const extraEvents = targetDate === '2026-11-03' ? [{date:targetDate,sport:'Övrigt',time:'07:00',title:'Snooker – International Championship',meta:'Eurosport · Nanjing · Kontrollera eventuell sporttilläggsbehörighet i HBO Max',channel:'HBO Max / Eurosport',service:'HBO Max / Eurosport',url:'https://www.wst.tv/news/2026/october/29/how-to-watch-the-international-championship/',sourceUrl:'https://www.wst.tv/news/2026/october/29/how-to-watch-the-international-championship/',broadcastUrl:'https://www.hbomax.com/se/sv/sports',facts:[{label:'Officiell programtid via Max-kanalen: 3 november 07.00 CET',url:'https://www.primevideo.com/-/sv/channel/e6a830e0-30c9-4cc5-9725-f471341f9078/ref%3Datv_dp_ch_lo_atf?tr=se'}]}] : [];
+const events = [...viaplayEvents, ...tv4Events, ...svtEvents, ...extraEvents]
   .sort((a, b) => a.sport.localeCompare(b.sport, 'sv') || a.time.localeCompare(b.time) || a.title.localeCompare(b.title, 'sv'));
 
 await writeFile(new URL('../dist/guide-data.js', import.meta.url), `globalThis.sportGuide=${JSON.stringify({

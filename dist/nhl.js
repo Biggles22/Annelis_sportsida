@@ -11,6 +11,7 @@ Object.assign(teams,{
  UTA:{name:'Utah Mammoth',city:'Salt Lake City',arena:'Delta Center',lat:40.7683,lon:-111.9011}
 });
 Object.assign(teams,{
+SJS:{name:'San Jose Sharks',city:'San Jose',arena:'SAP Center',lat:37.3328,lon:-121.9012},
 NYR:{name:'New York Rangers',city:'New York',arena:'Madison Square Garden',lat:40.7505,lon:-73.9934},
 EDM:{name:'Edmonton Oilers',city:'Edmonton',arena:'Rogers Place',lat:53.5468,lon:-113.4974},
 ANA:{name:'Anaheim Ducks',city:'Anaheim',arena:'Honda Center',lat:33.8078,lon:-117.8765},
