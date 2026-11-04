@@ -327,6 +327,11 @@ svtEventsByDate['2026-11-03'] = [
 {sport:'Ridsport',time:'09:55',title:'Ungdoms-OS – ridsport',meta:'SVT:s sändning 09.55–11.30',channel:'SVT1',url:svtSchedule},
 {sport:'Fotboll',time:'12:55',title:'UEFA Nations League – lottning',meta:'SVT Sport Direkt',channel:'SVT Play',url:'https://www.svtplay.se/video/8y2RRyJ/svt-sport-direkt/uefa-nations-league-lottning'}
 ];
+svtEventsByDate['2026-11-04'] = [
+{sport:'Bordtennis',time:'19:00',title:'Lim Jonghoon – Anton Källberg',meta:'WTT Champions Frankfurt · Herrsingel · Matchstart 19.05 enligt Svenska Bordtennisförbundet',channel:'SVT Play',url:'bordtennis.html?date=2026-11-04',sourceUrl:'https://www.svtplay.se/video/KN33Wo4/bordtennis-wtt/imorgon-19-00',facts:[{label:'SVT: sändningsstart 19.00',url:'https://www.svt.se/sport/bordtennis/sa-sander-svt-bordtennis-2026'},{label:'SBTF: matchstart 19.05',url:'https://sbtf.se/landslag/truls-foll-i-semin-i-montpellier-nu-vantar-wtt-champions-frankfurt/'}]},
+{sport:'Övrigt',time:'14:55',title:'Ungdoms-OS – beachvolleyboll, final',meta:'SVT:s aktuella Play-tablå · 14.55–17.00',channel:'SVT Play',url:'https://www.svt.se/sport/tabla/'},
+{sport:'Fotboll',time:'11:59',title:'Sveriges trupp till Nations League presenteras',meta:'SVT Sport Direkt',channel:'SVT Play',url:'https://www.svt.se/sport/tabla/'}
+];
 const svtEvents = (svtEventsByDate[targetDate] || []).map(item => ({
   date: targetDate,
   ...item,

@@ -11,6 +11,12 @@ Object.assign(teams,{
  UTA:{name:'Utah Mammoth',city:'Salt Lake City',arena:'Delta Center',lat:40.7683,lon:-111.9011}
 });
 Object.assign(teams,{
+CAR:{name:'Carolina Hurricanes',city:'Raleigh',arena:'Lenovo Center',lat:35.8033,lon:-78.7218},
+MIN:{name:'Minnesota Wild',city:'Saint Paul',arena:'Grand Casino Arena',lat:44.9448,lon:-93.1011},
+WSH:{name:'Washington Capitals',city:'Washington',arena:'Capital One Arena',lat:38.8981,lon:-77.0209},
+NSH:{name:'Nashville Predators',city:'Nashville',arena:'Bridgestone Arena',lat:36.1591,lon:-86.7785},
+TBL:{name:'Tampa Bay Lightning',city:'Tampa',arena:'Benchmark International Arena',lat:27.9427,lon:-82.4518},
+NYI:{name:'New York Islanders',city:'Elmont',arena:'UBS Arena',lat:40.7118,lon:-73.726},
 SJS:{name:'San Jose Sharks',city:'San Jose',arena:'SAP Center',lat:37.3328,lon:-121.9012},
 NYR:{name:'New York Rangers',city:'New York',arena:'Madison Square Garden',lat:40.7505,lon:-73.9934},
 EDM:{name:'Edmonton Oilers',city:'Edmonton',arena:'Rogers Place',lat:53.5468,lon:-113.4974},
