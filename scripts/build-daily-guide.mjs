@@ -332,6 +332,12 @@ svtEventsByDate['2026-11-04'] = [
 {sport:'Övrigt',time:'14:55',title:'Ungdoms-OS – beachvolleyboll, final',meta:'SVT:s aktuella Play-tablå · 14.55–17.00',channel:'SVT Play',url:'https://www.svt.se/sport/tabla/'},
 {sport:'Fotboll',time:'11:59',title:'Sveriges trupp till Nations League presenteras',meta:'SVT Sport Direkt',channel:'SVT Play',url:'https://www.svt.se/sport/tabla/'}
 ];
+svtEventsByDate['2026-11-05'] = [
+{sport:'Bordtennis',time:'15:20',title:'Kristian Karlsson – Oh Junsung',meta:'WTT Champions Frankfurt · Herrsingel · Matchstart 15.20 · Kristian ersätter Truls Möregårdh enligt SBTF',channel:'SVT Play',url:'bordtennis.html?date=2026-11-05',sourceUrl:'https://www.svt.se/sport/bordtennis/sa-sander-svt-bordtennis-2026',facts:[{label:'SBTF: Kristian Karlsson ersätter Truls, matchtid 15.20',url:'https://sbtf.se/landslag/elias-utslagen-mot-dang-qiu-i-frankfurt/'},{label:'SVT: sändning 15.20',url:'https://www.svt.se/sport/tabla/'}]},
+{sport:'Ridsport',time:'09:55',title:'Ungdoms-OS – ridsport, kval 2',meta:'SVT2/SVT Play · 09.55–12.00',channel:'SVT2',url:'https://www.svt.se/sport/beachvolleyboll/guide-ungdoms-os-2026'},
+{sport:'Ishockey',time:'18:20',title:'Tjeckien – Sverige',meta:'Euro Hockey Tour · Finland Hockey Games · Matchstart ej separat verifierad · Aktuell SVT Play-tablå anger sändningsstart 18.20',channel:'SVT Play',url:'https://www.svt.se/sport/tabla/'},
+{sport:'Handboll',time:'18:20',title:'Sverige – Grekland',meta:'EM-kval herrar · Matchstart ej separat verifierad',channel:'SVT Play',url:'https://www.svt.se/sport/tabla/'}
+];
 const svtEvents = (svtEventsByDate[targetDate] || []).map(item => ({
   date: targetDate,
   ...item,
@@ -341,7 +347,19 @@ const svtEvents = (svtEventsByDate[targetDate] || []).map(item => ({
 }));
 
 const extraEvents = targetDate === '2026-11-03' ? [{date:targetDate,sport:'Övrigt',time:'07:00',title:'Snooker – International Championship',meta:'Eurosport · Nanjing · Kontrollera eventuell sporttilläggsbehörighet i HBO Max',channel:'HBO Max / Eurosport',service:'HBO Max / Eurosport',url:'https://www.wst.tv/news/2026/october/29/how-to-watch-the-international-championship/',sourceUrl:'https://www.wst.tv/news/2026/october/29/how-to-watch-the-international-championship/',broadcastUrl:'https://www.hbomax.com/se/sv/sports',facts:[{label:'Officiell programtid via Max-kanalen: 3 november 07.00 CET',url:'https://www.primevideo.com/-/sv/channel/e6a830e0-30c9-4cc5-9725-f471341f9078/ref%3Datv_dp_ch_lo_atf?tr=se'}]}] : [];
-const events = [...viaplayEvents, ...tv4Events, ...svtEvents, ...extraEvents]
+const disneyEvents = [];
+if (targetDate === '2026-11-05') {
+ const competitions=[
+ ['UEFA Europa League','https://www.uefa.com/uefaeuropaleague/news/02aa-21f10ec08a8c-d0499acdffe2-1000--europa-league-matchday-4-briefing-five-sides-look-to-main/',
+ ['Milan – Ferencváros','Sparta Prag – Bournemouth','Crystal Palace – Hoffenheim','Lillestrøm – Viktoria Plzeň','NEC Nijmegen – Omonia','Levski Sofia – Jagiellonia','Real Sociedad – Lyon','Anderlecht – Salzburg'],
+ ['AZ Alkmaar – Juventus','Leverkusen – Marseille','Celtic – Beşiktaş','Hapoel Beer-Sheva – OFI Kreta','Celta Vigo – Union SG','Torreense – Ararat-Armenia','Sturm Graz – Celje','Benfica – Lech Poznań','Sunderland – Dinamo Zagreb']],
+ ['UEFA Conference League','https://www.uefa.com/uefaconferenceleague/news/02aa-21f10eaba7bb-44b3e170c431-1000--conference-league-matchday-3-briefing-trabzonspor-monaco-p/',
+ ['Aarhus – Braga','Atalanta – Kairat Almaty','Midtjylland – Ajax','Thun – Hearts','Crvena Zvezda – Inter Escaldes','KuPS – Gent','Lincoln Red Imps – Hajduk Split','Mjällby – Borac','Trabzonspor – Freiburg'],
+ ['Monaco – Nordsjælland','Köpenhamn – Iberia Tbilisi','Lugano – Kauno Žalgiris','Twente – Pafos','Getafe – Brighton','Sint-Truiden – Brann','Panathinaikos – CSKA Sofia','Riga – Jablonec','Universitatea Craiova – Egnatia']]
+ ];
+ for(const [competition,source,early,late] of competitions)for(const [time,titles] of [['18:45',early],['21:00',late]])for(const title of titles)disneyEvents.push({date:targetDate,sport:'Fotboll',time,title,meta:competition+' · Matchstart '+time+' · Separat sändningsstart ej verifierad',timeKind:'match',channel:'Disney+',service:'Disney+',url:'https://www.disneyplus.com/sv-se',sourceUrl:source,broadcastUrl:'https://www.disneyplus.com/sv-se',facts:[{label:'UEFA: verifierat matchprogram (CET)',url:source},{label:'UEFA: Disney+ är svensk sändningspartner',url:'https://www.uefa.com/uefaeuropaleague/news/028d-1ae6d62165d6-69b17b354deb-1000--where-to-watch-the-europa-league-final-tv-broadcast-partne/'}]});
+}
+const events = [...viaplayEvents, ...tv4Events, ...svtEvents, ...extraEvents, ...disneyEvents]
   .sort((a, b) => a.sport.localeCompare(b.sport, 'sv') || a.time.localeCompare(b.time) || a.title.localeCompare(b.title, 'sv'));
 
 await writeFile(new URL('../dist/guide-data.js', import.meta.url), `globalThis.sportGuide=${JSON.stringify({
