@@ -340,8 +340,7 @@ svtEventsByDate['2026-11-05'] = [
 ];
 svtEventsByDate['2026-11-06'] = [
 {sport:'Ridsport',time:'09:55',title:'Ungdoms-OS – ridsport, final',meta:'SVT2/SVT Play · 09.55–13.00',channel:'SVT2',url:'https://www.svt.se/sport/artikel/sport-pa-tv-sa-sander-svt-sport'},
-{sport:'Bordtennis',time:'13:00',title:'WTT Champions Frankfurt – dagpass',meta:'SVT Play 13.00–17.00 · Spelare och separata matchstarter ej verifierade',channel:'SVT Play',url:'bordtennis.html?date=2026-11-06&pass=13:00',sourceUrl:'https://www.svt.se/sport/artikel/sport-pa-tv-sa-sander-svt-sport'},
-{sport:'Bordtennis',time:'18:30',title:'WTT Champions Frankfurt – kvällspass',meta:'SVT Play 18.30–22.30 · Spelare och separata matchstarter ej verifierade',channel:'SVT Play',url:'bordtennis.html?date=2026-11-06&pass=18:30',sourceUrl:'https://www.svt.se/sport/artikel/sport-pa-tv-sa-sander-svt-sport'},
+{sport:'Bordtennis',time:'13:00',title:'WTT Champions Frankfurt – dagpass',status:'unverified',meta:'13.00–17.00 enligt SVT:s sportguide · Inte bekräftat i SVT Play · Se matchprogram och källstatus',broadcastUrl:'https://www.svtplay.se/bordtennis-wtt',broadcastCheckedDate:'2026-11-06',channel:'SVT Play',url:'bordtennis.html?date=2026-11-06&pass=13:00',sourceUrl:'https://www.svt.se/sport/bordtennis/sa-sander-svt-bordtennis-2026'},
 {sport:'Ishockey',time:'15:00',title:'Sverige – Kanada',meta:'VM damer · SVT2/SVT Play · Matchstart ej separat verifierad',channel:'SVT2',url:'https://www.svt.se/sport/ishockey/sverige-stalls-mot-kanada-direkt-hoppas-de-ar-jetlaggade'}
 ];
 const svtEvents = (svtEventsByDate[targetDate] || []).map(item => ({
@@ -349,7 +348,7 @@ const svtEvents = (svtEventsByDate[targetDate] || []).map(item => ({
   ...item,
   service: 'SVT Play',
   sourceUrl: item.sourceUrl || item.url,
-  broadcastUrl: item.sourceUrl || item.url
+  broadcastUrl: item.broadcastUrl || item.sourceUrl || item.url
 }));
 
 const extraEvents = targetDate === '2026-11-03' ? [{date:targetDate,sport:'Övrigt',time:'07:00',title:'Snooker – International Championship',meta:'Eurosport · Nanjing · Kontrollera eventuell sporttilläggsbehörighet i HBO Max',channel:'HBO Max / Eurosport',service:'HBO Max / Eurosport',url:'https://www.wst.tv/news/2026/october/29/how-to-watch-the-international-championship/',sourceUrl:'https://www.wst.tv/news/2026/october/29/how-to-watch-the-international-championship/',broadcastUrl:'https://www.hbomax.com/se/sv/sports',facts:[{label:'Officiell programtid via Max-kanalen: 3 november 07.00 CET',url:'https://www.primevideo.com/-/sv/channel/e6a830e0-30c9-4cc5-9725-f471341f9078/ref%3Datv_dp_ch_lo_atf?tr=se'}]}] : [];
