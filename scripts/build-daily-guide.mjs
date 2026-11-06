@@ -55,7 +55,7 @@ const haCodes = {
   'Visby Roma': 'VRH', 'Visby/Roma HK': 'VRH', 'Nybro Vikings IF': 'NYB'
 };
 const allsvenskanCodes = {
-  GAIS: 'GAIS', AIK: 'AIK', 'Mjällby AIF': 'MAIF', 'Kalmar FF': 'KFF', 'IK Sirius':'SIR', 'Halmstads BK':'HBK'
+  GAIS: 'GAIS', AIK: 'AIK', 'Mjällby AIF': 'MAIF', 'Kalmar FF': 'KFF', 'IK Sirius':'SIR', 'Halmstads BK':'HBK', 'Hammarby IF':'HAM', 'IF Elfsborg':'ELF'
 };
 const leagueFacts = {
   NHL: { label: 'NHL: resultat och tabell', url: 'https://www.nhl.com/standings/' },
@@ -338,6 +338,12 @@ svtEventsByDate['2026-11-05'] = [
 {sport:'Ishockey',time:'18:20',title:'Tjeckien – Sverige',meta:'Euro Hockey Tour · Finland Hockey Games · Matchstart ej separat verifierad · Aktuell SVT Play-tablå anger sändningsstart 18.20',channel:'SVT Play',url:'https://www.svt.se/sport/tabla/'},
 {sport:'Handboll',time:'18:20',title:'Sverige – Grekland',meta:'EM-kval herrar · Matchstart ej separat verifierad',channel:'SVT Play',url:'https://www.svt.se/sport/tabla/'}
 ];
+svtEventsByDate['2026-11-06'] = [
+{sport:'Ridsport',time:'09:55',title:'Ungdoms-OS – ridsport, final',meta:'SVT2/SVT Play · 09.55–13.00',channel:'SVT2',url:'https://www.svt.se/sport/artikel/sport-pa-tv-sa-sander-svt-sport'},
+{sport:'Bordtennis',time:'13:00',title:'WTT Champions Frankfurt – dagpass',meta:'SVT Play 13.00–17.00 · Spelare och separata matchstarter ej verifierade',channel:'SVT Play',url:'bordtennis.html?date=2026-11-06&pass=13:00',sourceUrl:'https://www.svt.se/sport/artikel/sport-pa-tv-sa-sander-svt-sport'},
+{sport:'Bordtennis',time:'18:30',title:'WTT Champions Frankfurt – kvällspass',meta:'SVT Play 18.30–22.30 · Spelare och separata matchstarter ej verifierade',channel:'SVT Play',url:'bordtennis.html?date=2026-11-06&pass=18:30',sourceUrl:'https://www.svt.se/sport/artikel/sport-pa-tv-sa-sander-svt-sport'},
+{sport:'Ishockey',time:'15:00',title:'Sverige – Kanada',meta:'VM damer · SVT2/SVT Play · Matchstart ej separat verifierad',channel:'SVT2',url:'https://www.svt.se/sport/ishockey/sverige-stalls-mot-kanada-direkt-hoppas-de-ar-jetlaggade'}
+];
 const svtEvents = (svtEventsByDate[targetDate] || []).map(item => ({
   date: targetDate,
   ...item,
@@ -360,6 +366,7 @@ if (targetDate === '2026-11-05') {
  for(const [competition,source,early,late] of competitions)for(const [time,titles] of [['18:45',early],['21:00',late]])for(const title of titles)disneyEvents.push({date:targetDate,sport:'Fotboll',time,title,meta:competition+' · Matchstart '+time+' · Separat sändningsstart ej verifierad',timeKind:'match',channel:'Disney+',service:'Disney+',url:'https://www.disneyplus.com/sv-se',sourceUrl:source,broadcastUrl:'https://www.disneyplus.com/sv-se',facts:[{label:'UEFA: verifierat matchprogram (CET)',url:source},{label:'UEFA: Disney+ är svensk sändningspartner',url:'https://www.uefa.com/uefaeuropaleague/news/028d-1ae6d62165d6-69b17b354deb-1000--where-to-watch-the-europa-league-final-tv-broadcast-partne/'}]});
 }
 const events = [...viaplayEvents, ...tv4Events, ...svtEvents, ...extraEvents, ...disneyEvents]
+  .filter((e,i,all)=>all.findIndex(x=>x.title===e.title&&x.time===e.time&&x.channel===e.channel&&x.service===e.service)===i)
   .sort((a, b) => a.sport.localeCompare(b.sport, 'sv') || a.time.localeCompare(b.time) || a.title.localeCompare(b.title, 'sv'));
 
 await writeFile(new URL('../dist/guide-data.js', import.meta.url), `globalThis.sportGuide=${JSON.stringify({

@@ -16,25 +16,26 @@ function render(data) {
   const a = q.has('a') ? q.get('a') : first?.home;
   const b = q.has('b') ? q.get('b') : first?.away;
   const ta = teams[a], tb = teams[b];
-  const recent = [...data.results].sort((x,y) => y.date.localeCompare(x.date));
-  const allGames = [...data.fixtures, ...recent];
+  const cutoff = q.get('date') || today;
+  const recent = [...data.results].filter(g=>g.date<cutoff).sort((x,y) => y.date.localeCompare(x.date));
+  const allGames = [...data.fixtures, ...data.results];
   const game = allGames.find(g => g.home === a && g.away === b && (!q.has('date') || g.date === q.get('date')));
   const checked = new Intl.DateTimeFormat('sv-SE', {timeZone:'Europe/Stockholm',day:'numeric',month:'long',year:'numeric',hour:'2-digit',minute:'2-digit'}).format(new Date(data.checkedAt));
   const stale = data.date !== today;
   const freshness = `<p class="ha-check ${stale?'ha-warning':''}">${stale?'Underlaget är inte verifierat för dagens datum. ':''}Kontrollerat ${esc(checked)} svensk tid. Tabell och resultat efter ${esc(shortDate(data.resultsThrough))}. Uppgifterna är en daterad ögonblicksbild.</p>`;
-  const nav = `<nav class="ha-picker" aria-label="Välj match i Hockeyallsvenskan"><div><p class="eyebrow dark">${todayGames.length?'DAGENS MATCHER':'SENAST VERIFIERADE MATCHPROGRAM'}</p>${todayGames.length?todayGames.map(g => `<a ${g===game?'aria-current="page"':''} href="${matchUrl(g)}"><b>${esc(g.broadcastTime)}</b> ${esc(teams[g.home].name)} – ${esc(teams[g.away].name)}</a>`).join(''):`<p>Inga matcher är verifierade för ${esc(dateLabel(today))}. ${external(data.sources.schedule,'Kontrollera officiellt spelschema')}</p>`}</div><details><summary>Matchfakta från ${esc(shortDate(data.resultsThrough))}</summary><div class="ha-archive-links">${recent.filter(g=>g.date===data.resultsThrough).map(g=>`<a href="${matchUrl(g)}">${esc(teams[g.home].name)} – ${esc(teams[g.away].name)} · ${g.hs}–${g.as}</a>`).join('')}</div></details></nav>`;
+  const nav = `<nav class="ha-picker" aria-label="Välj match i Hockeyallsvenskan"><div><p class="eyebrow dark">${todayGames.length?'DAGENS MATCHER':'SENAST VERIFIERADE MATCHPROGRAM'}</p>${todayGames.length?todayGames.map(g => `<a ${g===game?'aria-current="page"':''} href="${matchUrl(g)}"><b>${esc(g.broadcastTime)}</b> ${esc(teams[g.home].name)} – ${esc(teams[g.away].name)}</a>`).join(''):`<p>Inga matcher är verifierade för ${esc(dateLabel(today))}. ${external(data.sources.schedule,'Kontrollera officiellt spelschema')}</p>`}</div><details><summary>Matchfakta från ${esc(shortDate(data.resultsThrough))}</summary><div class="ha-archive-links">${recent.filter(g=>g.date===data.resultsThrough).map(g=>`<a href="${matchUrl(g)}">${esc(teams[g.home].name)} – ${esc(teams[g.away].name)}</a>`).join('')}</div></details></nav>`;
   if (!ta || !tb || a === b) {
     root.innerHTML = `<section class="ha-card ha-error"><h1>${q.size?'Matchen hittades inte':'Hockeyallsvenskan'}</h1><p>Välj en verifierad match nedan.</p>${freshness}</section>${nav}`;
     return;
   }
   const venue = game?.venue || ta.arena;
   document.title = `${ta.name} – ${tb.name} · Hockeyallsvenskan`;
-  const tableRow = code => { const t=teams[code]; return `<div class="ha-row"><span class="ha-mini">${esc(code)}</span><div><b>${esc(t.name)}</b><small>${t.gp} matcher · ${t.points} poäng</small></div><strong>#${t.pos}</strong></div>`; };
+  const tableRow = code => { const t=teams[code]; return `<div class="ha-row"><span class="ha-mini">${esc(code)}</span><div><b>${esc(t.name)}</b><small>${data.resultsThrough<cutoff?`${t.gp} matcher · ${t.points} poäng`:'Tabell före matchen saknas – aktuell tabell döljs för att undvika spoilers'}</small></div><strong>${data.resultsThrough<cutoff?'#'+t.pos:'–'}</strong></div>`; };
   const teamCard = (code,t,label) => `<div class="ha-team"><span class="ha-side">${label}</span><div class="ha-shield">${esc(code)}</div><h1>${esc(t.name)}</h1><p>${esc(t.city)}</p></div>`;
   const gameRow = g => `<div class="ha-result"><time datetime="${g.date}">${esc(shortDate(g.date))}</time><p>${esc(teams[g.home].name)} – ${esc(teams[g.away].name)}<b>${g.hs}–${g.as}</b></p><small>${esc(g.venue)}</small></div>`;
   const form = code => `<div class="ha-form"><h3>${esc(teams[code].name)}</h3>${recent.filter(g=>g.home===code||g.away===code).slice(0,2).map(gameRow).join('')}</div>`;
   const meetings = recent.filter(g => (g.home===a&&g.away===b)||(g.home===b&&g.away===a));
-  const completed = game && Number.isInteger(game.hs);
+  const completed = false; // Never reveal the selected match outcome.
   const matchTime = game ? `<p class="ha-date">${esc(dateLabel(game.date))} · ${esc(venue)} · ${esc(ta.city)}</p><p class="ha-kickoff">Matchstart <time datetime="${game.date}T${game.time}:00+01:00">${game.time}</time>${completed?` · Slutresultat <b>${game.hs}–${game.as}</b>`:''}</p>` : `<p class="ha-date">Lagjämförelse · Hemmaarena: ${esc(ta.arena)}</p><p class="ha-warning">Ingen verifierad matchtid för det valda lagparet${q.has('date')?' och datumet':''}. Välj en match i listan.</p>`;
   const broadcast = game?.broadcastTime ? `<p class="ha-broadcast">Sändningsstart <b>${game.broadcastTime}</b> · ${esc(game.channel)}<br><span>${esc(game.service)} · ingår i Telias Största sportpaket</span></p><div class="ha-actions">${external(game.broadcastUrl,'Se sändningen på TV4 Play')}${external(data.sources.schedule,'Officiella matchfakta')}</div>` : `<div class="ha-actions">${external(data.sources.schedule,'Officiella matchfakta')}</div>`;
   const status = completed?'SPELAD MATCH':game?.date===today?'DAGENS MATCH':game?'VERIFIERAD MATCH':'LAGFAKTA';
