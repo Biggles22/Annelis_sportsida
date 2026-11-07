@@ -50,12 +50,12 @@ const nhlCodes = {
   Winnipeg: 'WPG'
 };
 const haCodes = {
-  'BIK Karlskoga': 'BIK', 'Östersunds IK': 'OIK', 'Västerås IK': 'VIK',
+  'Leksands IF':'LIF', 'Mora IK':'MORA', 'BIK Karlskoga': 'BIK', 'Östersunds IK': 'OIK', 'Västerås IK': 'VIK',
   'Södertälje SK': 'SSK', 'Kalmar HC': 'KAL', 'Vimmerby HC': 'VIM',
   'Visby Roma': 'VRH', 'Visby/Roma HK': 'VRH', 'Nybro Vikings IF': 'NYB'
 };
 const allsvenskanCodes = {
-  GAIS: 'GAIS', AIK: 'AIK', 'Mjällby AIF': 'MAIF', 'Kalmar FF': 'KFF', 'IK Sirius':'SIR', 'Halmstads BK':'HBK', 'Hammarby IF':'HAM', 'IF Elfsborg':'ELF'
+  GAIS: 'GAIS', AIK: 'AIK', 'Mjällby AIF': 'MAIF', 'Kalmar FF': 'KFF', 'IK Sirius':'SIR', 'Halmstads BK':'HBK', 'Degerfors IF':'DEG', 'Örgryte IS':'OIS', 'Västerås SK':'VSK', 'Hammarby IF':'HAM', 'IF Elfsborg':'ELF'
 };
 const leagueFacts = {
   NHL: { label: 'NHL: resultat och tabell', url: 'https://www.nhl.com/standings/' },
@@ -195,8 +195,8 @@ const viaplayEvents = viaplayProducts
     if (format === 'NHL') {
       const [homeName, awayName] = String(product.content?.title || '').split(' - ');
       const home = nhlCodes[homeName];
-      const away = nhlCodes[awayName?.replace(' (ENG)', '')];
-      if (home && away && !product.content?.title?.includes('(ENG)')) {
+      const away = nhlCodes[awayName?.replace(/ \((?:ENG|SV)\)$/, '')];
+      if (home && away) {
         Object.assign(event, {
           url: `nhl.html?a=${home}&b=${away}&date=${targetDate}`,
           home,
@@ -253,7 +253,7 @@ const tv4Events = (tv4Response.data?.tableau || [])
       ...(facts.length ? { facts } : {})
     };
     if (content.league === 'HockeyAllsvenskan') {
-      const [homeName, awayName] = String(content.title || '').split(' - ');
+      const [homeName, awayName] = String(content.title || '').replace(/^Studio: /,'').split(' - ');
       const home = haCodes[homeName];
       const away = haCodes[awayName];
       if (home && away) {
@@ -275,7 +275,7 @@ const tv4Events = (tv4Response.data?.tableau || [])
           home,
           away,
           league: 'Allsvenskan',
-          matchTime: '19:00',
+          matchTime: targetDate==='2026-11-07'?'17:30':'19:00',
           venue: content.arena || ''
         });
       }
@@ -342,6 +342,10 @@ svtEventsByDate['2026-11-06'] = [
 {sport:'Ridsport',time:'09:55',title:'Ungdoms-OS – ridsport, final',meta:'SVT2/SVT Play · 09.55–13.00',channel:'SVT2',url:'https://www.svt.se/sport/artikel/sport-pa-tv-sa-sander-svt-sport'},
 {sport:'Bordtennis',time:'13:00',title:'WTT Champions Frankfurt – dagpass',status:'unverified',meta:'13.00–17.00 enligt SVT:s sportguide · Inte bekräftat i SVT Play · Se matchprogram och källstatus',broadcastUrl:'https://www.svtplay.se/bordtennis-wtt',broadcastCheckedDate:'2026-11-06',channel:'SVT Play',url:'bordtennis.html?date=2026-11-06&pass=13:00',sourceUrl:'https://www.svt.se/sport/bordtennis/sa-sander-svt-bordtennis-2026'},
 {sport:'Ishockey',time:'15:00',title:'Sverige – Kanada',meta:'VM damer · SVT2/SVT Play · Matchstart ej separat verifierad',channel:'SVT2',url:'https://www.svt.se/sport/ishockey/sverige-stalls-mot-kanada-direkt-hoppas-de-ar-jetlaggade'}
+];
+svtEventsByDate['2026-11-07'] = [
+{sport:'Ishockey',time:'13:20',title:'Schweiz – Sverige',meta:'Finland Hockey Games · Herrar · SVT1/SVT Play 13.20–16.00 · Separat matchstart ej verifierad',channel:'SVT1',url:svtSchedule},
+{sport:'Fotboll',time:'13:50',title:'Rosengård – Hammarby',meta:'Damallsvenskan · SVT2/SVT Play 13.50–16.00',channel:'SVT2',url:svtSchedule}
 ];
 const svtEvents = (svtEventsByDate[targetDate] || []).map(item => ({
   date: targetDate,

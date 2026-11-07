@@ -1,6 +1,6 @@
 {
-  "date": "2026-11-02",
-  "checkedAt": "2026-11-02T08:59:00Z",
+  "date": "2026-11-07",
+  "checkedAt": "2026-11-07T01:58:11.017Z",
   "resultsThrough": "2026-11-01",
   "sourceUpdatedAt": "2026-11-01T20:57:00+01:00",
   "sources": {
@@ -179,7 +179,19 @@
       ]
     }
   },
-  "fixtures": [],
+  "fixtures": [
+    {
+      "date": "2026-11-07",
+      "time": "15:00",
+      "home": "LIF",
+      "away": "MORA",
+      "venue": "Tegera Arena",
+      "broadcastTime": "14:30",
+      "channel": "TV4 Play",
+      "service": "TV4 Play Sport Total",
+      "broadcastUrl": "https://www.tv4play.se/program/78acfb1ec3c67622d31a/studio-leksands-if-mora-ik"
+    }
+  ],
   "results": [
     {
       "date": "2026-10-31",
