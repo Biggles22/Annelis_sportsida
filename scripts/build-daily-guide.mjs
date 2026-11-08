@@ -55,7 +55,7 @@ const haCodes = {
   'Visby Roma': 'VRH', 'Visby/Roma HK': 'VRH', 'Nybro Vikings IF': 'NYB'
 };
 const allsvenskanCodes = {
-  GAIS: 'GAIS', AIK: 'AIK', 'Mjällby AIF': 'MAIF', 'Kalmar FF': 'KFF', 'IK Sirius':'SIR', 'Halmstads BK':'HBK', 'Degerfors IF':'DEG', 'Örgryte IS':'OIS', 'Västerås SK':'VSK', 'Hammarby IF':'HAM', 'IF Elfsborg':'ELF'
+  GAIS: 'GAIS', AIK: 'AIK', 'Mjällby AIF': 'MAIF', 'Kalmar FF': 'KFF', 'IK Sirius':'SIR', 'Halmstads BK':'HBK', 'IFK Göteborg':'GBG', 'Malmö FF':'MFF', 'Djurgårdens IF':'DIF', 'BK Häcken':'BKH', 'IF Brommapojkarna':'BP', 'Degerfors IF':'DEG', 'Örgryte IS':'OIS', 'Västerås SK':'VSK', 'Hammarby IF':'HAM', 'IF Elfsborg':'ELF'
 };
 const leagueFacts = {
   NHL: { label: 'NHL: resultat och tabell', url: 'https://www.nhl.com/standings/' },
@@ -275,7 +275,7 @@ const tv4Events = (tv4Response.data?.tableau || [])
           home,
           away,
           league: 'Allsvenskan',
-          matchTime: targetDate==='2026-11-07'?'17:30':'19:00',
+          matchTime: targetDate==='2026-11-08'?(['GBG','HBK'].includes(home)?'14:00':'16:30'):targetDate==='2026-11-07'?'17:30':'19:00',
           venue: content.arena || ''
         });
       }
@@ -347,6 +347,13 @@ svtEventsByDate['2026-11-07'] = [
 {sport:'Ishockey',time:'13:20',title:'Schweiz – Sverige',meta:'Finland Hockey Games · Herrar · SVT1/SVT Play 13.20–16.00 · Separat matchstart ej verifierad',channel:'SVT1',url:svtSchedule},
 {sport:'Fotboll',time:'13:50',title:'Rosengård – Hammarby',meta:'Damallsvenskan · SVT2/SVT Play 13.50–16.00',channel:'SVT2',url:svtSchedule}
 ];
+svtEventsByDate['2026-11-08'] = [
+{sport:'Bordtennis',time:'17:30',title:'WTT Champions Frankfurt – finalpass',meta:'SVT Play 17.30–20.00 · Finalister och separata matchstarter ej verifierade',channel:'SVT Play',url:'bordtennis.html?date=2026-11-08',sourceUrl:'https://www.svt.se/sport/bordtennis/sa-sander-svt-bordtennis-2026',broadcastUrl:'https://www.svtplay.se/video/eYqqQZX/bordtennis-wtt/finaler'},
+{sport:'Fotboll',time:'12:50',title:'Aston Villa – Manchester United',meta:'Women’s Super League · SVT Play 12.50–15.00',channel:'SVT Play',url:svtSchedule},
+{sport:'Ishockey',time:'15:00',title:'Finland – Sverige',meta:'VM damer · SVT1/SVT Play 15.00–17.30 · Separat matchstart ej verifierad',channel:'SVT1',url:svtSchedule},
+{sport:'Handboll',time:'15:50',title:'Luxemburg – Sverige',meta:'EM-kval herrar · SVT2/SVT Play 15.50–17.50',channel:'SVT2',url:svtSchedule},
+{sport:'Ishockey',time:'17:20',title:'Finland – Sverige',meta:'Finland Hockey Games · Herrar · Kunskapskanalen/SVT Play 17.20–17.50, därefter SVT2 till 20.00 · Separat matchstart ej verifierad',channel:'Kunskapskanalen / SVT2',url:svtSchedule}
+];
 const svtEvents = (svtEventsByDate[targetDate] || []).map(item => ({
   date: targetDate,
   ...item,
@@ -368,6 +375,7 @@ if (targetDate === '2026-11-05') {
  ];
  for(const [competition,source,early,late] of competitions)for(const [time,titles] of [['18:45',early],['21:00',late]])for(const title of titles)disneyEvents.push({date:targetDate,sport:'Fotboll',time,title,meta:competition+' · Matchstart '+time+' · Separat sändningsstart ej verifierad',timeKind:'match',channel:'Disney+',service:'Disney+',url:'https://www.disneyplus.com/sv-se',sourceUrl:source,broadcastUrl:'https://www.disneyplus.com/sv-se',facts:[{label:'UEFA: verifierat matchprogram (CET)',url:source},{label:'UEFA: Disney+ är svensk sändningspartner',url:'https://www.uefa.com/uefaeuropaleague/news/028d-1ae6d62165d6-69b17b354deb-1000--where-to-watch-the-europa-league-final-tv-broadcast-partne/'}]});
 }
+if(targetDate==='2026-11-08')for(const [time,title] of [['14:00','Elche – Real Betis'],['16:15','Real Sociedad – Rayo Vallecano'],['18:30','Celta – Levante'],['18:30','Villarreal – Getafe'],['21:00','Atlético de Madrid – FC Barcelona']])disneyEvents.push({date:targetDate,sport:'Fotboll',time,title,meta:'LALIGA · Matchstart '+time+' · Separat sändningsstart ej verifierad',timeKind:'match',channel:'Disney+',service:'Disney+',url:'https://www.disneyplus.com/sv-se',sourceUrl:'https://www.laliga.com/laliga-easports/resultados/2026-27/jornada-12',broadcastUrl:'https://www.disneyplus.com/sv-se',facts:[{label:'LALIGA: officiellt matchprogram (CET)',url:'https://www.laliga.com/laliga-easports/resultados/2026-27/jornada-12'},{label:'Telia: LALIGA på Disney+ ingår',url:'https://www.telia.se/tv/sport/storsta-sportpaketet'}]});
 const events = [...viaplayEvents, ...tv4Events, ...svtEvents, ...extraEvents, ...disneyEvents]
   .filter((e,i,all)=>all.findIndex(x=>x.title===e.title&&x.time===e.time&&x.channel===e.channel&&x.service===e.service)===i)
   .sort((a, b) => a.sport.localeCompare(b.sport, 'sv') || a.time.localeCompare(b.time) || a.title.localeCompare(b.title, 'sv'));

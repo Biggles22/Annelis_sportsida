@@ -9,6 +9,11 @@
   const esc = value => String(value ?? '').replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
   const link = (url, label) => `<a href="${esc(url)}" target="_blank" rel="noopener noreferrer">${esc(label)} ↗</a>`;
   const matches = {
+'2026-11-08:GBG-MFF':{"title": "IFK Göteborg – Malmö FF", "kickoff": "14:00", "venue": "Gamla Ullevi, Göteborg", "round": 28, "schedule": "https://ifkgoteborg.se/nyheter/nyheter/2026/biljettslapp-till-mff-hemma/", "table": "https://allsvenskan.se/tabell", "map": "https://www.openstreetmap.org/search?query=Gamla%20Ullevi%2C%20G%C3%B6teborg", "latest": [], "teamResults": [["Officiell matchinformation", "https://ifkgoteborg.se/nyheter/nyheter/2026/biljettslapp-till-mff-hemma/"]]},
+'2026-11-08:HBK-DIF':{"title": "Halmstads BK – Djurgårdens IF", "kickoff": "14:00", "venue": "Örjans vall, Halmstad", "round": 28, "schedule": "https://www.hbk.se/nyheter/2026/november/matchguide-hbk-djurgardens-if", "table": "https://allsvenskan.se/tabell", "map": "https://www.openstreetmap.org/search?query=%C3%96rjans%20vall%2C%20Halmstad", "latest": [{"date": "2026-07-13", "result": "Djurgårdens IF – Halmstads BK 3–0", "url": "https://www.hbk.se/nyheter/2026/november/matchguide-hbk-djurgardens-if"}, {"date": "2025-08-03", "result": "Djurgårdens IF – Halmstads BK 1–1", "url": "https://www.hbk.se/nyheter/2026/november/matchguide-hbk-djurgardens-if"}, {"date": "2025-06-01", "result": "Halmstads BK – Djurgårdens IF 1–0", "url": "https://www.hbk.se/nyheter/2026/november/matchguide-hbk-djurgardens-if"}], "teamResults": [["Officiell matchinformation", "https://www.hbk.se/nyheter/2026/november/matchguide-hbk-djurgardens-if"]]},
+'2026-11-08:AIK-BKH':{"title": "AIK – BK Häcken", "kickoff": "16:30", "venue": "Strawberry Arena, Solna", "round": 28, "schedule": "https://www.aikfotboll.se/artiklar-och-nyheter/261027-supporterinformation-aik-bk-hacken-herr", "table": "https://allsvenskan.se/tabell", "map": "https://www.openstreetmap.org/search?query=Strawberry%20Arena%2C%20Solna", "latest": [], "teamResults": [["Officiell matchinformation", "https://www.aikfotboll.se/artiklar-och-nyheter/261027-supporterinformation-aik-bk-hacken-herr"]]},
+'2026-11-08:BP-MAIF':{"title": "IF Brommapojkarna – Mjällby AIF", "kickoff": "16:30", "venue": "Grimsta IP, Stockholm", "round": 28, "schedule": "https://maif.se/2026/11/07/bortareseinformation-if-brommapojkarna-mjallby-aif-3/", "table": "https://allsvenskan.se/tabell", "map": "https://www.openstreetmap.org/search?query=Grimsta%20IP%2C%20Stockholm", "latest": [], "teamResults": [["Officiell matchinformation", "https://maif.se/2026/11/07/bortareseinformation-if-brommapojkarna-mjallby-aif-3/"]]},
+'2026-11-08:KFF-SIR':{"title": "Kalmar FF – IK Sirius", "kickoff": "16:30", "venue": "Guldfågeln Arena, Kalmar", "round": 28, "schedule": "https://kalmarff.se/pa-sondag-vantar-fars-dag-och-en-viktig-hemmamatch/", "table": "https://allsvenskan.se/tabell", "map": "https://www.openstreetmap.org/search?query=Guldf%C3%A5geln%20Arena%2C%20Kalmar", "latest": [], "teamResults": [["Officiell matchinformation", "https://kalmarff.se/pa-sondag-vantar-fars-dag-och-en-viktig-hemmamatch/"]]},
 '2026-11-07:DEG-GAIS':{"title": "Degerfors IF – GAIS", "kickoff": "17:30", "venue": "Stora Valla, Degerfors", "round": 28, "schedule": "https://degerforsif.se/infor-gais-hemma-2/", "table": "https://allsvenskan.se/tabell", "map": "https://www.openstreetmap.org/search?query=Stora%20Valla%2C%20Degerfors", "latest": [], "teamResults": [["Officiell matchinformation", "https://degerforsif.se/infor-gais-hemma-2/"]]},
 '2026-11-07:OIS-VSK':{"title": "Örgryte IS – Västerås SK", "kickoff": "17:30", "venue": "Gamla Ullevi, Göteborg", "round": 28, "schedule": "https://oisfotboll.se/2026/11/03/praktisk-info-ois-mot-vsk/", "table": "https://allsvenskan.se/tabell", "map": "https://www.openstreetmap.org/search?query=Gamla%20Ullevi%2C%20G%C3%B6teborg", "latest": [], "teamResults": [["Officiell matchinformation", "https://oisfotboll.se/2026/11/03/praktisk-info-ois-mot-vsk/"]]},
  '2026-11-06:HAM-ELF':{title:'Hammarby IF – IF Elfsborg',kickoff:'19:00',venue:'3Arena, Stockholm',round:28,
@@ -60,6 +65,11 @@
   const dateLabel = new Intl.DateTimeFormat('sv-SE',{timeZone:'Europe/Stockholm',weekday:'long',day:'numeric',month:'long',year:'numeric'}).format(new Date(`${date}T12:00:00Z`));
   const stale = date !== today;
   const clubs = {
+GBG:{name:'IFK Göteborg',city:'Göteborg',arena:'Gamla Ullevi',lat:57.7058,lon:11.9806},
+MFF:{name:'Malmö FF',city:'Malmö',arena:'Eleda Stadion',lat:55.5833,lon:12.9878},
+DIF:{name:'Djurgårdens IF',city:'Stockholm',arena:'3Arena',lat:59.2906,lon:18.0855},
+BKH:{name:'BK Häcken',city:'Göteborg',arena:'Nordic Wellness Arena',lat:57.7192,lon:11.9306},
+BP:{name:'IF Brommapojkarna',city:'Stockholm',arena:'Grimsta IP',lat:59.367,lon:17.855},
 DEG:{name:'Degerfors IF',city:'Degerfors',arena:'Stora Valla',lat:59.235,lon:14.432},
 OIS:{name:'Örgryte IS',city:'Göteborg',arena:'Gamla Ullevi',lat:57.7058,lon:11.9806},
 VSK:{name:'Västerås SK',city:'Västerås',arena:'Hitachi Energy Arena',lat:59.63,lon:16.54},
@@ -72,7 +82,7 @@ VSK:{name:'Västerås SK',city:'Västerås',arena:'Hitachi Energy Arena',lat:59.
     MAIF:{name:'Mjällby AIF',city:'Hällevik',arena:'Strandvallen',lat:56.0175,lon:14.7168,pos:12,gp:26,points:26},
     KFF:{name:'Kalmar FF',city:'Kalmar',arena:'Guldfågeln Arena',lat:56.685,lon:16.3167,pos:13,gp:26,points:22}
   };
-  if(date==='2026-11-07')for(const code of [home,away]){delete clubs[code].pos;delete clubs[code].gp;delete clubs[code].points;}
+  if(['2026-11-07','2026-11-08'].includes(date))for(const code of [home,away]){delete clubs[code].pos;delete clubs[code].gp;delete clubs[code].points;}
   const ta=clubs[home],tb=clubs[away];
   const club=(code,t,label)=>`<div class="club"><span class="club-label">${label}</span><div class="football-badge" aria-hidden="true">${esc(code)}</div><h1>${esc(t.name)}</h1><p>${esc(t.city)}</p></div>`;
   const standing=(code,t)=>`<div class="stand-row"><span class="football-mini">${esc(code)}</span><div><b>${esc(t.name)}</b><span>${t.gp ? t.gp+' matcher · '+t.points+' poäng' : t.pos?'Placering i daterad matchguide före matchen':'Förhandsplacering ej verifierad'}</span></div><strong>${t.pos ? '#'+t.pos : '–'}</strong></div>`;
@@ -87,7 +97,7 @@ VSK:{name:'Västerås SK',city:'Västerås',arena:'Hitachi Energy Arena',lat:59.
       <p class="data-note">${stale ? `Daterade matchfakta för ${esc(date)}` : `Matchfakta för ${esc(dateLabel)}`} · Alla tider är svensk tid</p>
     </section>
     <section class="nhl-grid">
-      <article class="nhl-card"><p class="eyebrow dark">TABELLUNDERLAG FÖRE MATCHEN</p><h2>Ligaplacering</h2>${standing(home,ta)}${standing(away,tb)}${link(details.table,'Se hela Allsvenskans tabell')}<p class="football-note">${date==='2026-11-07'?'Tabell före matchen ej verifierad. Ingen aktuell tabell visas.':'Daterad tabellbild, ingen liveuppdatering.'} ${link(details.schedule,'Daterad matchguide')}</p></article>
+      <article class="nhl-card"><p class="eyebrow dark">TABELLUNDERLAG FÖRE MATCHEN</p><h2>Ligaplacering</h2>${standing(home,ta)}${standing(away,tb)}${link(details.table,'Se hela Allsvenskans tabell')}<p class="football-note">${['2026-11-07','2026-11-08'].includes(date)?'Tabell före matchen ej verifierad. Ingen aktuell tabell visas.':'Daterad tabellbild, ingen liveuppdatering.'} ${link(details.schedule,'Daterad matchguide')}</p></article>
       <article class="nhl-card"><p class="eyebrow dark">SENASTE MÖTENA</p><h2>Inbördes matcher</h2>${details.latest.length?'':'<p>Äldre inbördes resultat är inte verifierade i detta underlag.</p>'}${details.latest.filter(match=>match.date<date).map(match=>`<div class="meeting-row"><time>${esc(match.date)}</time><p>${link(match.url,match.result)}</p></div>`).join('')}</article>
     </section>
     <section class="map-section"><div><p class="eyebrow">VAR LAGEN FINNS</p><h2>Två lag.<br>En fotbollsliga.</h2><div class="map-legend"><p><b>${esc(ta.city)}</b><span>${esc(ta.arena)}</span></p><p><b>${esc(tb.city)}</b><span>${esc(tb.arena)}</span></p></div><p>${link(details.map,'Hitta till matcharenan')}</p></div><div id="football-map" class="nhl-real-map"><p>Kartan kunde inte laddas. Använd länken till matcharenan.</p></div></section>
