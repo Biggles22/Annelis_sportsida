@@ -354,6 +354,11 @@ svtEventsByDate['2026-11-08'] = [
 {sport:'Handboll',time:'15:50',title:'Luxemburg – Sverige',meta:'EM-kval herrar · SVT2/SVT Play 15.50–17.50',channel:'SVT2',url:svtSchedule},
 {sport:'Ishockey',time:'17:20',title:'Finland – Sverige',meta:'Finland Hockey Games · Herrar · Kunskapskanalen/SVT Play 17.20–17.50, därefter SVT2 till 20.00 · Separat matchstart ej verifierad',channel:'Kunskapskanalen / SVT2',url:svtSchedule}
 ];
+svtEventsByDate['2026-11-09'] = [
+{sport:'Fotboll',time:'16:55',title:'Nations League – presskonferens med Graham Potter',meta:'SVT Sport Direkt · 16.55–18.00',channel:'SVT Play',url:'https://www.svtplay.se/video/j7dLLAa/svt-sport-direkt/nations-league-presskonferens-med-graham-potter'},
+{sport:'Fotboll',time:'21:10',title:'Fotbollsstudion',meta:'Magasin om Allsvenskan · SVT Play 21.10–21.55 · Kan innehålla tidigare matchresultat',channel:'SVT Play',url:'https://www.svtplay.se/video/8rQDJDR/fotbollsstudion/imorgon-21-10'},
+{sport:'Fotboll',time:'22:00',title:'Fotbollsstudion – tv-sändning',meta:'Magasin om Allsvenskan · SVT1/SVT Play 22.00–22.45 · Kan innehålla tidigare matchresultat',channel:'SVT1',url:svtSchedule}
+];
 const svtEvents = (svtEventsByDate[targetDate] || []).map(item => ({
   date: targetDate,
   ...item,
