@@ -54,6 +54,9 @@ const haCodes = {
   'Södertälje SK': 'SSK', 'Kalmar HC': 'KAL', 'Vimmerby HC': 'VIM',
   'Visby Roma': 'VRH', 'Visby/Roma HK': 'VRH', 'Nybro Vikings IF': 'NYB'
 };
+const verifiedHaFixtures = {
+  '2026-11-10:OIK:VIM': { time: '19:00', venue: 'Östersund Arena Hall A' }
+};
 const allsvenskanCodes = {
   GAIS: 'GAIS', AIK: 'AIK', 'Mjällby AIF': 'MAIF', 'Kalmar FF': 'KFF', 'IK Sirius':'SIR', 'Halmstads BK':'HBK', 'IFK Göteborg':'GBG', 'Malmö FF':'MFF', 'Djurgårdens IF':'DIF', 'BK Häcken':'BKH', 'IF Brommapojkarna':'BP', 'Degerfors IF':'DEG', 'Örgryte IS':'OIS', 'Västerås SK':'VSK', 'Hammarby IF':'HAM', 'IF Elfsborg':'ELF'
 };
@@ -257,11 +260,13 @@ const tv4Events = (tv4Response.data?.tableau || [])
       const home = haCodes[homeName];
       const away = haCodes[awayName];
       if (home && away) {
+        const fixture = verifiedHaFixtures[`${targetDate}:${home}:${away}`];
         Object.assign(event, {
           url: `hockeyallsvenskan.html?a=${home}&b=${away}&date=${targetDate}`,
           home,
           away,
-          league: 'HockeyAllsvenskan'
+          league: 'HockeyAllsvenskan',
+          ...(fixture ? { matchTime: fixture.time, venue: fixture.venue } : {})
         });
       }
     }
@@ -358,6 +363,9 @@ svtEventsByDate['2026-11-09'] = [
 {sport:'Fotboll',time:'16:55',title:'Nations League – presskonferens med Graham Potter',meta:'SVT Sport Direkt · 16.55–18.00',channel:'SVT Play',url:'https://www.svtplay.se/video/j7dLLAa/svt-sport-direkt/nations-league-presskonferens-med-graham-potter'},
 {sport:'Fotboll',time:'21:10',title:'Fotbollsstudion',meta:'Magasin om Allsvenskan · SVT Play 21.10–21.55 · Kan innehålla tidigare matchresultat',channel:'SVT Play',url:'https://www.svtplay.se/video/8rQDJDR/fotbollsstudion/imorgon-21-10'},
 {sport:'Fotboll',time:'22:00',title:'Fotbollsstudion – tv-sändning',meta:'Magasin om Allsvenskan · SVT1/SVT Play 22.00–22.45 · Kan innehålla tidigare matchresultat',channel:'SVT1',url:svtSchedule}
+];
+svtEventsByDate['2026-11-10'] = [
+{sport:'Ishockey',time:'19:00',title:'Sverige – Danmark',meta:'VM damer · Sändning 19.00–21.30 · SVT2 till 20.00, därefter SVT24 · Matchstart 19.00 · Herning, Danmark',channel:'SVT2 / SVT24',url:'https://www.svt.se/sport/ishockey/guide-damernas-ishockey-vm-2026',matchTime:'19:00',venue:'Herning, Danmark',facts:[{label:'SVT: officiell VM-guide och sändningstid',url:'https://www.svt.se/sport/ishockey/guide-damernas-ishockey-vm-2026'},{label:'SVT Sport: dagens kanalbyten och sändningstid',url:svtSchedule},...mapFact('Herning, Danmark')]}
 ];
 const svtEvents = (svtEventsByDate[targetDate] || []).map(item => ({
   date: targetDate,
