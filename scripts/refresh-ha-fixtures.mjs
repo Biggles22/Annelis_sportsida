@@ -30,5 +30,6 @@ const fixtures = guide.events
 await writeFile(dataUrl, JSON.stringify({
   ...data,
   date: guide.date,
+  checkedAt: new Date().toISOString(),
   fixtures
 }, null, 2) + '\n');
