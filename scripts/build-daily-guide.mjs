@@ -399,3 +399,5 @@ await writeFile(new URL('../dist/guide-data.js', import.meta.url), `globalThis.s
   timeZone: zone,
   events
 })};\n`);
+
+await import('./version-guide-assets.mjs');
