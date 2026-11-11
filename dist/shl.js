@@ -15,7 +15,9 @@ const teams={
  DIF:{name:'Djurgårdens IF',city:'Stockholm',arena:'Avicii Arena',lat:59.2936,lon:18.0836,logo:'dif1_dif.svg'},
  BIF:{name:'Brynäs IF',city:'Gävle',arena:'Monitor ERP Arena',lat:60.6874,lon:17.1512,logo:'bif1_bif.svg'}
 };
-const spoilerCutoff=new URLSearchParams(location.search).get('date')||new Intl.DateTimeFormat('sv-SE',{timeZone:'Europe/Stockholm'}).format(new Date());
+const todaySE=new Intl.DateTimeFormat('sv-SE',{timeZone:'Europe/Stockholm'}).format(new Date());
+const requestedDate=new URLSearchParams(location.search).get('date');
+const spoilerCutoff=/^\d{4}-\d{2}-\d{2}$/.test(requestedDate||'')&&requestedDate<todaySE?requestedDate:todaySE;
 const standings=globalThis.shlSnapshot.resultsThrough<spoilerCutoff?globalThis.shlSnapshot.standings:{};
 const resultsThrough=globalThis.shlSnapshot.resultsThrough;
 const resultsThroughLabel=new Intl.DateTimeFormat('sv-SE',{day:'numeric',month:'long',year:'numeric'}).format(new Date(resultsThrough+'T12:00:00Z'));

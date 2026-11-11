@@ -50,11 +50,18 @@ const nhlCodes = {
   Winnipeg: 'WPG'
 };
 const haCodes = {
+  'AIK':'AIK','Almtuna IS':'AIS','MoDo':'MODO','MoDo Hockey':'MODO','IK Oskarshamn':'IKO',
   'Leksands IF':'LIF', 'Mora IK':'MORA', 'BIK Karlskoga': 'BIK', 'Östersunds IK': 'OIK', 'Västerås IK': 'VIK',
   'Södertälje SK': 'SSK', 'Kalmar HC': 'KAL', 'Vimmerby HC': 'VIM',
   'Visby Roma': 'VRH', 'Visby/Roma HK': 'VRH', 'Nybro Vikings IF': 'NYB'
 };
 const verifiedHaFixtures = {
+  '2026-11-11:MODO:VIK':{time:'19:00',venue:'Hägglunds Arena'},
+  '2026-11-11:SSK:IKO':{time:'19:00',venue:'Scaniarinken'},
+  '2026-11-11:KAL:VRH':{time:'19:00',venue:'Hatstore Arena'},
+  '2026-11-11:MORA:BIK':{time:'19:00',venue:'Wibe Arena'},
+  '2026-11-11:AIS:NYB':{time:'19:00',venue:'Gränby Ishallar A-hall'},
+  '2026-11-11:LIF:AIK':{time:'19:00',venue:'Tegera Arena'},
   '2026-11-10:OIK:VIM': { time: '19:00', venue: 'Östersund Arena Hall A' }
 };
 const allsvenskanCodes = {
@@ -367,6 +374,7 @@ svtEventsByDate['2026-11-09'] = [
 svtEventsByDate['2026-11-10'] = [
 {sport:'Ishockey',time:'19:00',title:'Sverige – Danmark',meta:'VM damer · Sändning 19.00–21.30 · SVT2 till 20.00, därefter SVT24 · Matchstart 19.00 · Herning, Danmark',channel:'SVT2 / SVT24',url:'https://www.svt.se/sport/ishockey/guide-damernas-ishockey-vm-2026',matchTime:'19:00',venue:'Herning, Danmark',facts:[{label:'SVT: officiell VM-guide och sändningstid',url:'https://www.svt.se/sport/ishockey/guide-damernas-ishockey-vm-2026'},{label:'SVT Sport: dagens kanalbyten och sändningstid',url:svtSchedule},...mapFact('Herning, Danmark')]}
 ];
+svtEventsByDate['2026-11-11']=[{sport:'Ishockey',time:'19:00',title:'Japan – Sverige',meta:'VM damer · SVT2 till 20.00, därefter SVT24 · Sändning 19.00–21.30 · Separat matchstart ej verifierad',channel:'SVT2 / SVT24',url:svtSchedule}];
 const svtEvents = (svtEventsByDate[targetDate] || []).map(item => ({
   date: targetDate,
   ...item,
