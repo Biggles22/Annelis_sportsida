@@ -1,0 +1,689 @@
+{
+  "checkedAt": "2026-11-13T07:47:25.711479+00:00",
+  "nationalitySources": [
+    "https://api.nhle.com/stats/rest/en/skater/bios?isAggregate=true&limit=-1&cayenneExp=seasonId%3E=20102011",
+    "https://api.nhle.com/stats/rest/en/goalie/bios?isAggregate=true&limit=-1&cayenneExp=seasonId%3E=20102011"
+  ],
+  "teams": {
+    "ANA": {
+      "players": [
+        {
+          "id": 8484153,
+          "name": "Leo Carlsson",
+          "position": "C",
+          "nationality": "SWE"
+        }
+      ],
+      "unverifiedNationality": [],
+      "rosterSize": 26,
+      "source": "https://api-web.nhle.com/v1/roster/ANA/current"
+    },
+    "BOS": {
+      "players": [
+        {
+          "id": 8477496,
+          "name": "Elias Lindholm",
+          "position": "C",
+          "nationality": "SWE"
+        },
+        {
+          "id": 8476854,
+          "name": "Hampus Lindholm",
+          "position": "D",
+          "nationality": "SWE"
+        }
+      ],
+      "unverifiedNationality": [],
+      "rosterSize": 24,
+      "source": "https://api-web.nhle.com/v1/roster/BOS/current"
+    },
+    "BUF": {
+      "players": [
+        {
+          "id": 8483500,
+          "name": "Noah Ostlund",
+          "position": "C",
+          "nationality": "SWE"
+        },
+        {
+          "id": 8480839,
+          "name": "Rasmus Dahlin",
+          "position": "D",
+          "nationality": "SWE"
+        }
+      ],
+      "unverifiedNationality": [],
+      "rosterSize": 26,
+      "source": "https://api-web.nhle.com/v1/roster/BUF/current"
+    },
+    "CAR": {
+      "players": [],
+      "unverifiedNationality": [],
+      "rosterSize": 24,
+      "source": "https://api-web.nhle.com/v1/roster/CAR/current"
+    },
+    "CBJ": {
+      "players": [],
+      "unverifiedNationality": [],
+      "rosterSize": 23,
+      "source": "https://api-web.nhle.com/v1/roster/CBJ/current"
+    },
+    "CGY": {
+      "players": [
+        {
+          "id": 8474150,
+          "name": "Mikael Backlund",
+          "position": "C",
+          "nationality": "SWE"
+        },
+        {
+          "id": 8482766,
+          "name": "William Stromgren",
+          "position": "L",
+          "nationality": "SWE"
+        }
+      ],
+      "unverifiedNationality": [],
+      "rosterSize": 27,
+      "source": "https://api-web.nhle.com/v1/roster/CGY/current"
+    },
+    "CHI": {
+      "players": [
+        {
+          "id": 8485391,
+          "name": "Anton Frondell",
+          "position": "C",
+          "nationality": "SWE"
+        }
+      ],
+      "unverifiedNationality": [],
+      "rosterSize": 24,
+      "source": "https://api-web.nhle.com/v1/roster/CHI/current"
+    },
+    "COL": {
+      "players": [
+        {
+          "id": 8476455,
+          "name": "Gabriel Landeskog",
+          "position": "L",
+          "nationality": "SWE"
+        }
+      ],
+      "unverifiedNationality": [
+        "Alex Gagne"
+      ],
+      "rosterSize": 23,
+      "source": "https://api-web.nhle.com/v1/roster/COL/current"
+    },
+    "DAL": {
+      "players": [
+        {
+          "id": 8480878,
+          "name": "Nils Lundkvist",
+          "position": "D",
+          "nationality": "SWE"
+        },
+        {
+          "id": 8480840,
+          "name": "Oskar Bäck",
+          "position": "C",
+          "nationality": "SWE"
+        }
+      ],
+      "unverifiedNationality": [
+        "Rémi Poirier"
+      ],
+      "rosterSize": 25,
+      "source": "https://api-web.nhle.com/v1/roster/DAL/current"
+    },
+    "DET": {
+      "players": [
+        {
+          "id": 8481607,
+          "name": "Albert Johansson",
+          "position": "D",
+          "nationality": "SWE"
+        },
+        {
+          "id": 8477971,
+          "name": "Andreas Englund",
+          "position": "D",
+          "nationality": "SWE"
+        },
+        {
+          "id": 8483679,
+          "name": "Anton Johansson",
+          "position": "D",
+          "nationality": "SWE"
+        },
+        {
+          "id": 8482078,
+          "name": "Lucas Raymond",
+          "position": "L",
+          "nationality": "SWE"
+        },
+        {
+          "id": 8478042,
+          "name": "Viktor Arvidsson",
+          "position": "L",
+          "nationality": "SWE"
+        },
+        {
+          "id": 8482171,
+          "name": "William Wallinder",
+          "position": "D",
+          "nationality": "SWE"
+        }
+      ],
+      "unverifiedNationality": [],
+      "rosterSize": 23,
+      "source": "https://api-web.nhle.com/v1/roster/DET/current"
+    },
+    "EDM": {
+      "players": [
+        {
+          "id": 8480842,
+          "name": "Filip Hallander",
+          "position": "C",
+          "nationality": "SWE"
+        },
+        {
+          "id": 8475218,
+          "name": "Mattias Ekholm",
+          "position": "D",
+          "nationality": "SWE"
+        },
+        {
+          "id": 8477406,
+          "name": "Mattias Janmark",
+          "position": "C",
+          "nationality": "SWE"
+        }
+      ],
+      "unverifiedNationality": [],
+      "rosterSize": 28,
+      "source": "https://api-web.nhle.com/v1/roster/EDM/current"
+    },
+    "FLA": {
+      "players": [
+        {
+          "id": 8478055,
+          "name": "Gustav Forsling",
+          "position": "D",
+          "nationality": "SWE"
+        },
+        {
+          "id": 8474593,
+          "name": "Jacob Markstrom",
+          "position": "G",
+          "nationality": "SWE"
+        }
+      ],
+      "unverifiedNationality": [],
+      "rosterSize": 25,
+      "source": "https://api-web.nhle.com/v1/roster/FLA/current"
+    },
+    "LAK": {
+      "players": [
+        {
+          "id": 8477960,
+          "name": "Adrian Kempe",
+          "position": "R",
+          "nationality": "SWE"
+        },
+        {
+          "id": 8481732,
+          "name": "Andre Lee",
+          "position": "L",
+          "nationality": "SWE"
+        },
+        {
+          "id": 8476341,
+          "name": "Anton Forsberg",
+          "position": "G",
+          "nationality": "SWE"
+        },
+        {
+          "id": 8476979,
+          "name": "Erik Gustafsson",
+          "position": "D",
+          "nationality": "SWE"
+        }
+      ],
+      "unverifiedNationality": [],
+      "rosterSize": 23,
+      "source": "https://api-web.nhle.com/v1/roster/LAK/current"
+    },
+    "MIN": {
+      "players": [
+        {
+          "id": 8479406,
+          "name": "Filip Gustavsson",
+          "position": "G",
+          "nationality": "SWE"
+        },
+        {
+          "id": 8482661,
+          "name": "Jesper Wallstedt",
+          "position": "G",
+          "nationality": "SWE"
+        },
+        {
+          "id": 8478493,
+          "name": "Joel Eriksson Ek",
+          "position": "C",
+          "nationality": "SWE"
+        },
+        {
+          "id": 8476463,
+          "name": "Jonas Brodin",
+          "position": "D",
+          "nationality": "SWE"
+        }
+      ],
+      "unverifiedNationality": [],
+      "rosterSize": 24,
+      "source": "https://api-web.nhle.com/v1/roster/MIN/current"
+    },
+    "MTL": {
+      "players": [
+        {
+          "id": 8483686,
+          "name": "Adam Engstrom",
+          "position": "D",
+          "nationality": "SWE"
+        }
+      ],
+      "unverifiedNationality": [],
+      "rosterSize": 25,
+      "source": "https://api-web.nhle.com/v1/roster/MTL/current"
+    },
+    "NJD": {
+      "players": [
+        {
+          "id": 8480003,
+          "name": "Jesper Boqvist",
+          "position": "C",
+          "nationality": "SWE"
+        },
+        {
+          "id": 8479407,
+          "name": "Jesper Bratt",
+          "position": "L",
+          "nationality": "SWE"
+        }
+      ],
+      "unverifiedNationality": [],
+      "rosterSize": 23,
+      "source": "https://api-web.nhle.com/v1/roster/NJD/current"
+    },
+    "NSH": {
+      "players": [
+        {
+          "id": 8481726,
+          "name": "Adam Edstrom",
+          "position": "C",
+          "nationality": "SWE"
+        },
+        {
+          "id": 8482482,
+          "name": "Adam Wilsby",
+          "position": "D",
+          "nationality": "SWE"
+        },
+        {
+          "id": 8476887,
+          "name": "Filip Forsberg",
+          "position": "L",
+          "nationality": "SWE"
+        },
+        {
+          "id": 8481535,
+          "name": "Nils Hoglander",
+          "position": "L",
+          "nationality": "SWE"
+        }
+      ],
+      "unverifiedNationality": [],
+      "rosterSize": 24,
+      "source": "https://api-web.nhle.com/v1/roster/NSH/current"
+    },
+    "NYI": {
+      "players": [
+        {
+          "id": 8482476,
+          "name": "Emil Heineman",
+          "position": "L",
+          "nationality": "SWE"
+        },
+        {
+          "id": 8481601,
+          "name": "Simon Holmstrom",
+          "position": "R",
+          "nationality": "SWE"
+        },
+        {
+          "id": 8485388,
+          "name": "Victor Eklund",
+          "position": "R",
+          "nationality": "SWE"
+        }
+      ],
+      "unverifiedNationality": [],
+      "rosterSize": 25,
+      "source": "https://api-web.nhle.com/v1/roster/NYI/current"
+    },
+    "NYR": {
+      "players": [
+        {
+          "id": 8477969,
+          "name": "Marcus Pettersson",
+          "position": "D",
+          "nationality": "SWE"
+        },
+        {
+          "id": 8476459,
+          "name": "Mika Zibanejad",
+          "position": "C",
+          "nationality": "SWE"
+        }
+      ],
+      "unverifiedNationality": [],
+      "rosterSize": 28,
+      "source": "https://api-web.nhle.com/v1/roster/NYR/current"
+    },
+    "OTT": {
+      "players": [
+        {
+          "id": 8477444,
+          "name": "Andre Burakovsky",
+          "position": "L",
+          "nationality": "SWE"
+        },
+        {
+          "id": 8480188,
+          "name": "Fabian Zetterlund",
+          "position": "L",
+          "nationality": "SWE"
+        },
+        {
+          "id": 8476999,
+          "name": "Linus Ullmark",
+          "position": "G",
+          "nationality": "SWE"
+        },
+        {
+          "id": 8481035,
+          "name": "Samuel Ersson",
+          "position": "G",
+          "nationality": "SWE"
+        },
+        {
+          "id": 8482667,
+          "name": "William Eklund",
+          "position": "L",
+          "nationality": "SWE"
+        }
+      ],
+      "unverifiedNationality": [],
+      "rosterSize": 23,
+      "source": "https://api-web.nhle.com/v1/roster/OTT/current"
+    },
+    "PHI": {
+      "players": [],
+      "unverifiedNationality": [],
+      "rosterSize": 24,
+      "source": "https://api-web.nhle.com/v1/roster/PHI/current"
+    },
+    "PIT": {
+      "players": [
+        {
+          "id": 8481725,
+          "name": "Elmer Soderblom",
+          "position": "L",
+          "nationality": "SWE"
+        },
+        {
+          "id": 8474578,
+          "name": "Erik Karlsson",
+          "position": "D",
+          "nationality": "SWE"
+        },
+        {
+          "id": 8476483,
+          "name": "Rickard Rakell",
+          "position": "R",
+          "nationality": "SWE"
+        }
+      ],
+      "unverifiedNationality": [],
+      "rosterSize": 26,
+      "source": "https://api-web.nhle.com/v1/roster/PIT/current"
+    },
+    "SEA": {
+      "players": [
+        {
+          "id": 8476457,
+          "name": "Adam Larsson",
+          "position": "D",
+          "nationality": "SWE"
+        }
+      ],
+      "unverifiedNationality": [
+        "Jagger Firkus",
+        "Jake O'Brien"
+      ],
+      "rosterSize": 28,
+      "source": "https://api-web.nhle.com/v1/roster/SEA/current"
+    },
+    "SJS": {
+      "players": [
+        {
+          "id": 8477505,
+          "name": "Alexander Wennberg",
+          "position": "C",
+          "nationality": "SWE"
+        },
+        {
+          "id": 8486103,
+          "name": "Ivar Stenberg",
+          "position": "L",
+          "nationality": "SWE"
+        }
+      ],
+      "unverifiedNationality": [],
+      "rosterSize": 23,
+      "source": "https://api-web.nhle.com/v1/roster/SJS/current"
+    },
+    "STL": {
+      "players": [
+        {
+          "id": 8480157,
+          "name": "Calle Rosen",
+          "position": "D",
+          "nationality": "SWE"
+        },
+        {
+          "id": 8481013,
+          "name": "Jonatan Berggren",
+          "position": "R",
+          "nationality": "SWE"
+        },
+        {
+          "id": 8481598,
+          "name": "Philip Broberg",
+          "position": "D",
+          "nationality": "SWE"
+        }
+      ],
+      "unverifiedNationality": [],
+      "rosterSize": 24,
+      "source": "https://api-web.nhle.com/v1/roster/STL/current"
+    },
+    "TBL": {
+      "players": [
+        {
+          "id": 8483710,
+          "name": "Dennis Hildeby",
+          "position": "G",
+          "nationality": "SWE"
+        },
+        {
+          "id": 8480995,
+          "name": "Pontus Holmberg",
+          "position": "R",
+          "nationality": "SWE"
+        },
+        {
+          "id": 8475167,
+          "name": "Victor Hedman",
+          "position": "D",
+          "nationality": "SWE"
+        }
+      ],
+      "unverifiedNationality": [],
+      "rosterSize": 24,
+      "source": "https://api-web.nhle.com/v1/roster/TBL/current"
+    },
+    "TOR": {
+      "players": [
+        {
+          "id": 8475171,
+          "name": "Oliver Ekman-Larsson",
+          "position": "D",
+          "nationality": "SWE"
+        },
+        {
+          "id": 8477939,
+          "name": "William Nylander",
+          "position": "R",
+          "nationality": "SWE"
+        }
+      ],
+      "unverifiedNationality": [],
+      "rosterSize": 30,
+      "source": "https://api-web.nhle.com/v1/roster/TOR/current"
+    },
+    "UTA": {
+      "players": [
+        {
+          "id": 8478831,
+          "name": "Kevin Stenlund",
+          "position": "C",
+          "nationality": "SWE"
+        }
+      ],
+      "unverifiedNationality": [
+        "Gregor Biber"
+      ],
+      "rosterSize": 25,
+      "source": "https://api-web.nhle.com/v1/roster/UTA/current"
+    },
+    "VAN": {
+      "players": [
+        {
+          "id": 8480012,
+          "name": "Elias Pettersson",
+          "position": "C",
+          "nationality": "SWE"
+        },
+        {
+          "id": 8483678,
+          "name": "Elias Pettersson",
+          "position": "D",
+          "nationality": "SWE"
+        },
+        {
+          "id": 8483476,
+          "name": "Jonathan Lekkerimäki",
+          "position": "R",
+          "nationality": "SWE"
+        },
+        {
+          "id": 8483499,
+          "name": "Liam Ohgren",
+          "position": "L",
+          "nationality": "SWE"
+        },
+        {
+          "id": 8481024,
+          "name": "Linus Karlsson",
+          "position": "C",
+          "nationality": "SWE"
+        },
+        {
+          "id": 8484240,
+          "name": "Tom Willander",
+          "position": "D",
+          "nationality": "SWE"
+        }
+      ],
+      "unverifiedNationality": [],
+      "rosterSize": 25,
+      "source": "https://api-web.nhle.com/v1/roster/VAN/current"
+    },
+    "VGK": {
+      "players": [
+        {
+          "id": 8478397,
+          "name": "Rasmus Andersson",
+          "position": "D",
+          "nationality": "SWE"
+        },
+        {
+          "id": 8478109,
+          "name": "Victor Olofsson",
+          "position": "L",
+          "nationality": "SWE"
+        },
+        {
+          "id": 8476448,
+          "name": "William Karlsson",
+          "position": "C",
+          "nationality": "SWE"
+        }
+      ],
+      "unverifiedNationality": [],
+      "rosterSize": 22,
+      "source": "https://api-web.nhle.com/v1/roster/VGK/current"
+    },
+    "WPG": {
+      "players": [
+        {
+          "id": 8482765,
+          "name": "Isak Rosen",
+          "position": "R",
+          "nationality": "SWE"
+        },
+        {
+          "id": 8486025,
+          "name": "Viggo Björck",
+          "position": "C",
+          "nationality": "SWE"
+        }
+      ],
+      "unverifiedNationality": [],
+      "rosterSize": 24,
+      "source": "https://api-web.nhle.com/v1/roster/WPG/current"
+    },
+    "WSH": {
+      "players": [
+        {
+          "id": 8480873,
+          "name": "Rasmus Sandin",
+          "position": "D",
+          "nationality": "SWE"
+        },
+        {
+          "id": 8480043,
+          "name": "Timothy Liljegren",
+          "position": "D",
+          "nationality": "SWE"
+        }
+      ],
+      "unverifiedNationality": [],
+      "rosterSize": 25,
+      "source": "https://api-web.nhle.com/v1/roster/WSH/current"
+    }
+  }
+}
