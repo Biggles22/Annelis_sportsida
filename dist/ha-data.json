@@ -1,6 +1,6 @@
 {
-  "date": "2026-11-11",
-  "checkedAt": "2026-11-12T02:07:04.874Z",
+  "date": "2026-11-13",
+  "checkedAt": "2026-11-13T02:04:59.190Z",
   "resultsThrough": "2026-11-11",
   "sourceUpdatedAt": null,
   "sources": {
@@ -181,70 +181,81 @@
   },
   "fixtures": [
     {
-      "date": "2026-11-11",
+      "date": "2026-11-13",
       "time": "19:00",
-      "home": "LIF",
+      "home": "BIK",
       "away": "AIK",
-      "venue": "Tegera Arena",
-      "broadcastTime": "18:30",
+      "venue": "Nobelhallen",
+      "broadcastTime": "18:45",
       "channel": "TV4 Play",
       "service": "TV4 Play Sport Total",
-      "broadcastUrl": "https://www.tv4play.se/program/d173e0626bbc07fb0af0/studio-leksands-if-aik"
+      "broadcastUrl": "https://www.tv4play.se/program/b719980334078084aa5d/bik-karlskoga-aik"
     },
     {
-      "date": "2026-11-11",
+      "date": "2026-11-13",
       "time": "19:00",
-      "home": "AIS",
-      "away": "NYB",
-      "venue": "Gränby Ishallar A-hall",
+      "home": "IKO",
+      "away": "VIM",
+      "venue": "Be-Ge Hockey Center",
       "broadcastTime": "18:55",
       "channel": "TV4 Play",
       "service": "TV4 Play Sport Total",
-      "broadcastUrl": "https://www.tv4play.se/program/df079699bd80df9b56d3/almtuna-is-nybro-vikings-if"
+      "broadcastUrl": "https://www.tv4play.se/program/acd817b463c578b6a9f8/ik-oskarshamn-vimmerby-hc"
     },
     {
-      "date": "2026-11-11",
-      "time": "19:00",
-      "home": "KAL",
-      "away": "VRH",
-      "venue": "Hatstore Arena",
-      "broadcastTime": "18:55",
-      "channel": "TV4 Play",
-      "service": "TV4 Play Sport Total",
-      "broadcastUrl": "https://www.tv4play.se/program/c9c1ef057b88375dff12/kalmar-hc-visby-roma"
-    },
-    {
-      "date": "2026-11-11",
+      "date": "2026-11-13",
       "time": "19:00",
       "home": "MODO",
-      "away": "VIK",
+      "away": "OIK",
       "venue": "Hägglunds Arena",
       "broadcastTime": "18:55",
       "channel": "TV4 Play",
       "service": "TV4 Play Sport Total",
-      "broadcastUrl": "https://www.tv4play.se/program/eeacb40ada01f54e1be0/modo-vasteras-ik"
+      "broadcastUrl": "https://www.tv4play.se/program/3aea56265eee5fdbcb33/modo-ostersunds-ik"
     },
     {
-      "date": "2026-11-11",
+      "date": "2026-11-13",
       "time": "19:00",
-      "home": "MORA",
-      "away": "BIK",
-      "venue": "Wibe Arena",
+      "home": "NYB",
+      "away": "KAL",
+      "venue": "Liljas Arena",
       "broadcastTime": "18:55",
       "channel": "TV4 Play",
       "service": "TV4 Play Sport Total",
-      "broadcastUrl": "https://www.tv4play.se/program/74e0d778021c91487ffc/mora-ik-bik-karlskoga"
+      "broadcastUrl": "https://www.tv4play.se/program/ed6fa785e57bcd9503fa/nybro-vikings-if-kalmar-hc"
     },
     {
-      "date": "2026-11-11",
+      "date": "2026-11-13",
       "time": "19:00",
       "home": "SSK",
-      "away": "IKO",
+      "away": "AIS",
       "venue": "Scaniarinken",
       "broadcastTime": "18:55",
       "channel": "TV4 Play",
       "service": "TV4 Play Sport Total",
-      "broadcastUrl": "https://www.tv4play.se/program/10a64691ad257d7f0225/sodertalje-sk-ik-oskarshamn"
+      "broadcastUrl": "https://www.tv4play.se/program/b239c1f4bac246332ed4/sodertalje-sk-almtuna-is"
+    },
+    {
+      "date": "2026-11-13",
+      "time": "19:00",
+      "home": "VRH",
+      "away": "MORA",
+      "venue": "Visby Ishall",
+      "broadcastTime": "18:55",
+      "channel": "TV4 Play",
+      "service": "TV4 Play Sport Total",
+      "broadcastUrl": "https://www.tv4play.se/program/8e180841901ac3e6f81e/visby-roma-mora-ik"
+    },
+    {
+      "date": "2026-11-13",
+      "time": "19:00",
+      "home": "VIK",
+      "away": "LIF",
+      "venue": "ABB Arena Nord",
+      "broadcastTime": "18:55",
+      "channel": "TV4 Play",
+      "service": "TV4 Play Sport Total",
+      "broadcastUrl": "https://www.tv4play.se/program/a5cc45fa3899c45d2f7e/vasteras-ik-leksands-if"
     }
   ],
   "results": [
