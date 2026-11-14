@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-11-13T07:47:25.711479+00:00",
+  "checkedAt": "2026-11-14T01:59:23.959852+00:00",
   "nationalitySources": [
     "https://api.nhle.com/stats/rest/en/skater/bios?isAggregate=true&limit=-1&cayenneExp=seasonId%3E=20102011",
     "https://api.nhle.com/stats/rest/en/goalie/bios?isAggregate=true&limit=-1&cayenneExp=seasonId%3E=20102011"
@@ -84,7 +84,7 @@
         }
       ],
       "unverifiedNationality": [],
-      "rosterSize": 27,
+      "rosterSize": 25,
       "source": "https://api-web.nhle.com/v1/roster/CGY/current"
     },
     "CHI": {
@@ -112,7 +112,7 @@
       "unverifiedNationality": [
         "Alex Gagne"
       ],
-      "rosterSize": 23,
+      "rosterSize": 24,
       "source": "https://api-web.nhle.com/v1/roster/COL/current"
     },
     "DAL": {
@@ -313,8 +313,10 @@
           "nationality": "SWE"
         }
       ],
-      "unverifiedNationality": [],
-      "rosterSize": 23,
+      "unverifiedNationality": [
+        "Anton Silaev"
+      ],
+      "rosterSize": 24,
       "source": "https://api-web.nhle.com/v1/roster/NJD/current"
     },
     "NSH": {
@@ -663,7 +665,7 @@
         }
       ],
       "unverifiedNationality": [],
-      "rosterSize": 24,
+      "rosterSize": 25,
       "source": "https://api-web.nhle.com/v1/roster/WPG/current"
     },
     "WSH": {
