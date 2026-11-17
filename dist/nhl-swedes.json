@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-11-16T02:04:32.839744+00:00",
+  "checkedAt": "2026-11-17T02:03:23.549781+00:00",
   "nationalitySources": [
     "https://api.nhle.com/stats/rest/en/skater/bios?isAggregate=true&limit=-1&cayenneExp=seasonId%3E=20102011",
     "https://api.nhle.com/stats/rest/en/goalie/bios?isAggregate=true&limit=-1&cayenneExp=seasonId%3E=20102011"
@@ -75,16 +75,10 @@
           "name": "Mikael Backlund",
           "position": "C",
           "nationality": "SWE"
-        },
-        {
-          "id": 8482766,
-          "name": "William Stromgren",
-          "position": "L",
-          "nationality": "SWE"
         }
       ],
       "unverifiedNationality": [],
-      "rosterSize": 25,
+      "rosterSize": 24,
       "source": "https://api-web.nhle.com/v1/roster/CGY/current"
     },
     "CHI": {
@@ -197,7 +191,7 @@
         }
       ],
       "unverifiedNationality": [],
-      "rosterSize": 28,
+      "rosterSize": 27,
       "source": "https://api-web.nhle.com/v1/roster/EDM/current"
     },
     "FLA": {
@@ -512,7 +506,7 @@
         }
       ],
       "unverifiedNationality": [],
-      "rosterSize": 24,
+      "rosterSize": 25,
       "source": "https://api-web.nhle.com/v1/roster/STL/current"
     },
     "TBL": {
@@ -568,10 +562,8 @@
           "nationality": "SWE"
         }
       ],
-      "unverifiedNationality": [
-        "Gregor Biber"
-      ],
-      "rosterSize": 25,
+      "unverifiedNationality": [],
+      "rosterSize": 27,
       "source": "https://api-web.nhle.com/v1/roster/UTA/current"
     },
     "VAN": {

@@ -1,7 +1,7 @@
 {
-  "date": "2026-11-16",
-  "checkedAt": "2026-11-16T02:05:20.165Z",
-  "resultsThrough": "2026-11-15",
+  "date": "2026-11-17",
+  "checkedAt": "2026-11-17T02:02:25.123Z",
+  "resultsThrough": "2026-11-16",
   "sourceUpdatedAt": null,
   "sources": {
     "schedule": "https://stats.swehockey.se/ScheduleAndResults/Schedule/20962",
@@ -110,9 +110,9 @@
       "name": "Östersunds IK",
       "city": "Östersund",
       "arena": "Östersund Arena Hall A",
-      "pos": 11,
-      "gp": 19,
-      "points": 24,
+      "pos": 9,
+      "gp": 20,
+      "points": 27,
       "cityCoordinates": [
         63.18,
         14.64
@@ -122,7 +122,7 @@
       "name": "Almtuna IS",
       "city": "Uppsala",
       "arena": "Gränby Ishallar A-hall",
-      "pos": 9,
+      "pos": 10,
       "gp": 20,
       "points": 27,
       "cityCoordinates": [
@@ -134,7 +134,7 @@
       "name": "Västerås IK",
       "city": "Västerås",
       "arena": "ABB Arena Nord",
-      "pos": 10,
+      "pos": 11,
       "gp": 20,
       "points": 26,
       "cityCoordinates": [
@@ -171,7 +171,7 @@
       "city": "Visby",
       "arena": "Visby Ishall",
       "pos": 14,
-      "gp": 19,
+      "gp": 20,
       "points": 12,
       "cityCoordinates": [
         57.64,
@@ -179,19 +179,7 @@
       ]
     }
   },
-  "fixtures": [
-    {
-      "date": "2026-11-16",
-      "time": "19:00",
-      "home": "OIK",
-      "away": "VRH",
-      "venue": "Östersund Arena Hall A",
-      "broadcastTime": "18:55",
-      "channel": "TV4 Play",
-      "service": "TV4 Play Sport Total",
-      "broadcastUrl": "https://www.tv4play.se/program/041dda823e2aba642ced/ostersunds-ik-visby-roma"
-    }
-  ],
+  "fixtures": [],
   "results": [
     {
       "id": "1110315",
@@ -1710,6 +1698,17 @@
       "as": 2,
       "venue": "Wibe Arena",
       "sourceUrl": "https://stats.swehockey.se/Game/Events/1110452"
+    },
+    {
+      "id": "1110453",
+      "date": "2026-11-16",
+      "time": "19:00",
+      "home": "OIK",
+      "away": "VRH",
+      "hs": 4,
+      "as": 3,
+      "venue": "Östersund Arena Hall A",
+      "sourceUrl": "https://stats.swehockey.se/Game/Events/1110453"
     }
   ]
 }
