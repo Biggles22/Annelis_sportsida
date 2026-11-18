@@ -1,6 +1,6 @@
 {
-  "date": "2026-11-17",
-  "checkedAt": "2026-11-17T02:02:25.123Z",
+  "date": "2026-11-18",
+  "checkedAt": "2026-11-18T01:58:42.476Z",
   "resultsThrough": "2026-11-16",
   "sourceUpdatedAt": null,
   "sources": {
@@ -179,7 +179,74 @@
       ]
     }
   },
-  "fixtures": [],
+  "fixtures": [
+    {
+      "date": "2026-11-18",
+      "time": "19:00",
+      "home": "MODO",
+      "away": "KAL",
+      "venue": "Hägglunds Arena",
+      "broadcastTime": "18:45",
+      "channel": "TV4 Play",
+      "service": "TV4 Play Sport Total",
+      "broadcastUrl": "https://www.tv4play.se/program/569e3623bddde87feb02/modo-kalmar-hc"
+    },
+    {
+      "date": "2026-11-18",
+      "time": "19:00",
+      "home": "AIS",
+      "away": "OIK",
+      "venue": "Gränby Ishallar A-hall",
+      "broadcastTime": "18:55",
+      "channel": "TV4 Play",
+      "service": "TV4 Play Sport Total",
+      "broadcastUrl": "https://www.tv4play.se/program/f49539d7d7ea8e0853dc/almtuna-is-ostersunds-ik"
+    },
+    {
+      "date": "2026-11-18",
+      "time": "19:00",
+      "home": "BIK",
+      "away": "IKO",
+      "venue": "Nobelhallen",
+      "broadcastTime": "18:55",
+      "channel": "TV4 Play",
+      "service": "TV4 Play Sport Total",
+      "broadcastUrl": "https://www.tv4play.se/program/58062dcddd071b0226f1/bik-karlskoga-ik-oskarshamn"
+    },
+    {
+      "date": "2026-11-18",
+      "time": "19:00",
+      "home": "NYB",
+      "away": "LIF",
+      "venue": "Liljas Arena",
+      "broadcastTime": "18:55",
+      "channel": "TV4 Play",
+      "service": "TV4 Play Sport Total",
+      "broadcastUrl": "https://www.tv4play.se/program/035a7391ef50549b7356/nybro-vikings-if-leksands-if"
+    },
+    {
+      "date": "2026-11-18",
+      "time": "19:00",
+      "home": "VIM",
+      "away": "SSK",
+      "venue": "VBO Arena",
+      "broadcastTime": "18:55",
+      "channel": "TV4 Play",
+      "service": "TV4 Play Sport Total",
+      "broadcastUrl": "https://www.tv4play.se/program/79df983c039e958c3654/vimmerby-hc-sodertalje-sk"
+    },
+    {
+      "date": "2026-11-18",
+      "time": "19:00",
+      "home": "VIK",
+      "away": "VRH",
+      "venue": "ABB Arena Nord",
+      "broadcastTime": "18:55",
+      "channel": "TV4 Play",
+      "service": "TV4 Play Sport Total",
+      "broadcastUrl": "https://www.tv4play.se/program/9825cad3d82729a29828/vasteras-ik-visby-roma"
+    }
+  ],
   "results": [
     {
       "id": "1110315",
