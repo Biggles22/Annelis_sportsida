@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-11-18T01:59:01.348754+00:00",
+  "checkedAt": "2026-11-19T02:04:17.294352+00:00",
   "nationalitySources": [
     "https://api.nhle.com/stats/rest/en/skater/bios?isAggregate=true&limit=-1&cayenneExp=seasonId%3E=20102011",
     "https://api.nhle.com/stats/rest/en/goalie/bios?isAggregate=true&limit=-1&cayenneExp=seasonId%3E=20102011"
@@ -63,9 +63,16 @@
       "source": "https://api-web.nhle.com/v1/roster/CAR/current"
     },
     "CBJ": {
-      "players": [],
+      "players": [
+        {
+          "id": 8480806,
+          "name": "Isac Lundeström",
+          "position": "C",
+          "nationality": "SWE"
+        }
+      ],
       "unverifiedNationality": [],
-      "rosterSize": 23,
+      "rosterSize": 24,
       "source": "https://api-web.nhle.com/v1/roster/CBJ/current"
     },
     "CGY": {
@@ -360,7 +367,7 @@
         }
       ],
       "unverifiedNationality": [],
-      "rosterSize": 25,
+      "rosterSize": 24,
       "source": "https://api-web.nhle.com/v1/roster/NYI/current"
     },
     "NYR": {
@@ -562,8 +569,10 @@
           "nationality": "SWE"
         }
       ],
-      "unverifiedNationality": [],
-      "rosterSize": 27,
+      "unverifiedNationality": [
+        "Gregor Biber"
+      ],
+      "rosterSize": 28,
       "source": "https://api-web.nhle.com/v1/roster/UTA/current"
     },
     "VAN": {
