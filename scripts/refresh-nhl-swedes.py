@@ -9,6 +9,7 @@ import datetime
 import json
 import pathlib
 import subprocess
+import urllib.parse
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 API = 'https://api-web.nhle.com/v1'
@@ -20,6 +21,31 @@ def get_json(url):
                           '--max-time', '45', '--retry', '2', url],
                          check=True, capture_output=True).stdout
     return json.loads(raw)
+
+
+def get_bios(url, reader=get_json):
+    """Read every page, rejecting changing totals, repeated pages and empty pages."""
+    rows, seen, total = [], set(), None
+    while total is None or len(rows) < total:
+        payload = reader(url.replace('limit=-1', 'limit=100') + '&sort=' + urllib.parse.quote('[{"property":"playerId","direction":"ASC"}]') + '&start=' + str(len(rows)))
+        page, count = payload.get('data'), payload.get('total')
+        if not isinstance(count, int) or count <= 0 or not isinstance(page, list) or not page:
+            raise ValueError('Incomplete NHL nationality page')
+        if total is not None and total != count:
+            raise ValueError('NHL nationality total changed during fetch')
+        total = count
+        # Aggregate bios can legitimately contain several records per player.
+        # Exact repeated pages indicate broken pagination; bios_index checks conflicts.
+        fingerprint = json.dumps(page, sort_keys=True)
+        if fingerprint in seen or any(row.get('playerId') is None for row in page):
+            raise ValueError('Repeated or invalid NHL nationality page')
+        seen.add(fingerprint)
+        rows.extend(page)
+        if len(rows) % 1000 == 0 or len(rows) == total:
+            print('NHL nationality rows: ' + str(len(rows)) + '/' + str(total), flush=True)
+        if len(rows) > total:
+            raise ValueError('Unexpected NHL nationality row count')
+    return {'data': rows, 'total': total}
 
 
 def bios_index(payloads):
@@ -68,7 +94,7 @@ def main():
     nationality_sources = [STATS + '/' + role + '/bios?isAggregate=true&limit=-1&cayenneExp=seasonId%3E=20102011'
                            for role in ['skater', 'goalie']]
     with concurrent.futures.ThreadPoolExecutor(max_workers=6) as pool:
-        nationalities = bios_index(list(pool.map(get_json, nationality_sources)))
+        nationalities = bios_index(list(pool.map(get_bios, nationality_sources)))
         rosters = list(pool.map(get_json, [API + '/roster/' + code + '/current' for code in codes]))
     teams = {}
     for code, roster in zip(codes, rosters):

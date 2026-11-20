@@ -20,6 +20,24 @@ class Nationalities(unittest.TestCase):
         self.assertEqual(len(result['unverifiedNationality']), 1)
         self.assertNotIn('points', result['players'][0])
 
+    def test_paginated_bios(self):
+        calls = []
+        def reader(url):
+            calls.append(url)
+            start = int(url.rsplit('start=', 1)[1])
+            return {'total': 3, 'data': [{'playerId': i, 'nationalityCode': 'SWE'}
+                                        for i in range(start, min(start + 2, 3))]}
+        result = refresh.get_bios('https://example.test/bios?limit=-1', reader)
+        self.assertEqual(len(result['data']), 3)
+        self.assertEqual(len(calls), 2)
+        self.assertIn('start=2', calls[1])
+        with self.assertRaises(ValueError):
+            refresh.get_bios('https://example.test/bios?limit=-1',
+                             lambda _: {'total': 2, 'data': [{'playerId': 1}]})
+        with self.assertRaises(ValueError):
+            refresh.get_bios('https://example.test/bios?limit=-1',
+                             lambda _: {'total': 2, 'data': []})
+
     def test_incomplete_source_rejected(self):
         with self.assertRaises(ValueError):
             refresh.bios_index([{'total': 3, 'data': [{'playerId': 1, 'nationalityCode': 'SWE'}]}])

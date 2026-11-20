@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-11-19T02:04:17.294352+00:00",
+  "checkedAt": "2026-11-20T02:08:37.337665+00:00",
   "nationalitySources": [
     "https://api.nhle.com/stats/rest/en/skater/bios?isAggregate=true&limit=-1&cayenneExp=seasonId%3E=20102011",
     "https://api.nhle.com/stats/rest/en/goalie/bios?isAggregate=true&limit=-1&cayenneExp=seasonId%3E=20102011"
@@ -111,7 +111,7 @@
         }
       ],
       "unverifiedNationality": [],
-      "rosterSize": 25,
+      "rosterSize": 26,
       "source": "https://api-web.nhle.com/v1/roster/COL/current"
     },
     "DAL": {
@@ -279,7 +279,7 @@
         }
       ],
       "unverifiedNationality": [],
-      "rosterSize": 24,
+      "rosterSize": 25,
       "source": "https://api-web.nhle.com/v1/roster/MIN/current"
     },
     "MTL": {
@@ -538,7 +538,7 @@
         }
       ],
       "unverifiedNationality": [],
-      "rosterSize": 24,
+      "rosterSize": 25,
       "source": "https://api-web.nhle.com/v1/roster/TBL/current"
     },
     "TOR": {
@@ -569,10 +569,8 @@
           "nationality": "SWE"
         }
       ],
-      "unverifiedNationality": [
-        "Gregor Biber"
-      ],
-      "rosterSize": 28,
+      "unverifiedNationality": [],
+      "rosterSize": 27,
       "source": "https://api-web.nhle.com/v1/roster/UTA/current"
     },
     "VAN": {
