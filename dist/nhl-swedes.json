@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-11-20T02:08:37.337665+00:00",
+  "checkedAt": "2026-11-21T02:06:16.083816+00:00",
   "nationalitySources": [
     "https://api.nhle.com/stats/rest/en/skater/bios?isAggregate=true&limit=-1&cayenneExp=seasonId%3E=20102011",
     "https://api.nhle.com/stats/rest/en/goalie/bios?isAggregate=true&limit=-1&cayenneExp=seasonId%3E=20102011"
@@ -15,7 +15,7 @@
         }
       ],
       "unverifiedNationality": [],
-      "rosterSize": 26,
+      "rosterSize": 27,
       "source": "https://api-web.nhle.com/v1/roster/ANA/current"
     },
     "BOS": {
@@ -111,7 +111,7 @@
         }
       ],
       "unverifiedNationality": [],
-      "rosterSize": 26,
+      "rosterSize": 24,
       "source": "https://api-web.nhle.com/v1/roster/COL/current"
     },
     "DAL": {
@@ -279,7 +279,7 @@
         }
       ],
       "unverifiedNationality": [],
-      "rosterSize": 25,
+      "rosterSize": 24,
       "source": "https://api-web.nhle.com/v1/roster/MIN/current"
     },
     "MTL": {
@@ -311,7 +311,7 @@
         }
       ],
       "unverifiedNationality": [],
-      "rosterSize": 24,
+      "rosterSize": 23,
       "source": "https://api-web.nhle.com/v1/roster/NJD/current"
     },
     "NSH": {
@@ -386,7 +386,7 @@
         }
       ],
       "unverifiedNationality": [],
-      "rosterSize": 27,
+      "rosterSize": 28,
       "source": "https://api-web.nhle.com/v1/roster/NYR/current"
     },
     "OTT": {
@@ -423,7 +423,7 @@
         }
       ],
       "unverifiedNationality": [],
-      "rosterSize": 23,
+      "rosterSize": 26,
       "source": "https://api-web.nhle.com/v1/roster/OTT/current"
     },
     "PHI": {
@@ -454,7 +454,7 @@
         }
       ],
       "unverifiedNationality": [],
-      "rosterSize": 25,
+      "rosterSize": 26,
       "source": "https://api-web.nhle.com/v1/roster/PIT/current"
     },
     "SEA": {
@@ -469,7 +469,7 @@
       "unverifiedNationality": [
         "Jake O'Brien"
       ],
-      "rosterSize": 27,
+      "rosterSize": 26,
       "source": "https://api-web.nhle.com/v1/roster/SEA/current"
     },
     "SJS": {
@@ -638,7 +638,7 @@
         }
       ],
       "unverifiedNationality": [],
-      "rosterSize": 22,
+      "rosterSize": 23,
       "source": "https://api-web.nhle.com/v1/roster/VGK/current"
     },
     "WPG": {

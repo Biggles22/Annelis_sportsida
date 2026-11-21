@@ -287,7 +287,7 @@ const tv4Events = (tv4Response.data?.tableau || [])
           home,
           away,
           league: 'Allsvenskan',
-          matchTime: targetDate==='2026-11-08'?(['GBG','HBK'].includes(home)?'14:00':'16:30'):targetDate==='2026-11-07'?'17:30':'19:00',
+          matchTime: targetDate==='2026-11-08'?(['GBG','HBK'].includes(home)?'14:00':'16:30'):targetDate==='2026-11-07'?'17:30':targetDate==='2026-11-21'?(home==='GAIS'?'17:30':'15:00'):['2026-11-02','2026-11-03','2026-11-06'].includes(targetDate)?'19:00':undefined,
           venue: content.arena || ''
         });
       }

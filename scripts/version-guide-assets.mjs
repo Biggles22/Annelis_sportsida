@@ -5,11 +5,12 @@ import { readFile, readdir, writeFile } from 'node:fs/promises';
 const directory = new URL('../dist/', import.meta.url);
 const guide = await readFile(new URL('guide-data.js', directory));
 const appVersion = createHash('sha256').update(await readFile(new URL('app.js', directory))).digest('hex').slice(0, 16);
+const footballVersion = createHash('sha256').update(await readFile(new URL('allsvenskan.js', directory))).digest('hex').slice(0, 16);
 const version = createHash('sha256').update(guide).digest('hex').slice(0, 16);
 for (const name of await readdir(directory)) {
   if (!name.endsWith('.html')) continue;
   const file = new URL(name, directory);
   const source = await readFile(file, 'utf8');
-  const updated = source.replace(/src="guide-data\.js(?:\?[^"\s]*)?"/g, `src="guide-data.js?v=${version}"`).replace(/src="app\.js(?:\?[^"\s]*)?"/g, `src="app.js?v=${appVersion}"`);
+  const updated = source.replace(/src="guide-data\.js(?:\?[^"\s]*)?"/g, `src="guide-data.js?v=${version}"`).replace(/src="app\.js(?:\?[^"\s]*)?"/g, `src="app.js?v=${appVersion}"`).replace(/src="allsvenskan\.js(?:\?[^"\s]*)?"/g, `src="allsvenskan.js?v=${footballVersion}"`);
   if (updated !== source) await writeFile(file, updated);
 }

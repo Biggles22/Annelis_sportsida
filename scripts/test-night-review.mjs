@@ -30,3 +30,9 @@ for(const path of ['/shl.html','/shl'])for(const selected of [today,'2099-01-01'
  if(selected===today&&guide.events.some(e=>e.league==='SHL'&&e.home==='VLH'&&e.away==='TIK'))assert.ok(html.includes('Matchstart 19:00'));
 }
 console.log('PASS: SHL actual renderer, clean Sites routes, separate match start, today/future result and table guards.');
+
+for(const event of guide.events.filter(e=>e.league==='Allsvenskan'))for(const selected of [today,'2099-01-01']){
+ const root={innerHTML:''};const c={document:{querySelector:()=>root},location:{search:`?home=${event.home}&away=${event.away}&date=${selected}`},URLSearchParams,Intl,Date,sportGuide:guide};c.globalThis=c;vm.runInNewContext(fs.readFileSync('dist/allsvenskan.js','utf8'),c);
+ if(selected===today){assert.ok(root.innerHTML.includes('Sändningsstart'));assert.ok(root.innerHTML.includes(`Avspark <b>${event.matchTime}</b>`));assert.ok(root.innerHTML.includes('Ingen aktuell tabell visas.'));assert.ok(!/\d+ poäng/.test(root.innerHTML));assert.ok(!root.innerHTML.includes('<details open'));}else assert.ok(root.innerHTML.includes('Ingen verifierad match'));
+}
+console.log('PASS: current Allsvenskan views match guide kickoff, hide unverified standings, keep history closed and reject future URL dates.');

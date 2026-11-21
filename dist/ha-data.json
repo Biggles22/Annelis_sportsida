@@ -1,7 +1,7 @@
 {
-  "date": "2026-11-20",
-  "checkedAt": "2026-11-20T02:03:22.029Z",
-  "resultsThrough": "2026-11-18",
+  "date": "2026-11-21",
+  "checkedAt": "2026-11-21T02:02:44.234Z",
+  "resultsThrough": "2026-11-20",
   "sourceUpdatedAt": null,
   "sources": {
     "schedule": "https://stats.swehockey.se/ScheduleAndResults/Schedule/20962",
@@ -15,7 +15,7 @@
       "city": "Stockholm",
       "arena": "Hovet, Johanneshov",
       "pos": 1,
-      "gp": 20,
+      "gp": 21,
       "points": 47,
       "cityCoordinates": [
         59.33,
@@ -27,8 +27,8 @@
       "city": "Leksand",
       "arena": "Tegera Arena",
       "pos": 2,
-      "gp": 20,
-      "points": 44,
+      "gp": 21,
+      "points": 45,
       "cityCoordinates": [
         60.73,
         15
@@ -39,8 +39,8 @@
       "city": "Örnsköldsvik",
       "arena": "Hägglunds Arena",
       "pos": 4,
-      "gp": 20,
-      "points": 38,
+      "gp": 21,
+      "points": 41,
       "cityCoordinates": [
         63.29,
         18.72
@@ -51,8 +51,8 @@
       "city": "Södertälje",
       "arena": "Scaniarinken",
       "pos": 5,
-      "gp": 21,
-      "points": 36,
+      "gp": 22,
+      "points": 39,
       "cityCoordinates": [
         59.2,
         17.63
@@ -63,8 +63,8 @@
       "city": "Kalmar",
       "arena": "Hatstore Arena",
       "pos": 3,
-      "gp": 21,
-      "points": 41,
+      "gp": 22,
+      "points": 44,
       "cityCoordinates": [
         56.66,
         16.36
@@ -75,8 +75,8 @@
       "city": "Oskarshamn",
       "arena": "Be-Ge Hockey Center",
       "pos": 6,
-      "gp": 22,
-      "points": 35,
+      "gp": 23,
+      "points": 38,
       "cityCoordinates": [
         57.26,
         16.45
@@ -86,8 +86,8 @@
       "name": "Mora IK",
       "city": "Mora",
       "arena": "Wibe Arena",
-      "pos": 7,
-      "gp": 20,
+      "pos": 9,
+      "gp": 21,
       "points": 30,
       "cityCoordinates": [
         61,
@@ -98,9 +98,9 @@
       "name": "BIK Karlskoga",
       "city": "Karlskoga",
       "arena": "Nobelhallen",
-      "pos": 10,
-      "gp": 21,
-      "points": 29,
+      "pos": 8,
+      "gp": 22,
+      "points": 32,
       "cityCoordinates": [
         59.33,
         14.52
@@ -110,9 +110,9 @@
       "name": "Östersunds IK",
       "city": "Östersund",
       "arena": "Östersund Arena Hall A",
-      "pos": 8,
-      "gp": 21,
-      "points": 30,
+      "pos": 7,
+      "gp": 22,
+      "points": 33,
       "cityCoordinates": [
         63.18,
         14.64
@@ -123,7 +123,7 @@
       "city": "Uppsala",
       "arena": "Gränby Ishallar A-hall",
       "pos": 11,
-      "gp": 21,
+      "gp": 22,
       "points": 27,
       "cityCoordinates": [
         59.86,
@@ -134,8 +134,8 @@
       "name": "Västerås IK",
       "city": "Västerås",
       "arena": "ABB Arena Nord",
-      "pos": 9,
-      "gp": 21,
+      "pos": 10,
+      "gp": 22,
       "points": 29,
       "cityCoordinates": [
         59.61,
@@ -147,7 +147,7 @@
       "city": "Vimmerby",
       "arena": "VBO Arena",
       "pos": 13,
-      "gp": 20,
+      "gp": 21,
       "points": 18,
       "cityCoordinates": [
         57.67,
@@ -159,7 +159,7 @@
       "city": "Nybro",
       "arena": "Liljas Arena",
       "pos": 12,
-      "gp": 21,
+      "gp": 22,
       "points": 19,
       "cityCoordinates": [
         56.74,
@@ -171,93 +171,15 @@
       "city": "Visby",
       "arena": "Visby Ishall",
       "pos": 14,
-      "gp": 21,
-      "points": 12,
+      "gp": 22,
+      "points": 14,
       "cityCoordinates": [
         57.64,
         18.3
       ]
     }
   },
-  "fixtures": [
-    {
-      "date": "2026-11-20",
-      "time": "19:00",
-      "home": "AIK",
-      "away": "SSK",
-      "venue": "Hovet, Johanneshov",
-      "broadcastTime": "18:30",
-      "channel": "TV4 Play",
-      "service": "TV4 Play Sport Total",
-      "broadcastUrl": "https://www.tv4play.se/program/0ec306ff33825c701882/studio-aik-sodertalje-sk"
-    },
-    {
-      "date": "2026-11-20",
-      "time": "19:00",
-      "home": "IKO",
-      "away": "NYB",
-      "venue": "Be-Ge Hockey Center",
-      "broadcastTime": "18:55",
-      "channel": "TV4 Play",
-      "service": "TV4 Play Sport Total",
-      "broadcastUrl": "https://www.tv4play.se/program/6d62138f247572d53f14/ik-oskarshamn-nybro-vikings-if"
-    },
-    {
-      "date": "2026-11-20",
-      "time": "19:00",
-      "home": "KAL",
-      "away": "AIS",
-      "venue": "Hatstore Arena",
-      "broadcastTime": "18:55",
-      "channel": "TV4 Play",
-      "service": "TV4 Play Sport Total",
-      "broadcastUrl": "https://www.tv4play.se/program/f9a986f93ee956f9b4a2/kalmar-hc-almtuna-is"
-    },
-    {
-      "date": "2026-11-20",
-      "time": "19:00",
-      "home": "LIF",
-      "away": "VRH",
-      "venue": "Tegera Arena",
-      "broadcastTime": "18:55",
-      "channel": "TV4 Play",
-      "service": "TV4 Play Sport Total",
-      "broadcastUrl": "https://www.tv4play.se/program/a9bdef87084c9e974604/leksands-if-visby-roma"
-    },
-    {
-      "date": "2026-11-20",
-      "time": "19:00",
-      "home": "MORA",
-      "away": "MODO",
-      "venue": "Wibe Arena",
-      "broadcastTime": "18:55",
-      "channel": "TV4 Play",
-      "service": "TV4 Play Sport Total",
-      "broadcastUrl": "https://www.tv4play.se/program/ad0136cb93a51fa66457/mora-ik-modo"
-    },
-    {
-      "date": "2026-11-20",
-      "time": "19:00",
-      "home": "VIK",
-      "away": "BIK",
-      "venue": "ABB Arena Nord",
-      "broadcastTime": "18:55",
-      "channel": "TV4 Play",
-      "service": "TV4 Play Sport Total",
-      "broadcastUrl": "https://www.tv4play.se/program/e54d322ef6e7b18b22d7/vasteras-ik-bik-karlskoga"
-    },
-    {
-      "date": "2026-11-20",
-      "time": "19:00",
-      "home": "OIK",
-      "away": "VIM",
-      "venue": "Östersund Arena Hall A",
-      "broadcastTime": "18:55",
-      "channel": "TV4 Play",
-      "service": "TV4 Play Sport Total",
-      "broadcastUrl": "https://www.tv4play.se/program/93f5efa2e14079611fc6/ostersunds-ik-vimmerby-hc"
-    }
-  ],
+  "fixtures": [],
   "results": [
     {
       "id": "1110315",
@@ -1853,6 +1775,83 @@
       "as": 1,
       "venue": "ABB Arena Nord",
       "sourceUrl": "https://stats.swehockey.se/Game/Events/1110460"
+    },
+    {
+      "id": "1110462",
+      "date": "2026-11-20",
+      "time": "19:00",
+      "home": "LIF",
+      "away": "VRH",
+      "hs": 1,
+      "as": 2,
+      "venue": "Tegera Arena",
+      "sourceUrl": "https://stats.swehockey.se/Game/Events/1110462"
+    },
+    {
+      "id": "1110463",
+      "date": "2026-11-20",
+      "time": "19:00",
+      "home": "AIK",
+      "away": "SSK",
+      "hs": 2,
+      "as": 5,
+      "venue": "Hovet, Johanneshov",
+      "sourceUrl": "https://stats.swehockey.se/Game/Events/1110463"
+    },
+    {
+      "id": "1110464",
+      "date": "2026-11-20",
+      "time": "19:00",
+      "home": "KAL",
+      "away": "AIS",
+      "hs": 4,
+      "as": 0,
+      "venue": "Hatstore Arena",
+      "sourceUrl": "https://stats.swehockey.se/Game/Events/1110464"
+    },
+    {
+      "id": "1110465",
+      "date": "2026-11-20",
+      "time": "19:00",
+      "home": "MORA",
+      "away": "MODO",
+      "hs": 2,
+      "as": 4,
+      "venue": "Wibe Arena",
+      "sourceUrl": "https://stats.swehockey.se/Game/Events/1110465"
+    },
+    {
+      "id": "1110466",
+      "date": "2026-11-20",
+      "time": "19:00",
+      "home": "IKO",
+      "away": "NYB",
+      "hs": 4,
+      "as": 1,
+      "venue": "Be-Ge Hockey Center",
+      "sourceUrl": "https://stats.swehockey.se/Game/Events/1110466"
+    },
+    {
+      "id": "1110467",
+      "date": "2026-11-20",
+      "time": "19:00",
+      "home": "VIK",
+      "away": "BIK",
+      "hs": 2,
+      "as": 5,
+      "venue": "ABB Arena Nord",
+      "sourceUrl": "https://stats.swehockey.se/Game/Events/1110467"
+    },
+    {
+      "id": "1110468",
+      "date": "2026-11-20",
+      "time": "19:00",
+      "home": "OIK",
+      "away": "VIM",
+      "hs": 3,
+      "as": 2,
+      "venue": "Östersund Arena Hall A",
+      "sourceUrl": "https://stats.swehockey.se/Game/Events/1110468"
     }
   ]
 }
