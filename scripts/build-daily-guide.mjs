@@ -205,7 +205,7 @@ const viaplayEvents = viaplayProducts
     if (format === 'NHL') {
       const [homeName, awayName] = String(product.content?.title || '').split(' - ');
       const home = nhlCodes[homeName];
-      const away = nhlCodes[awayName?.replace(/ \((?:ENG|SV)\)$/, '')];
+      const away = nhlCodes[awayName?.replace(/ \((?:ENG|SV|SE)\)$/, '')];
       if (home && away) {
         Object.assign(event, {
           url: `nhl.html?a=${home}&b=${away}&date=${targetDate}`,

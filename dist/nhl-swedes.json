@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-11-21T02:06:16.083816+00:00",
+  "checkedAt": "2026-11-22T02:05:17.801356+00:00",
   "nationalitySources": [
     "https://api.nhle.com/stats/rest/en/skater/bios?isAggregate=true&limit=-1&cayenneExp=seasonId%3E=20102011",
     "https://api.nhle.com/stats/rest/en/goalie/bios?isAggregate=true&limit=-1&cayenneExp=seasonId%3E=20102011"
@@ -15,7 +15,7 @@
         }
       ],
       "unverifiedNationality": [],
-      "rosterSize": 27,
+      "rosterSize": 28,
       "source": "https://api-web.nhle.com/v1/roster/ANA/current"
     },
     "BOS": {
@@ -386,7 +386,7 @@
         }
       ],
       "unverifiedNationality": [],
-      "rosterSize": 28,
+      "rosterSize": 29,
       "source": "https://api-web.nhle.com/v1/roster/NYR/current"
     },
     "OTT": {
@@ -469,7 +469,7 @@
       "unverifiedNationality": [
         "Jake O'Brien"
       ],
-      "rosterSize": 26,
+      "rosterSize": 25,
       "source": "https://api-web.nhle.com/v1/roster/SEA/current"
     },
     "SJS": {
@@ -569,8 +569,10 @@
           "nationality": "SWE"
         }
       ],
-      "unverifiedNationality": [],
-      "rosterSize": 27,
+      "unverifiedNationality": [
+        "Gregor Biber"
+      ],
+      "rosterSize": 28,
       "source": "https://api-web.nhle.com/v1/roster/UTA/current"
     },
     "VAN": {
@@ -613,7 +615,7 @@
         }
       ],
       "unverifiedNationality": [],
-      "rosterSize": 25,
+      "rosterSize": 26,
       "source": "https://api-web.nhle.com/v1/roster/VAN/current"
     },
     "VGK": {
@@ -643,6 +645,12 @@
     },
     "WPG": {
       "players": [
+        {
+          "id": 8483510,
+          "name": "Elias Salomonsson",
+          "position": "D",
+          "nationality": "SWE"
+        },
         {
           "id": 8482765,
           "name": "Isak Rosen",
