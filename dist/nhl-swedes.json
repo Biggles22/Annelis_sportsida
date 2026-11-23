@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-11-22T02:05:17.801356+00:00",
+  "checkedAt": "2026-11-23T02:14:45.320737+00:00",
   "nationalitySources": [
     "https://api.nhle.com/stats/rest/en/skater/bios?isAggregate=true&limit=-1&cayenneExp=seasonId%3E=20102011",
     "https://api.nhle.com/stats/rest/en/goalie/bios?isAggregate=true&limit=-1&cayenneExp=seasonId%3E=20102011"
@@ -72,7 +72,7 @@
         }
       ],
       "unverifiedNationality": [],
-      "rosterSize": 24,
+      "rosterSize": 23,
       "source": "https://api-web.nhle.com/v1/roster/CBJ/current"
     },
     "CGY": {
@@ -98,7 +98,7 @@
         }
       ],
       "unverifiedNationality": [],
-      "rosterSize": 24,
+      "rosterSize": 25,
       "source": "https://api-web.nhle.com/v1/roster/CHI/current"
     },
     "COL": {
@@ -292,7 +292,7 @@
         }
       ],
       "unverifiedNationality": [],
-      "rosterSize": 27,
+      "rosterSize": 25,
       "source": "https://api-web.nhle.com/v1/roster/MTL/current"
     },
     "NJD": {
@@ -386,7 +386,7 @@
         }
       ],
       "unverifiedNationality": [],
-      "rosterSize": 29,
+      "rosterSize": 28,
       "source": "https://api-web.nhle.com/v1/roster/NYR/current"
     },
     "OTT": {
@@ -557,7 +557,7 @@
         }
       ],
       "unverifiedNationality": [],
-      "rosterSize": 30,
+      "rosterSize": 31,
       "source": "https://api-web.nhle.com/v1/roster/TOR/current"
     },
     "UTA": {
