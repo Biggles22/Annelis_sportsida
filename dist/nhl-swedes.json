@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-11-23T02:14:45.320737+00:00",
+  "checkedAt": "2026-11-24T02:04:41.561429+00:00",
   "nationalitySources": [
     "https://api.nhle.com/stats/rest/en/skater/bios?isAggregate=true&limit=-1&cayenneExp=seasonId%3E=20102011",
     "https://api.nhle.com/stats/rest/en/goalie/bios?isAggregate=true&limit=-1&cayenneExp=seasonId%3E=20102011"
@@ -72,7 +72,7 @@
         }
       ],
       "unverifiedNationality": [],
-      "rosterSize": 23,
+      "rosterSize": 24,
       "source": "https://api-web.nhle.com/v1/roster/CBJ/current"
     },
     "CGY": {
@@ -85,7 +85,7 @@
         }
       ],
       "unverifiedNationality": [],
-      "rosterSize": 24,
+      "rosterSize": 25,
       "source": "https://api-web.nhle.com/v1/roster/CGY/current"
     },
     "CHI": {
@@ -173,7 +173,7 @@
         }
       ],
       "unverifiedNationality": [],
-      "rosterSize": 23,
+      "rosterSize": 24,
       "source": "https://api-web.nhle.com/v1/roster/DET/current"
     },
     "EDM": {
@@ -217,7 +217,7 @@
         }
       ],
       "unverifiedNationality": [],
-      "rosterSize": 25,
+      "rosterSize": 24,
       "source": "https://api-web.nhle.com/v1/roster/FLA/current"
     },
     "LAK": {
@@ -292,7 +292,7 @@
         }
       ],
       "unverifiedNationality": [],
-      "rosterSize": 25,
+      "rosterSize": 24,
       "source": "https://api-web.nhle.com/v1/roster/MTL/current"
     },
     "NJD": {
@@ -488,7 +488,7 @@
         }
       ],
       "unverifiedNationality": [],
-      "rosterSize": 24,
+      "rosterSize": 25,
       "source": "https://api-web.nhle.com/v1/roster/SJS/current"
     },
     "STL": {
@@ -538,7 +538,7 @@
         }
       ],
       "unverifiedNationality": [],
-      "rosterSize": 25,
+      "rosterSize": 24,
       "source": "https://api-web.nhle.com/v1/roster/TBL/current"
     },
     "TOR": {
@@ -557,7 +557,7 @@
         }
       ],
       "unverifiedNationality": [],
-      "rosterSize": 31,
+      "rosterSize": 30,
       "source": "https://api-web.nhle.com/v1/roster/TOR/current"
     },
     "UTA": {
