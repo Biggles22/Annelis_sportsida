@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-11-24T02:04:41.561429+00:00",
+  "checkedAt": "2026-11-25T02:06:45.476509+00:00",
   "nationalitySources": [
     "https://api.nhle.com/stats/rest/en/skater/bios?isAggregate=true&limit=-1&cayenneExp=seasonId%3E=20102011",
     "https://api.nhle.com/stats/rest/en/goalie/bios?isAggregate=true&limit=-1&cayenneExp=seasonId%3E=20102011"
@@ -15,7 +15,7 @@
         }
       ],
       "unverifiedNationality": [],
-      "rosterSize": 28,
+      "rosterSize": 27,
       "source": "https://api-web.nhle.com/v1/roster/ANA/current"
     },
     "BOS": {
@@ -292,7 +292,7 @@
         }
       ],
       "unverifiedNationality": [],
-      "rosterSize": 24,
+      "rosterSize": 26,
       "source": "https://api-web.nhle.com/v1/roster/MTL/current"
     },
     "NJD": {
@@ -423,7 +423,7 @@
         }
       ],
       "unverifiedNationality": [],
-      "rosterSize": 26,
+      "rosterSize": 25,
       "source": "https://api-web.nhle.com/v1/roster/OTT/current"
     },
     "PHI": {
@@ -506,6 +506,12 @@
           "nationality": "SWE"
         },
         {
+          "id": 8484230,
+          "name": "Otto Stenberg",
+          "position": "C",
+          "nationality": "SWE"
+        },
+        {
           "id": 8481598,
           "name": "Philip Broberg",
           "position": "D",
@@ -513,7 +519,7 @@
         }
       ],
       "unverifiedNationality": [],
-      "rosterSize": 25,
+      "rosterSize": 27,
       "source": "https://api-web.nhle.com/v1/roster/STL/current"
     },
     "TBL": {
@@ -557,7 +563,7 @@
         }
       ],
       "unverifiedNationality": [],
-      "rosterSize": 30,
+      "rosterSize": 29,
       "source": "https://api-web.nhle.com/v1/roster/TOR/current"
     },
     "UTA": {
@@ -665,7 +671,7 @@
         }
       ],
       "unverifiedNationality": [],
-      "rosterSize": 26,
+      "rosterSize": 25,
       "source": "https://api-web.nhle.com/v1/roster/WPG/current"
     },
     "WSH": {

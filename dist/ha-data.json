@@ -1,6 +1,6 @@
 {
-  "date": "2026-11-24",
-  "checkedAt": "2026-11-24T02:02:31.424Z",
+  "date": "2026-11-25",
+  "checkedAt": "2026-11-25T02:02:26.005Z",
   "resultsThrough": "2026-11-20",
   "sourceUpdatedAt": null,
   "sources": {
@@ -179,7 +179,74 @@
       ]
     }
   },
-  "fixtures": [],
+  "fixtures": [
+    {
+      "date": "2026-11-25",
+      "time": "19:00",
+      "home": "SSK",
+      "away": "MODO",
+      "venue": "Scaniarinken",
+      "broadcastTime": "18:45",
+      "channel": "TV4 Play",
+      "service": "TV4 Play Sport Total",
+      "broadcastUrl": "https://www.tv4play.se/program/a2f386b763998a3ac48b/sodertalje-sk-modo"
+    },
+    {
+      "date": "2026-11-25",
+      "time": "19:00",
+      "home": "AIS",
+      "away": "VRH",
+      "venue": "Gränby Ishallar A-hall",
+      "broadcastTime": "18:55",
+      "channel": "TV4 Play",
+      "service": "TV4 Play Sport Total",
+      "broadcastUrl": "https://www.tv4play.se/program/59b3aa1bed4813a5ff52/almtuna-is-visby-roma"
+    },
+    {
+      "date": "2026-11-25",
+      "time": "19:00",
+      "home": "KAL",
+      "away": "AIK",
+      "venue": "Hatstore Arena",
+      "broadcastTime": "18:55",
+      "channel": "TV4 Play",
+      "service": "TV4 Play Sport Total",
+      "broadcastUrl": "https://www.tv4play.se/program/1ac4a1ceabce0a252e9f/kalmar-hc-aik"
+    },
+    {
+      "date": "2026-11-25",
+      "time": "19:00",
+      "home": "MORA",
+      "away": "OIK",
+      "venue": "Wibe Arena",
+      "broadcastTime": "18:55",
+      "channel": "TV4 Play",
+      "service": "TV4 Play Sport Total",
+      "broadcastUrl": "https://www.tv4play.se/program/9218315e9aa89bb7bf8d/mora-ik-ostersunds-ik"
+    },
+    {
+      "date": "2026-11-25",
+      "time": "19:00",
+      "home": "NYB",
+      "away": "VIK",
+      "venue": "Liljas Arena",
+      "broadcastTime": "18:55",
+      "channel": "TV4 Play",
+      "service": "TV4 Play Sport Total",
+      "broadcastUrl": "https://www.tv4play.se/program/6d07edfb589d59ad2e97/nybro-vikings-if-vasteras-ik"
+    },
+    {
+      "date": "2026-11-25",
+      "time": "19:00",
+      "home": "VIM",
+      "away": "BIK",
+      "venue": "VBO Arena",
+      "broadcastTime": "18:55",
+      "channel": "TV4 Play",
+      "service": "TV4 Play Sport Total",
+      "broadcastUrl": "https://www.tv4play.se/program/d68989287407f474e0da/vimmerby-hc-bik-karlskoga"
+    }
+  ],
   "results": [
     {
       "id": "1110315",
