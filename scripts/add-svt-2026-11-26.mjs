@@ -1,0 +1,4 @@
+import fs from 'node:fs';await import('../dist/guide-data.js');const g=globalThis.sportGuide;
+const svt='https://www.svt.se/sport/artikel/sport-pa-tv-sa-sander-svt-sport';
+for(const [sport,time,title,meta] of [['Övrigt','16:05','Världscupen i skidskytte – distans, herrar','Kontiolax · Skidskytte'],['Handboll','18:05','Sverige – Island, damer','Landskamp'],['Ishockey','22:00','Hockeykväll','Studio · SVT1 till 22:30, SVT Play till 22:45']])g.events.push({date:g.date,sport,time,title,meta,channel:'SVT1 / SVT Play',service:'SVT / SVT Play',url:svt,sourceUrl:svt,broadcastUrl:svt,startTimeUTC:`${g.date}T${String(Number(time.slice(0,2))-1).padStart(2,'0')}:${time.slice(3)}:00Z`,facts:[{label:'SVT:s officiella sändningsprogram',url:svt}]});
+g.events.sort((a,b)=>a.sport.localeCompare(b.sport,'sv')||a.time.localeCompare(b.time));fs.writeFileSync('dist/guide-data.js','globalThis.sportGuide='+JSON.stringify(g)+';\n');await import('./version-guide-assets.mjs?svt26');
