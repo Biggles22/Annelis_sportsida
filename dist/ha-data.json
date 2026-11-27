@@ -1,6 +1,6 @@
 {
-  "date": "2026-11-26",
-  "checkedAt": "2026-11-26T02:03:06.165Z",
+  "date": "2026-11-27",
+  "checkedAt": "2026-11-27T02:02:06.649Z",
   "resultsThrough": "2026-11-25",
   "sourceUpdatedAt": null,
   "sources": {
@@ -179,7 +179,85 @@
       ]
     }
   },
-  "fixtures": [],
+  "fixtures": [
+    {
+      "date": "2026-11-27",
+      "time": "18:00",
+      "home": "VIK",
+      "away": "AIK",
+      "venue": "ABB Arena Nord",
+      "broadcastTime": "17:30",
+      "channel": "TV4 Play",
+      "service": "TV4 Play Sport Total",
+      "broadcastUrl": "https://www.tv4play.se/program/dd96312b0ba2c2b43692/superfredag-vasteras-ik-aik"
+    },
+    {
+      "date": "2026-11-27",
+      "time": "19:00",
+      "home": "IKO",
+      "away": "KAL",
+      "venue": "Be-Ge Hockey Center",
+      "broadcastTime": "18:55",
+      "channel": "TV4 Play",
+      "service": "TV4 Play Sport Total",
+      "broadcastUrl": "https://www.tv4play.se/program/486ae2006cdff78869b4/ik-oskarshamn-kalmar-hc"
+    },
+    {
+      "date": "2026-11-27",
+      "time": "19:00",
+      "home": "MODO",
+      "away": "AIS",
+      "venue": "Hägglunds Arena",
+      "broadcastTime": "18:55",
+      "channel": "TV4 Play",
+      "service": "TV4 Play Sport Total",
+      "broadcastUrl": "https://www.tv4play.se/program/0588f862e94ca194d944/modo-almtuna-is"
+    },
+    {
+      "date": "2026-11-27",
+      "time": "19:00",
+      "home": "NYB",
+      "away": "MORA",
+      "venue": "Liljas Arena",
+      "broadcastTime": "18:55",
+      "channel": "TV4 Play",
+      "service": "TV4 Play Sport Total",
+      "broadcastUrl": "https://www.tv4play.se/program/ce3831cca537b023ec1a/nybro-vikings-if-mora-ik"
+    },
+    {
+      "date": "2026-11-27",
+      "time": "19:00",
+      "home": "VRH",
+      "away": "VIM",
+      "venue": "Visby Ishall",
+      "broadcastTime": "18:55",
+      "channel": "TV4 Play",
+      "service": "TV4 Play Sport Total",
+      "broadcastUrl": "https://www.tv4play.se/program/996fed179ee7c7fdf08a/visby-roma-vimmerby-hc"
+    },
+    {
+      "date": "2026-11-27",
+      "time": "19:00",
+      "home": "OIK",
+      "away": "LIF",
+      "venue": "Östersund Arena Hall A",
+      "broadcastTime": "18:55",
+      "channel": "TV4 Play",
+      "service": "TV4 Play Sport Total",
+      "broadcastUrl": "https://www.tv4play.se/program/7e0e465d2a610cc40613/ostersunds-ik-leksands-if"
+    },
+    {
+      "date": "2026-11-27",
+      "time": "20:30",
+      "home": "BIK",
+      "away": "SSK",
+      "venue": "Nobelhallen",
+      "broadcastTime": "20:20",
+      "channel": "TV4 Play",
+      "service": "TV4 Play Sport Total",
+      "broadcastUrl": "https://www.tv4play.se/program/713d3b6e619fb89dcc52/superfredag-bik-karlskoga-sodertalje-sk"
+    }
+  ],
   "results": [
     {
       "id": "1110315",
